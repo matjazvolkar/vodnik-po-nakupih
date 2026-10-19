@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%232F7D6E'/><text x='50' y='72' font-size='62' font-family='Georgia,serif' fill='%23FAF8F4' text-anchor='middle'>M</text></svg>">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px system-ui,sans-serif;background:#fafafa}img{max-width:100%}[hidden]{display:none!important}
+.vodnik-pas{max-width:1140px;margin:0 auto;padding:14px 0 0;font:600 .9rem/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.vodnik-pas a{color:inherit;text-decoration:none;opacity:.72}
+.vodnik-pas a:hover{opacity:1;text-decoration:underline}</style>
+<title>Pokrov za Mondeo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  --papir:#ECEFF3; --ploskev:#FFFFFF; --ploskev-2:#F5F7F9; --crta:#D3D9E1; --crta-2:#B9C2CE;
+  --crnilo:#17202C; --crnilo-2:#4A5668; --crnilo-3:#6B7686;
+  --naglas:#2F4B74; --naglas-2:#3F5F8E; --naglas-mehko:#DCE4EF; --na-naglasu:#FFFFFF;
+  --ok:#1F6B4A; --ok-bg:#DCEFE4; --pozor:#8A5800; --pozor-bg:#F8ECD2; --napaka:#A12F2F; --napaka-bg:#F6DEDE;
+  --senca:0 1px 2px rgba(23,32,44,.06),0 6px 18px rgba(23,32,44,.06);
+  --f-disp:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --f-tekst:"Barlow","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --f-koda:"JetBrains Mono",ui-monospace,Consolas,"Courier New",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --papir:#0E1218; --ploskev:#161C25; --ploskev-2:#1C2330; --crta:#2A3341; --crta-2:#3A4556;
+    --crnilo:#E5E9EF; --crnilo-2:#A9B3C1; --crnilo-3:#8591A2;
+    --naglas:#93AEDA; --naglas-2:#A9C0E4; --naglas-mehko:#1F2D44; --na-naglasu:#0E1218;
+    --ok:#74CDA2; --ok-bg:#15301F; --pozor:#E4B65E; --pozor-bg:#36290F; --napaka:#F09191; --napaka-bg:#3A1C1E;
+    --senca:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --papir:#0E1218; --ploskev:#161C25; --ploskev-2:#1C2330; --crta:#2A3341; --crta-2:#3A4556;
+  --crnilo:#E5E9EF; --crnilo-2:#A9B3C1; --crnilo-3:#8591A2;
+  --naglas:#93AEDA; --naglas-2:#A9C0E4; --naglas-mehko:#1F2D44; --na-naglasu:#0E1218;
+  --ok:#74CDA2; --ok-bg:#15301F; --pozor:#E4B65E; --pozor-bg:#36290F; --napaka:#F09191; --napaka-bg:#3A1C1E;
+  --senca:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scrollbar-color:var(--crta-2) var(--papir)}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--papir)}
+::-webkit-scrollbar-thumb{background:var(--crta-2);border-radius:6px;border:2px solid var(--papir)}
+body{background:var(--papir);color:var(--crnilo);font-family:var(--f-tekst);font-size:16px;line-height:1.55;padding-inline:16px;padding-block:0 48px}
+.ovoj{max-width:1120px;margin-inline:auto}
+a{color:var(--naglas)}
+a:hover{color:var(--naglas-2)}
+:focus-visible{outline:2px solid var(--naglas);outline-offset:2px;border-radius:4px}
+h1,h2,h3{font-family:var(--f-disp);line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,6vw,3.4rem);font-weight:700;letter-spacing:.005em}
+h2{font-size:clamp(1.55rem,3.6vw,2.1rem);font-weight:700}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:0}
+.koda{font-family:var(--f-koda);font-weight:500;letter-spacing:.02em}
+.nadnaslov{font-family:var(--f-disp);text-transform:uppercase;letter-spacing:.12em;font-size:.82rem;font-weight:600;color:var(--crnilo-3)}
+.tiho{color:var(--crnilo-2)}
+.majhno{font-size:.88rem}
+.sekcija{display:grid;gap:18px;padding-block:36px 8px;scroll-margin-top:64px}
+.sekcija > header{display:grid;gap:6px;max-width:68ch}
+.ploscica{background:var(--ploskev);border:1px solid var(--crta);border-radius:10px;padding:18px}
+
+/* glava */
+.glava{display:grid;gap:22px;padding-block:28px 6px}
+.glava .uvod{display:grid;gap:10px;max-width:62ch}
+.glava .uvod p{font-size:1.08rem;color:var(--crnilo-2)}
+.tablica{background:var(--ploskev);border:1px solid var(--crta);border-radius:12px;padding:18px;display:grid;gap:14px;box-shadow:var(--senca)}
+.vin{display:grid;grid-template-columns:repeat(17,minmax(0,1fr));gap:3px;max-width:680px}
+.vin span{display:grid;justify-items:center;gap:2px;min-width:0}
+.vin b{font-family:var(--f-koda);font-weight:700;font-size:clamp(.82rem,3.6vw,1.45rem);background:var(--ploskev-2);border:1px solid var(--crta);border-radius:4px;padding:2px 0;width:100%;text-align:center}
+.vin span.kljuc b{background:var(--naglas-mehko);border-color:var(--naglas);color:var(--naglas)}
+.vin i{font-style:normal;font-size:.62rem;color:var(--crnilo-3);font-family:var(--f-koda)}
+.vin-legenda{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.92rem;color:var(--crnilo-2)}
+.vin-legenda b{color:var(--crnilo)}
+.zigi{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.zig{border:2px solid currentColor;border-radius:10px;padding:14px 16px;display:grid;gap:6px}
+.zig.prav{color:var(--ok);background:var(--ok-bg)}
+.zig.narobe{color:var(--napaka);background:var(--napaka-bg)}
+.zig .nadnaslov{color:inherit}
+.zig .stevilka{font-family:var(--f-koda);font-weight:700;font-size:clamp(1.2rem,4vw,1.6rem);letter-spacing:.04em;line-height:1.2}
+.zig p{color:var(--crnilo);font-size:.92rem}
+
+/* kazalo */
+.kazalo{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--papir);background:color-mix(in srgb,var(--papir) 92%,transparent);backdrop-filter:blur(6px);margin-inline:-16px;padding:10px 16px;border-bottom:1px solid var(--crta);display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.kazalo::-webkit-scrollbar{display:none}
+.kazalo a{flex:none;text-decoration:none;color:var(--crnilo-2);font-weight:600;font-size:.9rem;padding:6px 12px;border-radius:999px;border:1px solid var(--crta);background:var(--ploskev)}
+.kazalo a:hover{color:var(--naglas);border-color:var(--naglas)}
+
+/* odločitev */
+.odgovor{display:grid;gap:12px;max-width:72ch;font-size:1.05rem}
+.odgovor strong{color:var(--crnilo)}
+.poti{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.pot{background:var(--ploskev);border:1px solid var(--crta);border-radius:12px;padding:16px;display:grid;gap:10px;align-content:start}
+.pot.prva{border:2px solid var(--naglas)}
+.pot .oznaka{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pot .znesek{font-family:var(--f-disp);font-weight:700;font-size:1.7rem;line-height:1}
+.pot ol{margin:0;padding-left:1.2em;display:grid;gap:4px;font-size:.95rem}
+.izbor{display:grid;gap:16px}
+.izbor h3{font-size:1.15rem}
+.izbor-vrsta{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.izbor-k{background:var(--ploskev);border:1px solid var(--crta);border-radius:10px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.izbor-k .foto{aspect-ratio:16/10}
+.izbor-k .telo{padding:12px 14px;display:grid;gap:6px;align-content:start}
+.izbor-k .cena-v{font-family:var(--f-disp);font-weight:700;font-size:1.3rem}
+.proracun{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.proracun .ploscica{display:grid;gap:4px}
+.proracun .znesek{font-family:var(--f-disp);font-weight:700;font-size:1.5rem}
+
+/* čipi */
+.cip{display:inline-flex;align-items:center;gap:4px;font-size:.76rem;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid var(--crta);background:var(--ploskev-2);color:var(--crnilo-2);white-space:nowrap}
+.cip.ok{color:var(--ok);background:var(--ok-bg);border-color:transparent}
+.cip.pozor{color:var(--pozor);background:var(--pozor-bg);border-color:transparent}
+.cip.napaka{color:var(--napaka);background:var(--napaka-bg);border-color:transparent}
+.cip.naglas{color:var(--naglas);background:var(--naglas-mehko);border-color:transparent}
+.cipi{display:flex;flex-wrap:wrap;gap:6px}
+
+/* scenarij */
+.scenarij{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;background:var(--ploskev);border:1px solid var(--crta);border-radius:10px;padding:12px 14px}
+.stikalo{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.stikalo > span{font-size:.85rem;color:var(--crnilo-3);margin-right:4px;font-weight:600}
+.stikalo button{font:inherit;font-size:.9rem;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--crta);background:var(--ploskev-2);color:var(--crnilo-2);cursor:pointer}
+.stikalo button[aria-pressed="true"]{background:var(--naglas);border-color:var(--naglas);color:var(--na-naglasu)}
+.skrito-vrstica{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--pozor-bg);color:var(--crnilo);border-radius:10px;padding:10px 14px}
+.gumb{font:inherit;font-weight:600;font-size:.9rem;padding:7px 14px;border-radius:8px;border:1px solid var(--crta-2);background:var(--ploskev);color:var(--crnilo);cursor:pointer}
+.gumb:hover{border-color:var(--naglas);color:var(--naglas)}
+
+/* kartice */
+.mreza{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.kartica{background:var(--ploskev);border:1px solid var(--crta);border-radius:12px;overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;position:relative;transition:box-shadow .3s,border-color .3s;scroll-margin-top:72px}
+.kartica.poudarek{border-color:var(--naglas);box-shadow:0 0 0 3px var(--naglas-mehko),var(--senca)}
+.foto{position:relative;aspect-ratio:4/3;background:var(--ploskev-2);cursor:zoom-in;overflow:hidden}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.foto .brez{position:absolute;inset:0;display:grid;place-items:center;color:var(--crnilo-3);font-size:.9rem;cursor:default}
+.foto .stevec{position:absolute;left:10px;bottom:10px;background:rgba(10,14,20,.72);color:#fff;font-size:.78rem;font-weight:600;padding:3px 9px;border-radius:999px}
+.kartica .akcije{position:absolute;top:10px;right:10px;display:flex;gap:6px;z-index:2}
+.ikona{width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,.5);background:rgba(10,14,20,.6);color:#fff;display:grid;place-items:center;cursor:pointer;padding:0}
+.ikona svg{width:18px;height:18px}
+.ikona[aria-pressed="true"]{background:#C4314B;border-color:#C4314B}
+.ikona:hover{background:rgba(10,14,20,.85)}
+.ikona[aria-pressed="true"]:hover{background:#A82540}
+.kartica .telo{padding:14px 16px;display:grid;gap:8px;align-content:start}
+.kartica h3 a{color:var(--crnilo);text-decoration:none}
+.kartica h3 a:hover{color:var(--naglas);text-decoration:underline}
+.spec{font-size:.9rem;color:var(--crnilo-2)}
+.cenovna{display:grid;gap:6px}
+.cenovna .vrsta{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.cenovna .znesek{font-family:var(--f-disp);font-size:1.7rem;font-weight:700;line-height:1}
+.pas{position:relative;height:6px;border-radius:999px;background:linear-gradient(90deg,var(--ok-bg),var(--pozor-bg) 60%,var(--napaka-bg))}
+.pas i{position:absolute;top:-4px;width:4px;height:14px;border-radius:2px;background:var(--crnilo);transform:translateX(-2px)}
+.pas-oznake{display:flex;justify-content:space-between;font-size:.72rem;color:var(--crnilo-3)}
+.opozorila{margin:0;padding:0;list-style:none;display:grid;gap:4px;font-size:.88rem}
+.opozorila li{padding-left:16px;position:relative}
+.opozorila li::before{content:"";position:absolute;left:2px;top:.55em;width:7px;height:7px;border-radius:2px;background:var(--pozor)}
+.opozorila li.dobro::before{background:var(--ok)}
+.opozorila li.slabo::before{background:var(--napaka)}
+.racun{border-top:1px dashed var(--crta-2);background:var(--ploskev-2);padding:12px 16px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 6px;font-size:.8rem}
+.racun div{display:grid;gap:1px;min-width:0}
+.racun span{color:var(--crnilo-3)}
+.racun b{font-family:var(--f-koda);font-weight:500;font-size:.82rem;white-space:nowrap}
+.racun .skupaj{grid-column:1 / -1;border-top:1px solid var(--crta);padding-top:8px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.racun .skupaj span{font-weight:600;color:var(--crnilo-2)}
+.racun .skupaj b{font-weight:700;font-size:1rem;color:var(--naglas)}
+.ocena{color:var(--pozor)}
+
+/* tabela */
+.tabela-okvir{overflow-x:auto;border:1px solid var(--crta);border-radius:10px;background:var(--ploskev)}
+table{border-collapse:collapse;width:100%;min-width:980px;font-size:.9rem}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--crta);vertical-align:middle}
+thead th{background:var(--ploskev-2);font-family:var(--f-disp);font-size:.95rem;font-weight:600;white-space:nowrap}
+thead th[data-sort]{cursor:pointer;user-select:none}
+thead th[data-sort]:hover{color:var(--naglas)}
+thead th .smer{display:inline-block;width:1em;color:var(--naglas)}
+thead tr.filtri th{background:var(--ploskev);font-family:var(--f-tekst);font-weight:400;padding:6px 8px}
+.filtri input,.filtri select{width:100%;font:inherit;font-size:.85rem;padding:5px 6px;border:1px solid var(--crta);border-radius:6px;background:var(--ploskev-2);color:var(--crnilo)}
+.filtri .min-max{display:flex;gap:4px}
+.filtri .min-max input{min-width:0}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--naglas-mehko)}
+td.st{font-family:var(--f-koda);font-size:.85rem;white-space:nowrap;text-align:right}
+td.mini img{width:64px;height:48px;object-fit:cover;border-radius:6px;display:block}
+td.mini .prazno{width:64px;height:48px;border-radius:6px;background:var(--ploskev-2)}
+.tabela-noga{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--crnilo-2)}
+
+/* klici */
+.skripta{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.skripta .ploscica{display:grid;gap:10px;align-content:start}
+.besedilo{font-family:var(--f-tekst);background:var(--ploskev-2);border:1px solid var(--crta);border-radius:8px;padding:12px;white-space:pre-wrap;font-size:.95rem;user-select:all}
+.regije{display:grid;gap:18px}
+.regija{display:grid;gap:10px}
+.regija > summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--crta)}
+.regija > summary::-webkit-details-marker{display:none}
+.regija > summary::before{content:"";width:9px;height:9px;border-right:2px solid var(--crnilo-2);border-bottom:2px solid var(--crnilo-2);transform:rotate(-45deg);transition:transform .2s;flex:none}
+.regija[open] > summary::before{transform:rotate(45deg)}
+.regija h3{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.regija[open] > .odpadi{margin-top:10px}
+.odpadi{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px}
+.odpad{background:var(--ploskev);border:1px solid var(--crta);border-radius:10px;padding:12px 14px;display:grid;gap:6px;align-content:start}
+.odpad.prednost{border-left:4px solid var(--naglas)}
+.odpad .ime{font-weight:600}
+.tel{display:flex;flex-wrap:wrap;gap:6px}
+.tel button{font-family:var(--f-koda);font-size:.88rem;font-weight:500;border:1px solid var(--crta);background:var(--ploskev-2);color:var(--crnilo);border-radius:6px;padding:4px 8px;cursor:pointer}
+.tel button:hover{border-color:var(--naglas);color:var(--naglas)}
+.tel button.kopirano{background:var(--ok-bg);color:var(--ok);border-color:transparent}
+
+/* pred nakupom */
+.dve{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.dve .ploscica{display:grid;gap:10px;align-content:start}
+.seznam{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.pogajanje{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.pogajanje div{border:1px solid var(--crta);border-radius:8px;padding:10px 6px;display:grid;gap:2px}
+.pogajanje b{font-family:var(--f-disp);font-size:1.4rem}
+.pogajanje span{font-size:.78rem;color:var(--crnilo-3)}
+.pasti{display:grid;gap:8px}
+.past{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--ploskev);border:1px solid var(--crta);border-radius:10px;padding:12px 14px}
+.past .cip{margin-top:2px}
+
+/* viri */
+.viri{margin:0;padding-left:1.6em;display:grid;gap:6px;font-size:.9rem}
+.viri li{overflow-wrap:anywhere}
+.metoda{display:grid;gap:10px;max-width:72ch}
+.metoda ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(8,11,16,.92);display:grid;grid-template-rows:auto 1fr auto;padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(12px + env(safe-area-inset-bottom,0px))}
+.lb-vrh,.lb-dno{display:flex;justify-content:space-between;align-items:center;color:#E8ECF2;gap:10px}
+.lb-slika{display:grid;place-items:center;min-height:0}
+.lb-slika img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}
+.lb button{font:inherit;font-weight:600;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:8px 14px;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.22)}
+
+.noga{padding-block:36px 0;color:var(--crnilo-3);font-size:.85rem}
+@media (max-width:360px){ .racun{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:560px){
+  .mreza{grid-template-columns:1fr}
+  .pogajanje b{font-size:1.15rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="vodnik-pas"><a href="../">← Vodnik po nakupih</a></div>
+<div class="ovoj">
+<header class="glava" id="vrh">
+  <div class="uvod">
+    <span class="nadnaslov" id="datum-raziskave">Nakupna raziskava</span>
+    <h1>Pokrov motorja za Mondeo</h1>
+    <p>Kateri pokrov paše na tvoj avto, kje ga dobiš in koliko te bo stal, ko bo na avtu. Vse cene in podatki so prebrani s spletnih strani na dan raziskave, ocene so označene z znakom ≈.</p>
+  </div>
+  <div class="tablica" aria-label="Podatki o vozilu">
+    <div class="nadnaslov">Številka šasije (VIN)</div>
+    <div class="vin" id="vin"></div>
+    <div class="vin-legenda" id="vin-legenda"></div>
+  </div>
+  <div class="zigi">
+    <div class="zig prav">
+      <span class="nadnaslov">Pravi pokrov za ta avto</span>
+      <span class="stevilka">1767945 · PCS71-16612-AA</span>
+      <p>Fordova številka in oznaka, odtisnjena na spodnji strani pokrova. Številka 1693781 je ista plošča pod drugo Fordovo številko.</p>
+    </div>
+    <div class="zig narobe">
+      <span class="nadnaslov">Ne kupi</span>
+      <span class="stevilka">1469592 · P7S71-16612-AA</span>
+      <p>Pokrov za Mondeo pred prenovo (2007 do septembra 2010). Ima drugačen sprednji rob. Sem spada tudi nadomestni PRASCO FD1123130.</p>
+    </div>
+  </div>
+</header>
+
+<nav class="kazalo" aria-label="Kazalo">
+  <a href="#odlocitev">Odločitev</a>
+  <a href="#ponudbe">Ponudbe</a>
+  <a href="#primerjava">Primerjava</a>
+  <a href="#klici">Kdo ga ima</a>
+  <a href="#pred-nakupom">Pred nakupom</a>
+  <a href="#viri">Viri</a>
+</nav>
+
+<section class="sekcija" id="odlocitev">
+  <header>
+    <span class="nadnaslov">Odločitev</span>
+    <h2>Kratek odgovor</h2>
+  </header>
+  <div class="odgovor" id="odgovor"></div>
+  <div class="poti" id="poti"></div>
+  <div class="izbor" id="izbor"></div>
+  <header><span class="nadnaslov">Proračun</span><h3>Koliko dati na stran</h3></header>
+  <div class="proracun" id="proracun"></div>
+</section>
+
+<section class="sekcija" id="ponudbe">
+  <header>
+    <span class="nadnaslov">Ponudbe</span>
+    <h2>Vsi najdeni pokrovi</h2>
+    <p class="tiho">Vsaka kartica ima pod sliko račun: koliko stane del, dostava, lakiranje in montaža, ter skupaj, ko je pokrov na avtu. Klik na sliko odpre vse fotografije.</p>
+  </header>
+  <div class="scenarij" role="group" aria-label="Kako računam ceno">
+    <div class="stikalo" id="stikalo-prikaz"><span>Cena</span>
+      <button type="button" data-prikaz="avto">Na avtu</button>
+      <button type="button" data-prikaz="del">Samo del</button>
+    </div>
+    <div class="stikalo" id="stikalo-montaza"><span>Montaža</span>
+      <button type="button" data-montaza="servis">V servisu</button>
+      <button type="button" data-montaza="sam">Sami</button>
+    </div>
+  </div>
+  <div class="skrito-vrstica" id="skrito-vrstica" hidden>
+    <span id="skrito-tekst"></span>
+    <button type="button" class="gumb" id="obnovi">Pokaži vse</button>
+  </div>
+  <div id="vsecki-okvir" class="izbor">
+    <h3 id="vsecki-naslov">Všečkani</h3>
+    <p class="tiho majhno" id="vsecki-namig">Tapni srček na kartici, ki ti je všeč, in pokrov se pokaže tukaj. Shrani se samo v tvojem brskalniku.</p>
+    <div class="mreza" id="vsecki"></div>
+  </div>
+  <div class="mreza" id="kartice"></div>
+</section>
+
+<section class="sekcija" id="primerjava">
+  <header>
+    <span class="nadnaslov">Primerjava</span>
+    <h2>Lestvica po ceni na avtu</h2>
+    <p class="tiho">Razvrščeno po skupni ceni, ko je pokrov montiran. Klik na naslov stolpca razvrsti, klik na vrstico skoči na kartico.</p>
+  </header>
+  <div class="tabela-okvir">
+    <table id="tabela">
+      <thead>
+        <tr>
+          <th>Slika</th>
+          <th data-sort="naslov">Pokrov <span class="smer"></span></th>
+          <th data-sort="vrsta">Vrsta <span class="smer"></span></th>
+          <th data-sort="oe">Ujemanje <span class="smer"></span></th>
+          <th data-sort="barva">Barva <span class="smer"></span></th>
+          <th data-sort="del">Del <span class="smer"></span></th>
+          <th data-sort="dostava">Dostava <span class="smer"></span></th>
+          <th data-sort="skupaj">Na avtu <span class="smer"></span></th>
+          <th data-sort="drzava">Od kod <span class="smer"></span></th>
+        </tr>
+        <tr class="filtri">
+          <th></th>
+          <th><input id="f-iskanje" type="search" placeholder="Išči" aria-label="Išči po imenu ali prodajalcu"></th>
+          <th><select id="f-vrsta" aria-label="Vrsta"></select></th>
+          <th><select id="f-oe" aria-label="Ujemanje"></select></th>
+          <th><select id="f-barva" aria-label="Barva"></select></th>
+          <th><div class="min-max"><input id="f-del-min" type="number" inputmode="numeric" placeholder="od" aria-label="Del od"><input id="f-del-max" type="number" inputmode="numeric" placeholder="do" aria-label="Del do"></div></th>
+          <th></th>
+          <th><div class="min-max"><input id="f-sk-min" type="number" inputmode="numeric" placeholder="od" aria-label="Na avtu od"><input id="f-sk-max" type="number" inputmode="numeric" placeholder="do" aria-label="Na avtu do"></div></th>
+          <th><select id="f-drzava" aria-label="Od kod"></select></th>
+        </tr>
+      </thead>
+      <tbody id="vrstice"></tbody>
+    </table>
+  </div>
+  <div class="tabela-noga"><span id="prikazano"></span><button type="button" class="gumb" id="ponastavi">Ponastavi filtre</button></div>
+</section>
+
+<section class="sekcija" id="klici">
+  <header>
+    <span class="nadnaslov">Kdo ga ima</span>
+    <h2>Koga poklicati</h2>
+    <p class="tiho">Zaloge rabljenih delov se menjajo vsak dan in skoraj nihče jih ne objavi s ceno. Najhitreje gre po telefonu. Tapni številko, da jo kopiraš.</p>
+  </header>
+  <div class="skripta" id="skripta"></div>
+  <div class="regije" id="regije"></div>
+</section>
+
+<section class="sekcija" id="pred-nakupom">
+  <header>
+    <span class="nadnaslov">Pred nakupom</span>
+    <h2>Kako ga kupiti, da ne zgrešiš</h2>
+  </header>
+  <div class="dve" id="pred-nakupom-vsebina"></div>
+  <header><span class="nadnaslov">Pasti</span><h3>Kje se najlažje zmotiš</h3></header>
+  <div class="pasti" id="pasti"></div>
+  <div class="dve" id="kontekst"></div>
+</section>
+
+<section class="sekcija" id="viri">
+  <header>
+    <span class="nadnaslov">Viri in metoda</span>
+    <h2>Od kod so številke</h2>
+  </header>
+  <div class="metoda" id="metoda"></div>
+  <ol class="viri" id="seznam-virov"></ol>
+</section>
+
+<footer class="noga" id="noga"></footer>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Fotografije">
+  <div class="lb-vrh"><span id="lb-naslov"></span><button type="button" id="lb-zapri">Zapri</button></div>
+  <div class="lb-slika"><img id="lb-img" alt=""></div>
+  <div class="lb-dno"><button type="button" id="lb-nazaj">Nazaj</button><span id="lb-stevec"></span><button type="button" id="lb-naprej">Naprej</button></div>
+</div>
+
+<!--PODATKI:ZACETEK-->
+<script id="podatki" type="application/json">{"datum":"16. 10. 2026","noga":"Pripravljeno 16. 10. 2026 za Ford Mondeo z VIN WF0GXXGBBGBU•••••. To je posnetek stanja: oglasi, cene in zaloge se menjajo vsak dan, zato pred nakupom vse preveri na povezavi.","vozilo":{"vin":"WF0GXXGBBGBU•••••","vin_oznake":{"1":"WF0","2":"WF0","3":"WF0","7":"GB","8":"GB","11":"leto","12":"mesec"},"legenda":[["WF0","Ford Evropa"],["G in B (7. in 8.)","tovarna Genk, Belgija"],["B (11.)","leto 2011"],["U (12.)","oktober (po tabeli mesecev)"],["Izvedba","Mondeo Mk4 po prenovi (facelift)"]]},"konstante":{"lak":{"v":350,"lo":250,"hi":450},"montaza":{"v":83,"lo":42,"hi":125}},"pasovi":{"A":{"od":0,"do":250,"ime":"rabljen do 250 €"},"B":{"od":0,"do":900,"ime":"nov do 900 €"}},"odlocitev":{"odgovor":["<strong>Pravi pokrov ima Fordovo številko 1767945, na spodnji strani je odtisnjeno PCS71-16612-AA.<\/strong> Avto je bil izdelan leta 2011 v Genku (po Fordovi tabeli mesecev oktobra), torej po prenovi iz septembra 2010. Pokrov iz časa pred prenovo nanj ne paše, ker ima drugačen sprednji rob.","<strong>O ceni odloča barva, ne pokrov.<\/strong> Rabljen originalni pokrov stane na spletu od 47 do 141 €, lakiranje pa ≈ 250 do 450 €. Pokrov v isti barvi zato prihrani največ.","<strong>Najboljši nakup je DCP33842 na RRR, edini najden pokrov z navedeno barvo Midnight Sky:<\/strong> 135,10 €, z avta letnik 2011, prodajalec iz Francije. Z dostavo in montažo v servisu ≈ 247 do 430 €. Pred plačilom zahtevaj fotografijo odtisa in spodnje strani, v košarici pa preveri ceno dostave v Slovenijo.","Če ta odpade, je naslednja izbira raven rabljen original iz okolice Ljubljane, ki ga pred plačilom pogledaš v živo, in lakiranje. Nov nadomestni pokrov (Van Wezel, 168,36 €) pride po lakiranju na podobno ceno, a se lahko slabše prilega."],"poti":[{"oznaka":"Pot A, najprej","cip":["ok","brez lakiranja"],"naslov":"Pokrov v barvi Midnight Sky z RRR","znesek":"≈ 247 do 430 €","znesek_opis":"na avtu, z dostavo in montažo v servisu","opis":"DCP33842, 135,10 €, z Mondea letnik 2011, prodajalec DETAPIECES iz Francije. Lakiranje ni potrebno, zato je to najcenejša pot do popravljenega avta. Če odpade, vprašaj za kodo barve pri temnih AYG318191 in CTS213060: na fotografijah sta lahko iste barve.","koraki":["Fotografiraj nalepko z barvo na okvirju voznikovih vrat in preveri, da je res Midnight Sky (glej past o kodi E5M spodaj).","Prodajalcu pošlji angleško sporočilo iz razdelka <a href=\"#klici\">Kdo ga ima<\/a>: fotografija odtisa PCS71-16612-AA, spodnje strani in vogalov.","V košarici izberi Slovenijo in preveri ceno dostave, preden plačaš. Plačaj s kartico ali PayPalom prek RRR, nikoli mimo platforme.","Paket preglej, ko je kurir še tam. Pokrov preglej, preden gre na avto: vračilo v 14 dneh velja samo za nemontiran del."]},{"oznaka":"Pot B, če A odpade","cip":["naglas","pogledaš v živo"],"naslov":"Rabljen original iz okolice Ljubljane in lakiranje","znesek":"≈ 370 do 725 €","znesek_opis":"na avtu; cena dela ni objavljena, ocena po cenah na RRR (80 do 150 €)","opis":"V Sloveniji noben oglas nima objavljene cene za pokrov po prenovi. Najbližji so MF Trade v Grosupljem (na Avto.net ima dva pokrova za Mondeo), PT Avtodeli v Trzinu in Avto Vrhovec v Domžalah. Prednost: pokrov vidiš, preden plačaš, in ni poškodb pri prevozu.","koraki":["Pokliči po besedilu iz razdelka <a href=\"#klici\">Kdo ga ima<\/a> in zahtevaj odtis PCS71-16612-AA ali datum izdelave avta, s katerega je.","Pokrov poglej v živo: sprednji rob, vogali, tečaji, rja in kit.","Ponudi 80 €, cilj je 110 €. Nad 180 € se ne splača, ker je RRR z dostavo cenejši.","Lakiranje dogovori šele, ko je pokrov pregledan in kupljen."]},{"oznaka":"Pot C, rezerva","cip":["pozor","lahko slabše prilega"],"naslov":"Nov nadomestni pokrov in lakiranje","znesek":"≈ 500 do 865 €","znesek_opis":"Van Wezel pri Alvadi.si, na avtu; PRASCO pri Autodoc.si ≈ 800 do 1.175 €","opis":"Van Wezel 1882660 stane 168,36 € z odpremo 27. 10. 2026, PRASCO FD1123100 pa 507,99 € z zalogo in brezplačno dostavo. Oba prideta v grundu, zato sta lakiranje in nastavitev rež obvezna.","koraki":["Pri Alvadiju pred nakupom pošlji VIN, ker stran izdelek uvršča tudi pod Mondeo pred prenovo.","Klepar naj pokrov poskusno namesti pred lakiranjem in preveri reže.","PRASCO FD1123130 ni pravi, čeprav ga nekatere trgovine opisujejo kot »Mondeo 10-14«."]}],"izbor":[{"naslov":"Rabljen original, do 250 € z dostavo","opis":"Fordov pokrov s prenovljenega Mondea. Paše brez prilagajanja.","kljuci":["rrr-dcp33842","rrr-euq5189","rrr-apu31297"],"razlogi":{"rrr-dcp33842":"Edini z navedeno barvo Midnight Sky. Lakiranje ni potrebno.","rrr-euq5189":"Fordova številka 1767945, avto letnik 2013 z 82.316 km, na fotografiji brez označenih poškodb.","rrr-apu31297":"Pet fotografij brez vidnih poškodb in merilnik debeline laka. Barva ni navedena: vprašaj za kodo."}},{"naslov":"Nov pokrov, do 900 €","opis":"Nova pločevina v grundu. Lakiranje je vedno potrebno.","kljuci":["novi-vanwezel-1882660","novi-prasco-fd1123100","avtonet-20445766"],"razlogi":{"novi-vanwezel-1882660":"Najcenejši nov pokrov s pravima Fordovima številkama. Odprema 27. 10. 2026.","novi-prasco-fd1123100":"Na zalogi, brezplačna dostava. PRASCO ga sam navaja za Fordovo številko 1767945.","avtonet-20445766":"Pokrov »Mondeo 10« v grundu, Grosuplje. Cena po telefonu, zahtevaj številko dela."}}],"proracun":[{"oznaka":"V isti barvi","znesek":"≈ 247 do 430 €","opis":"DCP33842 z dostavo in montažo v servisu. Če ga montirate sami, ≈ 205 do 305 €."},{"oznaka":"Rabljen in lakiran","znesek":"≈ 450 do 900 €","opis":"Rabljen original v drugi barvi z RRR, z dostavo, lakiranjem in montažo. Iz okolice Ljubljane brez dostave ≈ 370 do 725 €."},{"oznaka":"Nov in lakiran","znesek":"≈ 500 do 1.175 €","opis":"Spodnja meja je Van Wezel pri Alvadiju, zgornja PRASCO pri Autodocu, oboje z lakiranjem in montažo."},{"oznaka":"Ne splača se","znesek":"≈ 679 € samo del","opis":"Nov originalni Fordov pokrov z eBay UK (574,53 £), brez dostave, uvoznih dajatev in lakiranja."}]},"izdelki":[{"key":"rrr-dcp33842","naslov":"Pokrov Mondeo Mk4, Midnight Sky (DCP33842)","prodajalec":"DETAPIECES, Francija (RRR)","url":"https://rrr.lt/en/used-part/dcp33842-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","cena":135.1,"cena_opomba":"na RRR","pas":"A","spec":"Z avta letnik 2011, dizel DW10C, ročni menjalnik · rabljen · barva Midnight Sky","cipi":[["ok","Midnight Sky"],["ok","1767945"],["naglas","RRR"]],"opombe":[["dobro","Polje za barvo v oglasu: »Midnight Sky«."],["dobro","Fordova številka 1767945 je v oglasu."],["","Odtisa PCS71-16612-AA in spodnje strani ni na fotografijah: zahtevaj ju."],["","Dostava v Slovenijo ni prikazana, pokaže se v košarici."]],"tabela":{"vrsta":"Rabljen original","oe":"potrjen","barva":"Midnight Sky","drzava":"Francija"},"barva_ujema":true,"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"viri":["rrr-dcp"],"slike":["img/rrr-dcp33842.jpg"],"izracun":{"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"lak":{"v":0,"lo":0,"hi":0,"ocena":false},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":328.1,"lo":247.1,"hi":430.1,"ocena":true},"avto_sam":{"v":245.1,"lo":205.1,"hi":305.1,"ocena":true}}},{"key":"rrr-apu31297","naslov":"Pokrov Mondeo Mk4 karavan 2012 (APU31297)","prodajalec":"BILIŃSCY S.C., Poljska (RRR)","url":"https://rrr.lt/en/used-part/apu31297-ford-mondeo-mk-iv-engine-bonnet-hood","cena":141.18,"cena_opomba":"na RRR, z DDV in provizijo","pas":"A","spec":"Z avta letnik 2012, karavan, 2.0 dizel UFBA, ročni · rabljen · barva ni navedena","cipi":[["pozor","barva?"],["pozor","številka ni navedena"],["naglas","RRR"]],"opombe":[["dobro","Pet fotografij, na nobeni ni vidnih udrtin ali rje. Ena kaže merilnik debeline laka."],["","Na fotografijah siva kovinska z vijoličastim odsevom, odvisno od svetlobe. Ali je Midnight Sky, iz slik ni mogoče reči: vprašaj za kodo barve."],["","Polja za Fordovo številko so prazna; avto letnik 2012 kaže na pokrov po prenovi."],["","Prodajalec ima oznako Top Seller, števila ocen stran ne pokaže."]],"tabela":{"vrsta":"Rabljen original","oe":"verjeten","barva":"siva, koda neznana","drzava":"Poljska"},"barva_ujema":false,"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"viri":["rrr-apu"],"slike":["img/rrr-apu31297.jpg","img/rrr-apu31297-2.jpg","img/rrr-apu31297-3.jpg","img/rrr-apu31297-4.jpg","img/rrr-apu31297-5.jpg"],"izracun":{"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":684.18,"lo":503.18,"hi":886.18,"ocena":true},"avto_sam":{"v":601.18,"lo":461.18,"hi":761.18,"ocena":true}}},{"key":"rrr-onv55870","naslov":"Pokrov Mondeo Mk4 (ONV55870)","prodajalec":"Donvalda MB, Litva (RRR)","url":"https://rrr.lt/en/used-part/onv55870-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","cena":100.0,"cena_opomba":"na RRR","pas":"A","spec":"Z avta letnik 2010, 2.0 dizel 96 kW, ročni · rabljen · na fotografiji siva kovinska","cipi":[["pozor","obkrožena mesta"],["ok","1767945 in PCS71"],["naglas","RRR"]],"opombe":[["","Na fotografiji so na pokrovu obkrožena mesta, verjetno manjše udrtine: vprašaj zanje."],["dobro","V oglasu sta obe oznaki: 1767945 in PCS71-16612-AA, zato je izvedba po prenovi kljub letniku 2010."]],"tabela":{"vrsta":"Rabljen original","oe":"potrjen","barva":"siva","drzava":"Litva"},"barva_ujema":false,"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"viri":["rrr-onv","rrr-isk1"],"slike":["img/rrr-onv55870.jpg"],"izracun":{"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":643.0,"lo":462.0,"hi":845.0,"ocena":true},"avto_sam":{"v":560.0,"lo":420.0,"hi":720.0,"ocena":true}}},{"key":"rrr-tsm340816","naslov":"Pokrov Mondeo Mk4 (TSM340816)","prodajalec":"TS automoto UAB, Litva (RRR)","url":"https://rrr.lt/en/used-part/tsm340816-pcs7116612aa-ford-mondeo-mk-iv-engine-bonnet-hood","cena":87.0,"cena_opomba":"na RRR","pas":"A","spec":"Z avta letnik 2010, 2.0 dizel 85 kW, ročni · rabljen · na fotografiji bela","cipi":[["ok","PCS71-16612-AA"],["naglas","RRR"]],"opombe":[["dobro","Odtis PCS71-16612-AA je v oglasu."],["","Najcenejši s potrjeno oznako, a samo ena fotografija."]],"tabela":{"vrsta":"Rabljen original","oe":"potrjen","barva":"bela","drzava":"Litva"},"barva_ujema":false,"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"viri":["rrr-tsm","rrr-isk2"],"slike":["img/rrr-tsm340816.jpg"],"izracun":{"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":630.0,"lo":449.0,"hi":832.0,"ocena":true},"avto_sam":{"v":547.0,"lo":407.0,"hi":707.0,"ocena":true}}},{"key":"rrr-euq5189","naslov":"Pokrov Mondeo Mk4 (EUQ5189)","prodajalec":"NUCRON SIA, Latvija (RRR)","url":"https://rrr.lt/en/used-part/euq5189-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","cena":110.0,"cena_opomba":"na RRR","pas":"A","spec":"Z avta letnik 2013, 2.0 dizel 120 kW, 82.316 km · rabljen · barva ni navedena · na fotografiji srebrna","cipi":[["ok","1767945"],["naglas","RRR"]],"opombe":[["dobro","Fordova številka 1767945 v oglasu, avto z malo kilometri."]],"tabela":{"vrsta":"Rabljen original","oe":"potrjen","barva":"srebrna","drzava":"Latvija"},"barva_ujema":false,"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"viri":["rrr-euq","rrr-isk1"],"slike":["img/rrr-euq5189.jpg"],"izracun":{"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":653.0,"lo":472.0,"hi":855.0,"ocena":true},"avto_sam":{"v":570.0,"lo":430.0,"hi":730.0,"ocena":true}}},{"key":"rrr-mnt232990","naslov":"Pokrov Mondeo Mk4, Lunar Sky (MNT232990)","prodajalec":"Autominutė UAB, Litva (RRR)","url":"https://rrr.lt/en/used-part/mnt232990-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","cena":97.0,"cena_opomba":"na RRR","pas":"A","spec":"Z avta letnik 2012, 2.0 dizel 103 kW, 243.000 km · rabljen · barva Lunar Sky","cipi":[["pozor","druga barva"],["ok","1767945"],["naglas","RRR"]],"opombe":[["","Na fotografiji so na pokrovu obkrožena mesta, verjetno manjše udrtine."],["","Barva Lunar Sky (AK5CWWA) je srebrno siva, ne Midnight Sky."]],"tabela":{"vrsta":"Rabljen original","oe":"potrjen","barva":"Lunar Sky","drzava":"Litva"},"barva_ujema":false,"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"viri":["rrr-mnt","rrr-isk1"],"slike":["img/rrr-mnt232990.jpg"],"izracun":{"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":640.0,"lo":459.0,"hi":842.0,"ocena":true},"avto_sam":{"v":557.0,"lo":417.0,"hi":717.0,"ocena":true}}},{"key":"rrr-tma31476","naslov":"Pokrov Mondeo Mk4, z napako (TMA31476)","prodajalec":"Timar Auto OÜ, Estonija (RRR)","url":"https://rrr.lt/en/used-part/tma31476-pcs7116612aa-ford-mondeo-mk-iv-engine-bonnet-hood","cena":85.5,"cena_opomba":"na RRR","pas":"A","spec":"Z avta letnik 2012, 2.0 dizel, avtomatski, 291.000 km · označen »with defects«","cipi":[["napaka","z napako"],["ok","obe oznaki"],["naglas","RRR"]],"opombe":[["","Na fotografiji napis »PAINT: LUNAR SKY« in označeni napaki."],["slabo","Prodajalec ga označuje kot del z napako. Garancija RRR za takšne dele ne velja."]],"tabela":{"vrsta":"Rabljen original","oe":"potrjen","barva":"Lunar Sky","drzava":"Estonija"},"barva_ujema":false,"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"viri":["rrr-tma","rrr-isk2","rrr-vracila"],"slike":["img/rrr-tma31476.jpg"],"izracun":{"dostava":{"v":110,"lo":70,"hi":170,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":628.5,"lo":447.5,"hi":830.5,"ocena":true},"avto_sam":{"v":545.5,"lo":405.5,"hi":705.5,"ocena":true}}},{"key":"rrr-crv43082","naslov":"Pokrov Mondeo Mk4 (CRV43082)","prodajalec":"Desguace La Caravana SL, Španija (RRR)","url":"https://rrr.lt/en/used-part/crv43082-pcs7116612aa-ford-mondeo-mk-iv-engine-bonnet-hood","cena":46.9,"cena_opomba":"na RRR","pas":"A","spec":"Z avta letnik 2012, 1.6 dizel 85 kW, ročni · rabljen · na fotografiji temna","cipi":[["ok","PCS71-16612-AA"],["pozor","draga dostava"],["naglas","RRR"]],"opombe":[["","Najnižja cena dela, a dostava iz Španije je draga: v Litvo jo RRR prikaže za 192,80 €."]],"tabela":{"vrsta":"Rabljen original","oe":"potrjen","barva":"temna","drzava":"Španija"},"barva_ujema":false,"dostava":{"v":160,"lo":120,"hi":200,"ocena":true},"viri":["rrr-crv","rrr-isk2"],"slike":["img/rrr-crv43082.jpg"],"izracun":{"dostava":{"v":160,"lo":120,"hi":200,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":639.9,"lo":458.9,"hi":821.9,"ocena":true},"avto_sam":{"v":556.9,"lo":416.9,"hi":696.9,"ocena":true}}},{"key":"rrr-ayg318191","naslov":"Pokrov Mondeo Mk4 (AYG318191)","prodajalec":"Autocirc Rewinner AB, Švedska (RRR)","url":"https://rrr.lt/en/used-part/ayg318191-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","cena":122.27,"cena_opomba":"na RRR","pas":"A","spec":"Z avta letnik 2011, 1.6 dizel 85 kW, 230.000 km · rabljen · na fotografiji temno modrikast","cipi":[["pozor","morda Midnight Sky"],["ok","obe oznaki"],["pozor","draga dostava"],["naglas","RRR"]],"opombe":[["","Na fotografiji zelo temna modrikasta barva. Lahko je Midnight Sky: vprašaj za kodo barve."],["","Dostava s Švedske je draga: v Litvo jo RRR prikaže za 164,45 €."]],"tabela":{"vrsta":"Rabljen original","oe":"potrjen","barva":"temna, morda Midnight Sky","drzava":"Švedska"},"barva_ujema":false,"dostava":{"v":160,"lo":120,"hi":200,"ocena":true},"viri":["rrr-ayg","rrr-isk1"],"slike":["img/rrr-ayg318191.jpg"],"izracun":{"dostava":{"v":160,"lo":120,"hi":200,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":715.27,"lo":534.27,"hi":897.27,"ocena":true},"avto_sam":{"v":632.27,"lo":492.27,"hi":772.27,"ocena":true}}},{"key":"rrr-cts213060","naslov":"Pokrov Mondeo Mk4 (CTS213060)","prodajalec":"Desguace Cortés SL, Španija (RRR)","url":"https://rrr.lt/en/used-part/cts213060-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","cena":105.27,"cena_opomba":"na RRR","pas":"A","spec":"Z avta letnik 2013, 2.0 dizel 102 kW, ročni · rabljen · na fotografiji temno siv","cipi":[["pozor","morda Midnight Sky"],["ok","obe oznaki"],["pozor","draga dostava"],["naglas","RRR"]],"opombe":[["","Na fotografiji temno siva. Lahko je Midnight Sky: vprašaj za kodo barve."],["","Prodajalec nima oznake Top Seller. Dostava iz Španije je draga."]],"tabela":{"vrsta":"Rabljen original","oe":"potrjen","barva":"temna, morda Midnight Sky","drzava":"Španija"},"barva_ujema":false,"dostava":{"v":160,"lo":120,"hi":200,"ocena":true},"viri":["rrr-cts","rrr-isk1"],"slike":["img/rrr-cts213060.jpg"],"izracun":{"dostava":{"v":160,"lo":120,"hi":200,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":698.27,"lo":517.27,"hi":880.27,"ocena":true},"avto_sam":{"v":615.27,"lo":475.27,"hi":755.27,"ocena":true}}},{"key":"avtonet-20445766","naslov":"Pokrov »Mondeo 10« v grundu (MF Trade)","prodajalec":"MF TRADE d.o.o., Grosuplje","url":"https://www.avto.net/Ads/details.asp?id=20445766","cena":null,"cena_opomba":"cena po telefonu","pas":"B","spec":"Naslov oglasa pravi NOVO, polje za stanje rabljeno · na fotografiji pokrov v temnem grundu z napisom »Mondeo 10«","cipi":[["naglas","Grosuplje"],["pozor","preveri številko"]],"opombe":[["","Oglas ne navaja številke dela. Vprašaj, ali je nov nadomestni ali rabljen, in za številko."],["","Taborska cesta 38a, Grosuplje."]],"telefon":"041 445 589","tabela":{"vrsta":"Nov ali rabljen","oe":"nepreverjen","barva":"grund","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"viri":["avtonet-20445766"],"slike":["img/avtonet-20445766.jpg"],"izracun":{"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"avtonet-17328448","naslov":"Pokrov Mondeo, srebrn (MF Trade)","prodajalec":"MF TRADE d.o.o., Grosuplje","url":"https://www.avto.net/Ads/details.asp?id=17328448","cena":null,"cena_opomba":"cena po telefonu","pas":"A","spec":"Rabljen, odlično ohranjen · srebrne barve · generacija ni navedena","cipi":[["naglas","Grosuplje"],["pozor","generacija?"]],"opombe":[["","Oglas ne pove, s katerega Mondea je. Kupi samo z odtisom PCS71-16612-AA."]],"telefon":"041 445 589","tabela":{"vrsta":"Rabljen original","oe":"nepreverjen","barva":"srebrna","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"viri":["avtonet-17328448"],"slike":["img/avtonet-17328448.jpg"],"izracun":{"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"avtonet-21440529","naslov":"Mondeo karavan »2011« po delih (Avto Rebolj)","prodajalec":"Avto Rebolj, Ljubljana","url":"https://www.avto.net/Ads/details.asp?id=21440529","cena":null,"cena_opomba":"cena po telefonu","pas":"A","spec":"Bencin 2.0, črne barve · pokrov na fotografiji brez udrtin","cipi":[["napaka","verjetno pred prenovo"],["naglas","Ljubljana"]],"opombe":[["slabo","Na fotografiji je sprednji del pred prenovo: velika kromirana maska, oranžni smerniki, brez LED dnevnih luči v odbijaču. Letnik 2011 je verjetno letnik registracije."],["","Kupi samo, če je na pokrovu odtis PCS71-16612-AA."]],"telefon":"041 211 662","tabela":{"vrsta":"Razstavljen avto","oe":"verjetno napačen","barva":"črna","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"viri":["avtonet-21440529","drive"],"slike":["img/avtonet-21440529.jpg","img/avtonet-21440529-2.jpg","img/avtonet-21440529-3.jpg"],"izracun":{"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"avtonet-21815349","naslov":"Mondeo 2012 1.6 dizel po delih (Avto Rebolj)","prodajalec":"Avto Rebolj, Ljubljana","url":"https://www.avto.net/Ads/details.asp?id=21815349","cena":null,"cena_opomba":"cena po telefonu","pas":"A","spec":"Rjave oziroma bronaste barve · sprednji blatnik poškodovan, pokrova ni na fotografijah","cipi":[["pozor","pokrov ni viden"],["naglas","Ljubljana"]],"opombe":[["","Letnik 2012 je po prenovi, a stanje pokrova ni znano. Vprašaj za fotografijo."]],"telefon":"041 211 662","tabela":{"vrsta":"Razstavljen avto","oe":"verjeten","barva":"rjava","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"viri":["avtonet-21815349"],"slike":["img/avtonet-21815349.jpg","img/avtonet-21815349-2.jpg","img/avtonet-21815349-3.jpg"],"izracun":{"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"avtonet-19778793","naslov":"Mondeo 2.2 TDCi 147 kW po delih (KMZ Avto)","prodajalec":"KMZ Avto, Vrhnika","url":"https://www.avto.net/Ads/details.asp?id=19778793","cena":null,"cena_opomba":"cena po telefonu","pas":"A","spec":"Srebrne barve · levi blatnik in žaromet poškodovana · letnik ni naveden","cipi":[["naglas","Vrhnika"],["pozor","letnik?"]],"opombe":[["","Pokrov na stranski fotografiji brez očitne udrtine, sprednje ni. Vprašaj za letnik in odtis."]],"telefon":"051 402 460","tabela":{"vrsta":"Razstavljen avto","oe":"nepreverjen","barva":"srebrna","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"viri":["avtonet-19778793"],"slike":["img/avtonet-19778793.jpg","img/avtonet-19778793-2.jpg","img/avtonet-19778793-3.jpg"],"izracun":{"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"avtonet-21832720","naslov":"Mondeo 1.6 TDCi 2011 po delih (Jung)","prodajalec":"Jung d.o.o., Nova Gorica","url":"https://www.avto.net/Ads/details.asp?id=21832720","cena":null,"cena_opomba":"cena po telefonu","pas":"A","spec":"Srebrne barve · pokrov na fotografiji brez udrtin","cipi":[["ok","po prenovi"],["","Nova Gorica"]],"opombe":[["dobro","Sprednji del je po prenovi: ozka maska, LED dnevne luči v odbijaču."],["","Jung pošilja po Sloveniji. Za ceno pokrova in dostave pokliči."]],"telefon":"05 333 46 55","tabela":{"vrsta":"Razstavljen avto","oe":"verjeten","barva":"srebrna","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":null},"viri":["avtonet-21832720","drive"],"slike":["img/avtonet-21832720.jpg","img/avtonet-21832720-2.jpg","img/avtonet-21832720-3.jpg"],"izracun":{"dostava":{"v":null,"lo":null,"hi":null},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"jung-0000003938713","naslov":"Pokrov Mondeo 2010 2.0 TDCi SW (Jung)","prodajalec":"Jung d.o.o., Nova Gorica","url":"https://www.rabljeni-avtodeli-jung.si/sl/pokrov-motorja-ford-mondeo-2010-2-0-tdci-sw-0000003938713","cena":null,"cena_opomba":"pošlji povpraševanje","pas":"A","spec":"Rabljen, na zalogi · z avta letnik 2010, karavan, motor QXBA · na fotografiji črn","cipi":[["pozor","2010: mesec?"],["","Nova Gorica"]],"opombe":[["","Prenova se je začela septembra 2010. Vprašaj za mesec izdelave ali odtis PCS71-16612-AA."]],"telefon":"08 205 16 37","tabela":{"vrsta":"Rabljen original","oe":"mejno","barva":"črna","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":null},"viri":["jung-pokrov"],"slike":["img/jung-0000003938713.jpg"],"izracun":{"dostava":{"v":null,"lo":null,"hi":null},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"bolha-15246343","naslov":"Mondeo 2001 do 2015 po delih (Avtocenter Šale)","prodajalec":"Avtocenter Šale, Teharje","url":"https://www.bolha.com/avtomobili-za-dele/ford-mondeo-1.8tdci-2001-2015-delih-deli-oglas-15246343","cena":null,"cena_opomba":"cena na poizvedbo","pas":"A","spec":"Oglas zajema več generacij Mondea · prevzem v Celju ali Ljubljani","cipi":[["pozor","generacija?"],["naglas","prevzem v Ljubljani"]],"opombe":[["","Ni jasno, kateri avto trenutno razstavljajo. Vprašaj izrecno za pokrov po prenovi."]],"telefon":"030 692 750","tabela":{"vrsta":"Razstavljen avto","oe":"nepreverjen","barva":"neznana","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"viri":["bolha-15246343"],"slike":["img/bolha-15246343.jpg"],"izracun":{"dostava":{"v":0,"lo":0,"hi":0,"ocena":false},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"avtonet-12499344","naslov":"Mondeo 1.8 TDCi 2010 po delih (Avtovleka Hana)","prodajalec":"Avtovleka Hana, Sveti Štefan","url":"https://www.avto.net/Ads/details.asp?id=12499344","cena":null,"cena_opomba":"cena po telefonu","pas":"A","spec":"Oglas nima fotografij","cipi":[["pozor","2010: mesec?"]],"opombe":[["","Letnik 2010 je mejen. Brez fotografij ni mogoče oceniti ne izvedbe ne stanja."]],"telefon":"041 362 513","tabela":{"vrsta":"Razstavljen avto","oe":"mejno","barva":"neznana","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":null},"viri":["avtonet-12499344"],"slike":[],"izracun":{"dostava":{"v":null,"lo":null,"hi":null},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"avtonet-19243340","naslov":"Mondeo 2012 po delih (Global Avto)","prodajalec":"Global Avto, Vransko","url":"https://www.avto.net/Ads/details.asp?id=19243340","cena":null,"cena_opomba":"cena po telefonu","pas":"A","spec":"Prodajalec piše, da so slike simbolične","cipi":[["pozor","slike niso tega avta"]],"opombe":[["","Letnik 2012 je po prenovi. Barve in stanja pokrova iz oglasa ni mogoče razbrati."]],"telefon":"051 420 150","tabela":{"vrsta":"Razstavljen avto","oe":"verjeten","barva":"neznana","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":null},"viri":["avtonet-19243340"],"slike":["img/avtonet-19243340.jpg"],"izracun":{"dostava":{"v":null,"lo":null,"hi":null},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"novi-vanwezel-1882660","naslov":"Van Wezel 1882660, nov (Alvadi.si)","prodajalec":"Alvadi.si, spletna trgovina","url":"https://alvadi.si/en/item/van-wezel-1882660","cena":168.36,"cena_opomba":"odprema 27. 10. 2026","pas":"B","spec":"Nov, nadomestni, v grundu · Fordovi številki 1767945 in 1693781 · 6 kosov na zalogi","cipi":[["naglas","nov"],["pozor","preveri po VIN"]],"opombe":[["","Stran ga uvršča pod Mondeo 2007 do 2010, na isti strani pa navaja Fordovi številki za pokrov po prenovi. Autodoc ga navaja za Mondeo po prenovi."],["","Odprema iz oddaljenega skladišča 27. 10. 2026, nato še prevoz."],["","Dostava se pokaže v košarici; prevozniki za Slovenijo stanejo od 11,42 do 81,08 €."]],"tabela":{"vrsta":"Nov nadomestni","oe":"potrjen","barva":"grund","drzava":"spletna trgovina"},"barva_ujema":false,"dostava":{"v":81.08,"lo":40,"hi":120,"ocena":true},"viri":["alvadi","alvadi-dostava","autodoc-vw"],"slike":["img/novi-vanwezel-1882660.jpg"],"izracun":{"dostava":{"v":81.08,"lo":40,"hi":120,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":682.44,"lo":500.36,"hi":863.36,"ocena":true},"avto_sam":{"v":599.44,"lo":458.36,"hi":738.36,"ocena":true}}},{"key":"novi-prasco-fd1123100","naslov":"PRASCO FD1123100, nov (Autodoc.si)","prodajalec":"Autodoc.si, spletna trgovina","url":"https://www.autodoc.si/prasco/7454418","cena":507.99,"cena_opomba":"z 22 % DDV","pas":"B","spec":"Nov, nadomestni, v grundu, izdelan na Tajvanu · Fordovi številki 1767945 in 1693781 · 1 kos na zalogi","cipi":[["ok","1767945 po PRASCO"],["naglas","nov"]],"opombe":[["dobro","PRASCO na svoji strani: »Ford Mondeo 10-14 Bonnet«, številki 1767945 in PCS71-16612-AA."],["","Dostava je brezplačna. Doplačilo za velike izdelke (89,95 €) pri tem artiklu ni označeno, preveri v košarici."],["","Odprema 1 do 2 delovna dneva po plačilu."]],"tabela":{"vrsta":"Nov nadomestni","oe":"potrjen","barva":"grund","drzava":"spletna trgovina"},"barva_ujema":false,"dostava":{"v":0,"lo":0,"hi":89.95,"ocena":true},"viri":["autodoc-si","prasco-100"],"slike":["img/novi-prasco-fd1123100.jpg"],"izracun":{"dostava":{"v":0,"lo":0,"hi":89.95,"ocena":true},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":940.99,"lo":799.99,"hi":1172.94,"ocena":true},"avto_sam":{"v":857.99,"lo":757.99,"hi":1047.94,"ocena":true}}},{"key":"euavtodeli-FD1123100","naslov":"PRASCO FD1123100, nov (euavtodeli.si)","prodajalec":"EU-Avtodeli, spletna trgovina","url":"https://www.euavtodeli.si/deli/prasco/7454418","cena":507.58,"cena_opomba":"z 22 % DDV","pas":"B","spec":"Isti pokrov kot pri Autodocu · na voljo","cipi":[["ok","1767945"],["naglas","nov"]],"opombe":[["","Pokrov motorja je pri njih velik izdelek: dostava v Sloveniji 89,95 € z DDV."]],"tabela":{"vrsta":"Nov nadomestni","oe":"potrjen","barva":"grund","drzava":"spletna trgovina"},"barva_ujema":false,"dostava":{"v":89.95,"lo":89.95,"hi":89.95,"ocena":false},"viri":["euavtodeli-100","euavtodeli-dostava"],"slike":["img/euavtodeli-FD1123100.jpg"],"izracun":{"dostava":{"v":89.95,"lo":89.95,"hi":89.95,"ocena":false},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":1030.53,"lo":889.53,"hi":1172.53,"ocena":true},"avto_sam":{"v":947.53,"lo":847.53,"hi":1047.53,"ocena":true}}},{"key":"novi-polcar-32d103","naslov":"Polcar 32D103, nov (Silux)","prodajalec":"Silux, Slovenija","url":"https://www.silux.si/izdelki/karoserija/pokrovi-motorja-prtljage/pokrovi-motorja/176494/pokrov-motorja-ford-mondeo-10","cena":null,"cena_opomba":"ni na zalogi","pas":"B","spec":"Nov, nadomestni · kategorija Mondeo 2010 in novejši · trenutno ni na voljo","cipi":[["napaka","ni na zalogi"]],"opombe":[["","Cena brez zaloge ni prikazana. Vprašaj, kdaj ga dobijo."]],"telefon":"05 364 66 17","tabela":{"vrsta":"Nov nadomestni","oe":"verjeten","barva":"grund","drzava":"Slovenija"},"barva_ujema":false,"dostava":{"v":null},"viri":["silux"],"slike":["img/novi-polcar-32d103.jpg"],"izracun":{"dostava":{"v":null,"lo":null,"hi":null},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}},{"key":"novi-ford-1767945","naslov":"Ford 1767945, nov originalen (eBay UK)","prodajalec":"OEM_GENUINE_PARTS, Združeno kraljestvo","url":"https://www.ebay.co.uk/p/13046095940","cena":679.03,"cena_opomba":"574,53 £ po tečaju ECB","pas":"B","spec":"Nov originalni Fordov pokrov, oznaka 1767945 PCS7116612AA · prodajalec ima 99,2 % pozitivnih ocen","cipi":[["ok","original"],["napaka","uvoz iz VB"]],"opombe":[["slabo","Združeno kraljestvo ni v EU: ob uvozu pridejo DDV in morebitne dajatve, dostava v Slovenijo ni preverjena."],["","Drug britanski ponudnik (BreakerYard, 689,44 £) prodaja samo z osebnim prevzemom."]],"tabela":{"vrsta":"Nov original","oe":"potrjen","barva":"grund","drzava":"Združeno kraljestvo"},"barva_ujema":false,"dostava":{"v":null},"viri":["ebay","breakeryard","ecb"],"slike":["img/novi-ford-1767945.jpg","img/novi-ford-1767945-2.jpg","img/novi-ford-1767945-3.jpg"],"izracun":{"dostava":{"v":null,"lo":null,"hi":null},"lak":{"v":350,"lo":250,"hi":450,"ocena":true},"montaza":{"v":83,"lo":42,"hi":125,"ocena":true},"avto_servis":{"v":null,"lo":null,"hi":null,"ocena":true},"avto_sam":{"v":null,"lo":null,"hi":null,"ocena":true}}}],"klici":{"domaca_regija":"Osrednja Slovenija","vrstni_red_regij":["Osrednja Slovenija","Dolenjska in Posavje","Gorenjska","Celje in Savinjska","Štajerska in Koroška","Primorska in Notranjska"],"besedila":[{"oznaka":"Po telefonu","naslov":"Kaj reči na odpadu","besedilo":"Dober dan. Iščem pokrov motorja za Ford Mondeo, izdelan leta 2011, torej po prenovi. Fordova številka je 1767945, na spodnji strani pokrova je odtisnjeno PCS71-16612-AA. Barva ni nujna, najraje temno modro siva Midnight Sky.\nAli ga imate? S katerega letnika je avto? Je pokrov raven, brez udrtin, rje in kita? Koliko stane in kdaj ga lahko pridem pogledat?"},{"oznaka":"RRR, prodajalcu","naslov":"Sporočilo v angleščini","besedilo":"Hello, I am interested in this bonnet. My car is a Ford Mondeo Mk4 facelift, built in 2011 (VIN WF0GXXGBBGBU•••••).\nCould you please confirm that the bonnet has the Ford number 1767945 or the stamp PCS71-16612-AA, and send a photo of it from the underside? Please also send photos of the front edge, both rear corners and the hinge and latch areas, and tell me the paint colour or colour code.\nThank you."},{"oznaka":"Lakirnici","naslov":"Povpraševanje za lakiranje","besedilo":"Dober dan. Potrebujem ponudbo za lakiranje in montažo pokrova motorja za Ford Mondeo, letnik 2011, barva Midnight Sky (koda z nalepke prinesem). Pokrov je rabljen v drugi barvi oziroma nov v grundu.\nKoliko stane lakiranje z montažo, ali je treba barvati tudi prehod na blatnike in kdaj lahko pripeljem avto?"}],"odpadi":[{"name":"Avtoodpad Krakov","town":"Škocjan","address":"Hudenje 10, 8275 Škocjan","region":"Dolenjska in Posavje","phones":["07 307 75 00","041 652 795"],"website":"https://avtoodpad-krakov.com","online_shop":false,"in_official_register":true,"priority":false,"notes":"Velik obrat, brez spletnega kataloga.","ima_mondeo":null},{"name":"Avtoodpad Prah","town":"Sevnica","address":"Orehovo 80, 8290 Sevnica","region":"Dolenjska in Posavje","phones":["07 814 41 46","07 814 97 34","041 640 071"],"website":"https://avtoodpad-prah.si","online_shop":"unknown","in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoodpad Volovec (EKO-AVTO)","town":"Kapele","address":"Župelevec 58, 8258 Kapele","region":"Dolenjska in Posavje","phones":["07 496 83 56","07 452 30 84"],"website":"","online_shop":false,"in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoodpad Franko","town":"Semič","address":"Obrtna cona Semič 8, 8333 Semič","region":"Dolenjska in Posavje","phones":["040 697 931"],"website":"","online_shop":false,"in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"AHO Mobil Oman","town":"Kočevje","address":"Rožna ulica 32, 1330 Kočevje","region":"Dolenjska in Posavje","phones":["01 895 51 92","040 611 660"],"website":"","online_shop":false,"in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoodpad Zupanc","town":"Kočevje","address":"Mahovnik 34, 1330 Kočevje","region":"Dolenjska in Posavje","phones":["01 895 30 97","041 652 793"],"website":"","online_shop":false,"in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoodpad Sam (Meglič)","town":"Straža","address":"Hruševec 59, 8351 Straža","region":"Dolenjska in Posavje","phones":["07 334 80 54","031 363 457"],"website":"","online_shop":false,"in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoende","town":"Sv. Ana v Slovenskih goricah","address":"Žice 42, 2233 Sv. Ana v Slovenskih goricah","region":"Štajerska in Koroška","phones":["02 720 54 74","02 720 54 76"],"website":"","online_shop":false,"in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"AC Erik","town":"Lenart v Slovenskih goricah","address":"Radehova 11, 2230 Lenart v Slovenskih goricah","region":"Štajerska in Koroška","phones":["041 661 163"],"website":"","online_shop":false,"in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoodpad Lasbaher","town":"Benedikt","address":"Mariborska cesta 21, 2234 Benedikt","region":"Štajerska in Koroška","phones":["051 631 682","041 509 556"],"website":"https://fal.si","online_shop":"unknown","in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"ACŠ Avtomobili","town":"Zgornja Kungota","address":"Jedlovnik 1a, 2201 Zgornja Kungota","region":"Štajerska in Koroška","phones":["031 317 432","040 688 888"],"website":"https://acs-avtomobili.si","online_shop":true,"in_official_register":true,"priority":true,"notes":"Več kot 2000 vozil, spletni katalog.","ima_mondeo":null},{"name":"Avtoodpad Sajko","town":"Pristava pri Mestinju","address":"Hajnsko 33, 3253 Pristava pri Mestinju","region":"Štajerska in Koroška","phones":["041 734 430"],"website":"https://avtoodpadsajko.si","online_shop":true,"in_official_register":true,"priority":true,"notes":"Več kot 1000 vozil. Na Avto.net je trenutno viden samo novejši Mondeo Mk5.","ima_mondeo":null},{"name":"Avtokomplet Pintarič","town":"Maribor","address":"Puhova ulica 50, 2000 Maribor","region":"Štajerska in Koroška","phones":["02 480 02 62","031 647 775"],"website":"https://avtoodpad-maribor.si","online_shop":true,"in_official_register":false,"priority":true,"notes":"Spletna trgovina.","ima_mondeo":null},{"name":"Avtoodpad Buser","town":"Loče","address":"Mlače 3a, 3215 Loče","region":"Celje in Savinjska","phones":["03 576 31 00","051 636 520"],"website":"","online_shop":false,"in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"Global Avto (Feštajn)","town":"Izlake","address":"Zgornji Prhovec 7, 1411 Izlake","region":"Celje in Savinjska","phones":["051 420 150","031 385 705","03 567 42 25"],"website":"https://avtofestajn.si","online_shop":"unknown","in_official_register":true,"priority":false,"notes":"","ima_mondeo":"razstavlja Mondeo 2012"},{"name":"Avtoodpad Cenc","town":"Loče","address":"Zbelovska gora 44, 3215 Loče","region":"Celje in Savinjska","phones":["03 752 30 06","041 613 710"],"website":"","online_shop":false,"in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoodpad Polak","town":"Štore","address":"Ogorevc 20, 3220 Štore","region":"Celje in Savinjska","phones":["03 781 00 58","041 482 611"],"website":"","online_shop":false,"in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtohiša Škorjanec","town":"Celje","address":"Gaji 42A, 3000 Celje","region":"Celje in Savinjska","phones":["03 426 08 86","03 426 08 87","051 643 781"],"website":"https://avto-skorjanec.si","online_shop":"unknown","in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtocenter Užmah","town":"Teharje","address":"Bukovžlak 8, 3221 Teharje","region":"Celje in Savinjska","phones":["041 616 275"],"website":"https://avtocenter-uzmah.si","online_shop":"unknown","in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avto Rejc","town":"Celje","address":"Zgornja Hudinja 28, 3000 Celje","region":"Celje in Savinjska","phones":["041 405 538"],"website":"https://avtorejc.si","online_shop":true,"in_official_register":false,"priority":true,"notes":"Spletna trgovina, več kot 5000 delov.","ima_mondeo":null},{"name":"Zoltan","town":"Škofja Loka","address":"Industrijska cona Trata, naselje Trata, 4220 Škofja Loka","region":"Gorenjska","phones":["031 883 884"],"website":"https://zoltan.si","online_shop":"unknown","in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoodpad Trobec","town":"Škofja Loka","address":"Log nad Škofjo Loko 18, 4220 Škofja Loka","region":"Gorenjska","phones":["04 518 53 24"],"website":"","online_shop":false,"in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtomehanika Šinko","town":"Škofja Loka","address":"Koširjeva cesta 24, 4220 Škofja Loka","region":"Gorenjska","phones":["041 437 103"],"website":"","online_shop":false,"in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoodpad Krničar","town":"Cerklje na Gorenjskem","address":"Dvorje 93, 4207 Cerklje na Gorenjskem","region":"Gorenjska","phones":["04 252 67 50","041 331 396"],"website":"","online_shop":false,"in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoodpad Bine, Žiri","town":"Žiri","address":"Dobračevska ulica 28, 4226 Žiri","region":"Gorenjska","phones":["04 505 05 00","04 505 05 03","041 632 593"],"website":"https://avtoodpad.si","online_shop":"unknown","in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Old Car Kokič","town":"Izola","address":"Industrijska cesta 12C, 6310 Izola-Isola","region":"Primorska in Notranjska","phones":["05 640 39 80","05 640 39 81"],"website":"","online_shop":false,"in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"Jung","town":"Nova Gorica","address":"Cesta 25. junija 1E, 5000 Nova Gorica","region":"Primorska in Notranjska","phones":["05 333 46 55","08 205 16 37","041 706 930"],"website":"https://jung.si","online_shop":true,"in_official_register":true,"priority":true,"notes":"Spletni katalog z več kot 30.000 deli, pošilja po Sloveniji.","ima_mondeo":"razstavlja Mondeo 2011 po prenovi"},{"name":"Avto Kras","town":"Divača","address":"Lokavska cesta 14A, 6215 Divača","region":"Primorska in Notranjska","phones":["05 763 02 05","031 444 396","064 148 672"],"website":"https://avto-kras.net","online_shop":"unknown","in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtorosi","town":"Postojna","address":"Raubarkomanda 11, 6230 Postojna","region":"Primorska in Notranjska","phones":["05 726 11 44","041 617 723","041 410 224"],"website":"https://avtorosi.si","online_shop":false,"in_official_register":true,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avtoodpad Belić","town":"Portorož","address":"Liminjan 1, 6320 Portorož","region":"Primorska in Notranjska","phones":["05 677 15 77"],"website":"","online_shop":false,"in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Reventon Avto","town":"Koper","address":"Cesta Borcev 4d, 6000 Koper","region":"Primorska in Notranjska","phones":["08 205 51 23","070 407 123"],"website":"https://reventon-avto.com","online_shop":true,"in_official_register":false,"priority":false,"notes":"Posrednik, dele uvaža iz Italije.","ima_mondeo":null},{"name":"Avto Vrhovec","town":"Domžale","address":"Bukovčeva ulica 17c, 1230 Domžale","region":"Osrednja Slovenija","phones":["01 721 29 83","051 614 707"],"website":"https://avtovrhovec.si","online_shop":false,"in_official_register":true,"priority":true,"notes":"Najbližji večji odpad Ljubljani, brez spletnega kataloga.","ima_mondeo":null},{"name":"Get Inženiring","town":"Kresnice","address":"Ribče 50, 1281 Kresnice","region":"Osrednja Slovenija","phones":["01 897 79 23"],"website":"https://get-inzeniring.si","online_shop":"unknown","in_official_register":false,"priority":false,"notes":"","ima_mondeo":null},{"name":"Avto Zero","town":"Medvode","address":"Cesta na Svetje 54, 1215 Medvode","region":"Osrednja Slovenija","phones":["040 127 873"],"website":"https://avto-zero.si","online_shop":"unknown","in_official_register":false,"priority":false,"notes":"Predvsem odkup vozil.","ima_mondeo":null},{"name":"PT Avtodeli (Mojavto)","town":"Trzin","address":"Mengeška cesta 65, 1236 Trzin","region":"Osrednja Slovenija","phones":["041 716 208"],"website":"https://mojavto.si","online_shop":true,"in_official_register":false,"priority":true,"notes":"Spletni katalog z več kot 53.000 deli.","ima_mondeo":null},{"name":"MF Trade","town":"Grosuplje","address":"Taborska cesta 38a","region":"Osrednja Slovenija","phones":["041 445 589"],"website":"https://www.avto.net/Ads/details.asp?id=20445766","online_shop":false,"in_official_register":false,"priority":true,"notes":"Na Avto.net ima dva pokrova za Mondeo: srebrnega in enega v grundu.","ima_mondeo":"ima pokrova Mondeo"},{"name":"Avto Rebolj","town":"Ljubljana","address":"Taborska cesta 25A","region":"Osrednja Slovenija","phones":["041 211 662","041 747 061"],"website":"https://www.avto.net/Ads/details.asp?id=21815349","online_shop":false,"in_official_register":false,"priority":true,"notes":"Črni »2011« je na fotografiji pred prenovo, rjavi 2012 je po njej.","ima_mondeo":"razstavlja Mondeo 2011 in 2012"},{"name":"KMZ Avto","town":"Vrhnika","address":"Verd 107","region":"Osrednja Slovenija","phones":["051 402 460"],"website":"https://www.avto.net/Ads/details.asp?id=19778793","online_shop":false,"in_official_register":false,"priority":false,"notes":"","ima_mondeo":"razstavlja Mondeo 2.2"},{"name":"Avtocenter Šale","town":"Teharje","address":"Vrhe 50","region":"Celje in Savinjska","phones":["030 692 750"],"website":"https://www.bolha.com/avtomobili-za-dele/ford-mondeo-1.8tdci-2001-2015-delih-deli-oglas-15246343","online_shop":false,"in_official_register":false,"priority":true,"notes":"Prevzem tudi v Ljubljani.","ima_mondeo":"Mondeo po delih"},{"name":"Avtovleka Hana","town":"Sveti Štefan","address":"Grobelce 10","region":"Celje in Savinjska","phones":["041 362 513","040 683 301"],"website":"https://www.avto.net/Ads/details.asp?id=12499344","online_shop":false,"in_official_register":false,"priority":false,"notes":"","ima_mondeo":"razstavlja Mondeo 2010"}]},"pred_nakupom":{"bloki":[{"oznaka":"Pazi na","naslov":"Kaj ti prodajalec ne bo povedal","tocke":["»Paše na vse Mondee od 2007« ne drži. Zahtevaj odtis PCS71-16612-AA, nalepko s številko 1767945 ali VIN avta, s katerega je pokrov.","Letnik v oglasu je pogosto letnik registracije, ne izdelave. Črni Mondeo »2011« pri Rebolju ima na fotografiji sprednji del pred prenovo.","Na RRR se provizija platforme ob vračilu ne vrne, dostava velikega dela pa se pokaže šele v košarici.","Nov nadomestni pokrov pride v grundu: lakiranje in nastavitev rež nista vključena.","Lakirnica lahko predlaga barvanje prehoda na blatnike. Pri kovinski barvi je to včasih res potrebno; pri pokrovu v isti barvi najprej poglej, ali razlika sploh je."]},{"oznaka":"Preveri","naslov":"Pregled rabljenega pokrova v petih minutah","tocke":["Odtis PCS71-16612-AA ali nalepka 1767945 na spodnji strani.","Sprednji rob in oba zadnja vogala: ravni, brez prepognjenih robov. Tu se pokrov najpogosteje poškoduje pri trku in prevozu.","Mesta tečajev in ključavnice: brez razpok, ojačitve spodaj niso zvite.","Rja in kit na spodnjih robovih. Magnet na kitu slabo prime.","Položi ga na ravna tla in poglej odsev pod kotom: valovanje pomeni ravnane udrtine.","Ob dostavi preglej paket, dokler je kurir tam. Poškodbo zapiši ali prevzem zavrni."]},{"oznaka":"Ponudi","naslov":"Pogajanje na odpadu","pogajanje":[["začni pri","80 €"],["cilj","110 €"],["odstopi nad","180 €"]],"uvod":"Primerjava so rabljeni pokrovi na RRR: od 47 do 141 €, plus ≈ 70 do 170 € dostave. Pokrov v isti barvi je vreden več, ker prihrani lakiranje: zanj gre zgornja meja do ≈ 250 €.","tocke":["Prvi stavek: »Na spletu so takšni pokrovi od 47 do 141 €, plus dostava. Ga daste za 80 €, če ga pridem iskat še danes?«","Če je pokrov v drugi barvi, omeni, da ga moraš še lakirati."]},{"oznaka":"Kdaj","naslov":"Kupi zdaj","tocke":["Ni sezone ali novega modela, zaradi katerega bi se splačalo čakati.","DCP33842 je edini najden pokrov v barvi Midnight Sky. Če barvo potrdiš, ne odlašaj.","Van Wezel pri Alvadiju gre iz skladišča 27. 10. 2026, PRASCO pri Autodocu v 1 do 2 delovnih dneh."]}],"pasti":[["napaka","napačen pokrov","<strong>PRASCO FD1123130<\/strong> je pokrov za Mondeo pred prenovo (Fordova številka 1469592), čeprav ga Autodoc uvršča v kategorijo »Mondeo Mk4 Facelift«. Na euavtodeli.si je pod številko 11193376 za 382,02 € in ni na zalogi. Pravi je FD1123100."],["napaka","drug del","<strong>»PVC pokrov motorja«<\/strong> (Ford 9M5Q-6N041) je plastični pokrov na vrhu motorja, ne zunanji pokrov. Tak oglas za Mondeo »l. 11« je na Avto.net."],["napaka","drug del","<strong>Silux 176499<\/strong> in pokrovi motorja pri Rexbo za BA7 so spodnja zaščita motorja. Pravi Siluxov pokrov ima številko 176494."],["pozor","letnik","<strong>Letnik v oglasu ni datum izdelave.<\/strong> Črni Mondeo »2011« pri Rebolju ima veliko kromirano masko in nima LED dnevnih luči v odbijaču, kar je izvedba pred prenovo. Jungov srebrni 2011 ima ozko masko in LED luči, torej je po prenovi."],["pozor","letnik 2010","<strong>Avto letnik 2010 je mejen,<\/strong> ker se je prenova začela septembra 2010. Pri ONV55870 in TSM340816 je odtis PCS71-16612-AA v oglasu, zato sta v redu. Pri Jungovem pokrovu »2010 SW« in Mondeu Avtovleke Hana vprašaj za mesec ali odtis."],["pozor","barvna koda","<strong>Koda E5M ne ustreza imenu Midnight Sky v javni tabeli.<\/strong> V Fordovi tabeli barv za Mondeo je E5 pod Damson Blue in Aubergine, Midnight Sky pa pod MD. Pred nakupom pokrova »v isti barvi« fotografiraj nalepko in jo pokaži lakirniku."],["pozor","Mk5","<strong>Oglas »Mondeo pokrov motorja L.14-18«<\/strong> za 100 € na Avto.net je za novejši Mondeo Mk5 z drugačno obliko pokrova."],["pozor","kategorija","<strong>Alvadi uvršča Van Wezel 1882660 pod Mondeo 2007 do 2010,<\/strong> na isti strani pa navaja številki 1767945 in 1693781, ki sta za pokrov po prenovi. Pred nakupom jim pošlji VIN."],["","SKU","<strong>APU31297 je interna številka RRR,<\/strong> ne Fordova. Številka dela je samo 1767945 ali odtis PCS71-16612-AA."]],"kontekst":[{"oznaka":"Ponudba","naslov":"Koliko jih je na trgu","tocke":["RRR: 121 ponudb za številko 1767945 in 81 za PCS71-16612-AA. Odprl sem okoli 30 od njih; barva je vidna šele na strani posamezne ponudbe. Med odprtimi ima samo ena navedeno barvo Midnight Sky, dve sta na fotografijah temni in morda iste barve.","Slovenija: noben oglas nima objavljene cene za pokrov po prenovi. Razstavljenih je vsaj osem Mondeov iz let 2010 do 2013, večinoma srebrnih.","Novi: Autodoc.si in euavtodeli.si imata PRASCO FD1123100 na zalogi, Alvadi ima Van Wezel z odpremo 27. 10., Silux trenutno nima nič."]},{"oznaka":"Davki in dostava","naslov":"Kaj je v ceni","tocke":["Prodajalci na RRR so v EU, zato ni carine. Cena APU31297 vključuje DDV in provizijo platforme; provizija se ob vračilu ne vrne.","Autodoc.si in euavtodeli.si navajata ceno z 22 % DDV. euavtodeli zaračuna za pokrov 89,95 € dostave, ker je velik izdelek.","Nakup iz Združenega kraljestva je uvoz izven EU: ob dostavi pridejo DDV in morebitne dajatve.","RRR: vračilo v 14 dneh, brezplačen povratni prevoz, samo za nemontiran del. Če paket ne pride v 20 dneh od odpreme, to takoj sporoči RRR."]},{"oznaka":"RRR","naslov":"Je RRR zanesljiv","tocke":["Trustpilot: 4,2 od 5 pri 64.063 ocenah. Med negativnimi prevladujejo počasno reševanje reklamacij in poškodbe pri prevozu, ne izgubljen denar.","RRR je tržnica: pokrov pošlje zunanji prodajalec, RRR vodi plačilo, dostavo in vračila.","Plačaj s kartico ali PayPalom prek RRR. Ne pristajaj na nakazilo ali dogovor mimo platforme."]}]},"metoda":{"odstavki":["Izhodišče je bila <a href=\"https://www.perplexity.ai/search/be101d4b-8d0f-4903-83e5-5bbd7e31f9f0\" target=\"_blank\" rel=\"noopener\">raziskava na Perplexityju<\/a>. Vsako ceno, številko dela in telefon sem 16. 10. 2026 ponovno prebral na izvorni strani. Pri tem so se pokazale tri napake v izhodišču: PRASCO FD1123130 je bil naveden kot pravi pokrov, povezava na Silux je vodila na spodnjo zaščito motorja, trditev »barva ni pomembna« pa za ceno ne drži.","Cena na avtu je seštevek: del, dostava, lakiranje in montaža. Pokrov po nakupu nima prodajne vrednosti in ne porablja energije, zato izračuna stroškov za dve in pet let, kot ga delam za avte in aparate, tu ni. Ocene so označene z ≈ in imajo razpon."],"predpostavke":["Mesec izdelave (oktober 2011) je razbran iz Fordove tabele mesecev na Wikibooks. Leto 2011 in izvedba po prenovi držita tudi brez meseca, prodajalcem zadošča leto.","Lakiranje pokrova ≈ 250 do 450 € (sredina 350 €). Izhodišče: na slovenskem forumu (2020) ličarji računajo 1,5 do 2 m² po 150 do 200 € in so »hitro na 300 € in več«; urna postavka ličarja v letu 2026 je 83 €. Pokrov v isti barvi: 0 €, brez morebitnega prehoda na blatnike.","Montaža ≈ 42 do 125 € (pol ure do ure in pol po 83 €). Pokrov drži na štirih vijakih, odklopiti je treba brizgalke pod izolacijo; delo za dva. Če montirate sami: 0 €.","Dostava z RRR v Slovenijo ≈ 70 do 170 € s Poljske, iz Francije in Baltika ter ≈ 120 do 200 € iz Španije in Švedske. RRR je brez izbire države ne pokaže; izhodišče so prikazane dostave v Litvo: s Poljske 85,07 €, iz Estonije 68,04 €, iz Španije in Švedske 164 do 193 €.","Alvadi: dostava ≈ 40 do 120 €; za sredino sem vzel 81,08 €, najdražjega prevoznika na njihovem seznamu za Slovenijo.","Autodoc: dostava 0 €, v najslabšem primeru 89,95 € doplačila za velike izdelke.","Funt po referenčnem tečaju ECB 15. 10. 2026: 1 € = 0,84610 £.","Pri slovenskih odpadih cena dela ni objavljena. Razpon ≈ 80 do 150 € v poti B je ocena po cenah na RRR."],"ni_zajeto":["Na RRR sem odprl približno 30 od 121 ponudb za 1767945. Barva je vidna šele na strani posamezne ponudbe, zato je pokrovov v barvi Midnight Sky lahko več. Na RRR poišči »1767945« in odpri temne pokrove.","Prava cena dostave RRR v Slovenijo; pokaže se šele v košarici.","Cene in zaloge pri slovenskih odpadih: nikogar nisem klical.","Fotografije odtisa na spodnji strani za DCP33842 in APU31297.","Cena novega originalnega pokrova pri slovenskem Fordovem servisu. Po tujih cenah (≈ 679 € samo del) ni smiselna izbira.","Katera karoserija je avto: za pokrov ni pomembno, ker je isti pokrov naveden za karavan, limuzino in petvratno izvedbo."]},"viri":[{"id":"perplexity","naslov":"Perplexity: izhodiščna raziskava (deljena seja)","url":"https://www.perplexity.ai/search/be101d4b-8d0f-4903-83e5-5bbd7e31f9f0","datum":"prebrano 16. 10. 2026"},{"id":"rrr-dcp","naslov":"RRR: pokrov DCP33842, Midnight Sky","url":"https://rrr.lt/en/used-part/dcp33842-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","datum":"prebrano 16. 10. 2026"},{"id":"rrr-apu","naslov":"RRR: pokrov APU31297","url":"https://rrr.lt/en/used-part/apu31297-ford-mondeo-mk-iv-engine-bonnet-hood","datum":"prebrano 16. 10. 2026"},{"id":"rrr-onv","naslov":"RRR: pokrov ONV55870","url":"https://rrr.lt/en/used-part/onv55870-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","datum":"prebrano 16. 10. 2026"},{"id":"rrr-tsm","naslov":"RRR: pokrov TSM340816","url":"https://rrr.lt/en/used-part/tsm340816-pcs7116612aa-ford-mondeo-mk-iv-engine-bonnet-hood","datum":"prebrano 16. 10. 2026"},{"id":"rrr-euq","naslov":"RRR: pokrov EUQ5189","url":"https://rrr.lt/en/used-part/euq5189-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","datum":"prebrano 16. 10. 2026"},{"id":"rrr-mnt","naslov":"RRR: pokrov MNT232990, Lunar Sky","url":"https://rrr.lt/en/used-part/mnt232990-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","datum":"prebrano 16. 10. 2026"},{"id":"rrr-tma","naslov":"RRR: pokrov TMA31476","url":"https://rrr.lt/en/used-part/tma31476-pcs7116612aa-ford-mondeo-mk-iv-engine-bonnet-hood","datum":"prebrano 16. 10. 2026"},{"id":"rrr-crv","naslov":"RRR: pokrov CRV43082","url":"https://rrr.lt/en/used-part/crv43082-pcs7116612aa-ford-mondeo-mk-iv-engine-bonnet-hood","datum":"prebrano 16. 10. 2026"},{"id":"rrr-ayg","naslov":"RRR: pokrov AYG318191","url":"https://rrr.lt/en/used-part/ayg318191-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","datum":"prebrano 16. 10. 2026"},{"id":"rrr-cts","naslov":"RRR: pokrov CTS213060","url":"https://rrr.lt/en/used-part/cts213060-1767945-ford-mondeo-mk-iv-engine-bonnet-hood","datum":"prebrano 16. 10. 2026"},{"id":"rrr-isk1","naslov":"RRR: iskanje 1767945 (121 ponudb)","url":"https://rrr.lt/en/search?q=1767945","datum":"prebrano 16. 10. 2026"},{"id":"rrr-isk2","naslov":"RRR: iskanje PCS71-16612-AA (81 ponudb)","url":"https://rrr.lt/en/search?q=PCS71-16612-AA","datum":"prebrano 16. 10. 2026"},{"id":"rrr-dostava","naslov":"RRR: dostava, seznam držav","url":"https://rrr.lt/en/delivery-information","datum":"prebrano 16. 10. 2026"},{"id":"rrr-vracila","naslov":"RRR: vračila in garancija","url":"https://rrr.lt/en/returns-warranty","datum":"prebrano 16. 10. 2026"},{"id":"rrr-pogoji","naslov":"RRR: pogoji uporabe (provizija §9.2, nedostava §6.13)","url":"https://rrr.lt/en/terms-of-use","datum":"prebrano 16. 10. 2026"},{"id":"trustpilot","naslov":"Trustpilot: ocene RRR.lt","url":"https://www.trustpilot.com/review/rrr.lt","datum":"prebrano 16. 10. 2026"},{"id":"prasco-100","naslov":"PRASCO: FD1123100, Ford Mondeo 10-14 Bonnet","url":"https://prasco.co.uk/product-details.php?sku=FD1123100","datum":"prebrano 16. 10. 2026"},{"id":"autodoc-130","naslov":"Autodoc: PRASCO FD1123130 za OE 1469592","url":"https://www.autodoc24.fr/prasco/11193376","datum":"prebrano 16. 10. 2026"},{"id":"autodoc-si","naslov":"Autodoc.si: PRASCO FD1123100","url":"https://www.autodoc.si/prasco/7454418","datum":"prebrano 16. 10. 2026"},{"id":"euavtodeli-100","naslov":"euavtodeli.si: PRASCO FD1123100","url":"https://www.euavtodeli.si/deli/prasco/7454418","datum":"prebrano 16. 10. 2026"},{"id":"euavtodeli-130","naslov":"euavtodeli.si: PRASCO FD1123130 (napačen pokrov)","url":"https://www.euavtodeli.si/deli/prasco/11193376","datum":"prebrano 16. 10. 2026"},{"id":"euavtodeli-dostava","naslov":"euavtodeli.si: dostava velikih izdelkov","url":"https://www.euavtodeli.si/dostava","datum":"prebrano 16. 10. 2026"},{"id":"alvadi","naslov":"Alvadi.si: Van Wezel 1882660","url":"https://alvadi.si/en/item/van-wezel-1882660","datum":"prebrano 16. 10. 2026"},{"id":"alvadi-dostava","naslov":"Alvadi.si: dostava v Slovenijo","url":"https://alvadi.si/en/info/delivery/slovenia","datum":"prebrano 16. 10. 2026"},{"id":"autodoc-vw","naslov":"Autodoc: Van Wezel 1882660 za Mondeo Mk4 po prenovi","url":"https://www.auto-doc.ie/van-wezel/7654904","datum":"prebrano 16. 10. 2026"},{"id":"silux","naslov":"Silux: pokrov motorja Ford Mondeo 10-","url":"https://www.silux.si/izdelki/karoserija/pokrovi-motorja-prtljage/pokrovi-motorja/176494/pokrov-motorja-ford-mondeo-10","datum":"prebrano 16. 10. 2026"},{"id":"ebay","naslov":"eBay UK: nov originalni Ford 1767945","url":"https://www.ebay.co.uk/p/13046095940","datum":"prebrano 16. 10. 2026"},{"id":"breakeryard","naslov":"BreakerYard: nov originalni 1767945, samo osebni prevzem","url":"https://www.breakeryard.com/online-used-parts/ford-mondeo-mk4-front-hood-assy-1767945-pcs71-16612-aa-new-genuine","datum":"prebrano 16. 10. 2026"},{"id":"ecb","naslov":"ECB: referenčni tečaj EUR/GBP","url":"https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-gbp.en.html","datum":"tečaj 15. 10. 2026"},{"id":"avtonet-20445766","naslov":"Avto.net: MF Trade, pokrov Mondeo 10","url":"https://www.avto.net/Ads/details.asp?id=20445766","datum":"prebrano 16. 10. 2026"},{"id":"avtonet-17328448","naslov":"Avto.net: MF Trade, pokrov Mondeo srebrn","url":"https://www.avto.net/Ads/details.asp?id=17328448","datum":"prebrano 16. 10. 2026"},{"id":"avtonet-21440529","naslov":"Avto.net: Avto Rebolj, Mondeo 2011 po delih","url":"https://www.avto.net/Ads/details.asp?id=21440529","datum":"prebrano 16. 10. 2026"},{"id":"avtonet-21815349","naslov":"Avto.net: Avto Rebolj, Mondeo 2012 po delih","url":"https://www.avto.net/Ads/details.asp?id=21815349","datum":"prebrano 16. 10. 2026"},{"id":"avtonet-19778793","naslov":"Avto.net: KMZ Avto, Mondeo 2.2 po delih","url":"https://www.avto.net/Ads/details.asp?id=19778793","datum":"prebrano 16. 10. 2026"},{"id":"avtonet-21832720","naslov":"Avto.net: Jung, Mondeo 1.6 TDCi 2011 po delih","url":"https://www.avto.net/Ads/details.asp?id=21832720","datum":"prebrano 16. 10. 2026"},{"id":"avtonet-12499344","naslov":"Avto.net: Avtovleka Hana, Mondeo 2010 po delih","url":"https://www.avto.net/Ads/details.asp?id=12499344","datum":"prebrano 16. 10. 2026"},{"id":"avtonet-19243340","naslov":"Avto.net: Global Avto, Mondeo 2012 po delih","url":"https://www.avto.net/Ads/details.asp?id=19243340","datum":"prebrano 16. 10. 2026"},{"id":"avtonet-19701320","naslov":"Avto.net: pokrov Mondeo L.14-18 (Mk5)","url":"https://www.avto.net/Ads/details.asp?id=19701320","datum":"prebrano 16. 10. 2026"},{"id":"avtonet-16182416","naslov":"Avto.net: PVC pokrov motorja Mondeo l. 11","url":"https://www.avto.net/Ads/details.asp?id=16182416","datum":"prebrano 16. 10. 2026"},{"id":"bolha-15246343","naslov":"Bolha: Avtocenter Šale, Mondeo po delih","url":"https://www.bolha.com/avtomobili-za-dele/ford-mondeo-1.8tdci-2001-2015-delih-deli-oglas-15246343","datum":"prebrano 16. 10. 2026"},{"id":"jung-pokrov","naslov":"Jung: pokrov motorja Mondeo 2010 2.0 TDCi SW","url":"https://www.rabljeni-avtodeli-jung.si/sl/pokrov-motorja-ford-mondeo-2010-2-0-tdci-sw-0000003938713","datum":"prebrano 16. 10. 2026"},{"id":"wikibooks","naslov":"Wikibooks: Ford VIN Codes (leto, mesec, tovarna)","url":"https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/Ford/VIN_Codes","datum":"prebrano 16. 10. 2026"},{"id":"wikipedia","naslov":"Wikipedia: Ford Mondeo (third generation), prenova septembra 2010","url":"https://en.wikipedia.org/wiki/Ford_Mondeo_(third_generation)","datum":"prebrano 16. 10. 2026"},{"id":"drive","naslov":"Drive: 2011 Ford Mondeo unveiled (nov pokrov, LED dnevne luči)","url":"https://www.drive.com.au/news/2011-ford-mondeo-unveiled-ahead-of-moscow-premiere/","datum":"objava 28. 6. 2010, prebrano 16. 10. 2026"},{"id":"slotech","naslov":"Slo-Tech forum: cena lakiranja haube","url":"https://slo-tech.com/forum/t761698","datum":"objava 9. 3. 2020, prebrano 16. 10. 2026"},{"id":"selan","naslov":"Avtoservis Selan: cenik (ličarska ura 83 €)","url":"https://www.avtoservis-selan.si/cenik","datum":"stran spremenjena 8. 4. 2026, prebrano 16. 10. 2026"},{"id":"talkford-pokrov","naslov":"TalkFord: menjava pokrova na Mondeu Mk4","url":"https://www.talkford.com/threads/replacement-bonnet-question.411914/","datum":"objava julij 2023, prebrano 16. 10. 2026"},{"id":"talkford-barva","naslov":"TalkFord: koda barve na Mondeu Mk4","url":"https://www.talkford.com/threads/paint-code.196415/","datum":"prebrano 16. 10. 2026"},{"id":"touchup","naslov":"Touch Up Paint Factory: kode barv Ford Mondeo","url":"https://touchuppaintfactory.co.uk/pages/ford-mondeo","datum":"prebrano 16. 10. 2026"},{"id":"gov-register","naslov":"Ministrstvo: obrati za razstavljanje izrabljenih vozil","url":"https://www.gov.si/assets/ministrstva/MOP/Okolje/Odpadki/Podatki/Samostojni-obrati-za-razstavljanje-izrabljenih-vozil-in-pripadajoca-zbiralna-mesta.pdf","datum":"objava 5. 3. 2026, prebrano 16. 10. 2026"},{"id":"avtoodpad-info","naslov":"Avtoodpad.info: imenik avtoodpadov po regijah","url":"https://avtoodpad.info/","datum":"prebrano 16. 10. 2026"}]}</script>
+<!--PODATKI:KONEC-->
+
+<script>
+(function(){
+"use strict";
+var D = JSON.parse(document.getElementById("podatki").textContent || "{}");
+var $ = function(s, r){ return (r || document).querySelector(s); };
+var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+function stevilcnik(o){
+  try { return new Intl.NumberFormat("sl-SI", Object.assign({useGrouping:"always"}, o)); }
+  catch(e){ try { return new Intl.NumberFormat("sl-SI", o); } catch(e2){ return {format: function(v){ return String(Math.round(v * 100) / 100).replace(".", ",") + (o.style ? " €" : ""); }}; } }
+}
+var eur2 = stevilcnik({style:"currency", currency:"EUR", minimumFractionDigits:2, maximumFractionDigits:2});
+var eur0 = stevilcnik({style:"currency", currency:"EUR", maximumFractionDigits:0});
+var st0 = stevilcnik({maximumFractionDigits:0});
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+function cena(v, dec){ return v == null ? "" : (dec ? eur2 : eur0).format(v); }
+var shramba = {
+  beri: function(k, privzeto){ try { var v = localStorage.getItem("pokrov-mondeo:" + k); return v ? JSON.parse(v) : privzeto; } catch(e){ return privzeto; } },
+  pisi: function(k, v){ try { localStorage.setItem("pokrov-mondeo:" + k, JSON.stringify(v)); } catch(e){} }
+};
+var vsecki = new Set(shramba.beri("vsecki", []));
+var skrito = new Set(shramba.beri("skrito", []));
+var scen = Object.assign({prikaz:"avto", montaza:"servis"}, shramba.beri("scenarij", {}));
+var razvrsti = {kljuc:"skupaj", smer:1};
+var IZD = D.izdelki || [];
+var poKljucu = {};
+IZD.forEach(function(it){ poKljucu[it.key] = it; });
+var SVG_SRCE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.1C1 8.6 3 5 6.6 5c2.1 0 3.6 1.2 4.4 2.5C11.8 6.2 13.3 5 15.4 5 19 5 21 8.6 19.6 11.9 17.5 16.4 12 21 12 21z"/></svg>';
+var SVG_X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+function vrednost(it){
+  var r = it.izracun || {};
+  if (scen.prikaz === "del") return {v: it.cena, lo: it.cena, hi: it.cena, ocena: false};
+  var x = scen.montaza === "servis" ? r.avto_servis : r.avto_sam;
+  return x || {v:null, lo:null, hi:null, ocena:true};
+}
+function razpon(x, it){
+  if (!x || x.v == null) return it && it.cena != null ? "ni znano" : "pokliči";
+  if (x.lo != null && x.hi != null && Math.round(x.lo) !== Math.round(x.hi)) return "≈ " + st0.format(x.lo) + " do " + st0.format(x.hi) + " €";
+  return (x.ocena ? "≈ " : "") + cena(x.v, true);
+}
+
+var stVira = {};
+(D.viri || []).forEach(function(v, i){ stVira[v.id] = i + 1; });
+function oznakeVirov(it){
+  return (it.viri || []).map(function(id){ return '<a href="#vir-' + esc(id) + '" data-vir="1">[' + (stVira[id] || "?") + "]</a>"; }).join(" ");
+}
+
+/* glava */
+function glava(){
+  var v = D.vozilo || {};
+  $("#datum-raziskave").textContent = "Nakupna raziskava · " + (D.datum || "");
+  var oznake = v.vin_oznake || {};
+  $("#vin").innerHTML = (v.vin || "").split("").map(function(ch, i){
+    var p = i + 1; var o = oznake[p];
+    return '<span class="' + (o ? "kljuc" : "") + '"><b>' + esc(ch) + "</b><i>" + p + "</i></span>";
+  }).join("");
+  $("#vin-legenda").innerHTML = (v.legenda || []).map(function(l){ return "<span><b>" + esc(l[0]) + "</b> " + esc(l[1]) + "</span>"; }).join("");
+}
+
+/* odločitev */
+function odlocitev(){
+  var O = D.odlocitev || {};
+  $("#odgovor").innerHTML = (O.odgovor || []).map(function(p){ return "<p>" + p + "</p>"; }).join("");
+  $("#poti").innerHTML = (O.poti || []).map(function(p, i){
+    return '<article class="pot' + (i === 0 ? " prva" : "") + '"><div class="oznaka"><span class="nadnaslov">' + esc(p.oznaka) + '</span>' + (p.cip ? '<span class="cip ' + esc(p.cip[0]) + '">' + esc(p.cip[1]) + "</span>" : "") + "</div><h3>" + esc(p.naslov) + '</h3><div class="znesek">' + esc(p.znesek) + '</div><p class="tiho majhno">' + esc(p.znesek_opis) + "</p><p>" + p.opis + "</p><ol>" + (p.koraki || []).map(function(k){ return "<li>" + k + "</li>"; }).join("") + "</ol></article>";
+  }).join("");
+  $("#izbor").innerHTML = (O.izbor || []).map(function(sk){
+    return "<div><h3>" + esc(sk.naslov) + '</h3><p class="tiho majhno">' + esc(sk.opis) + '</p></div><div class="izbor-vrsta">' + sk.kljuci.map(function(k){
+      var it = poKljucu[k]; if (!it) return "";
+      var x = (it.izracun || {}).avto_servis || {};
+      return '<article class="izbor-k">' + foto(it) + '<div class="telo"><a href="#k-' + esc(it.key) + '" class="majhno">' + esc(it.naslov) + '</a><div class="cena-v">' + (it.cena != null ? cena(it.cena, true) : "pokliči") + '</div>' + (it.cena != null ? '<p class="tiho majhno">na avtu ' + esc(razpon(x, it)) + "</p>" : "") + "<p class=\"majhno\">" + esc(sk.razlogi[k] || "") + "</p></div></article>";
+    }).join("") + "</div>";
+  }).join("");
+  $("#proracun").innerHTML = (O.proracun || []).map(function(b){
+    return '<div class="ploscica"><span class="nadnaslov">' + esc(b.oznaka) + '</span><span class="znesek">' + esc(b.znesek) + '</span><p class="majhno tiho">' + b.opis + "</p></div>";
+  }).join("");
+}
+
+/* kartice */
+function foto(it){
+  var s = it.slike || [];
+  if (!s.length) return '<div class="foto"><div class="brez">Brez fotografije</div></div>';
+  return '<div class="foto" data-galerija="' + esc(JSON.stringify(s)) + '" data-naslov="' + esc(it.naslov) + '" tabindex="0" role="button" aria-label="Odpri fotografije: ' + esc(it.naslov) + '"><img src="' + esc(s[0]) + '" alt="' + esc(it.naslov) + '" loading="lazy"><span class="stevec">' + s.length + (s.length === 1 ? " fotografija" : s.length === 2 ? " fotografiji" : s.length < 5 ? " fotografije" : " fotografij") + "</span></div>";
+}
+function kartica(it, klon){
+  var r = it.izracun || {};
+  var vs = vsecki.has(it.key);
+  var pas = D.pasovi && D.pasovi[it.pas];
+  var pasHtml = "";
+  if (pas && it.cena != null){
+    var poz = Math.max(0, Math.min(100, (it.cena - pas.od) / (pas.do - pas.od) * 100));
+    pasHtml = '<div class="pas" aria-hidden="true"><i style="left:' + poz.toFixed(1) + '%"></i></div><div class="pas-oznake"><span>' + cena(pas.od) + '</span><span>' + esc(pas.ime) + '</span><span>' + cena(pas.do) + "</span></div>";
+  }
+  var a = scen.montaza === "servis" ? r.avto_servis : r.avto_sam;
+  var dost = r.dostava || {};
+  var lak = r.lak || {};
+  var mon = scen.montaza === "servis" ? (r.montaza || {}) : {v:0, lo:0, hi:0};
+  function postavka(x){ if (!x || x.v == null) return "?"; return (x.ocena ? '<span class="ocena">≈ </span>' : "") + cena(x.v); }
+  return '<article class="kartica" data-key="' + esc(it.key) + '"' + (klon ? "" : ' id="k-' + esc(it.key) + '"') + ">" +
+    '<div class="akcije"><button type="button" class="ikona" data-vsecek="' + esc(it.key) + '" aria-pressed="' + vs + '" aria-label="' + (vs ? "Odstrani iz všečkanih" : "Všečkaj") + '" title="Všečkaj">' + SVG_SRCE + '</button><button type="button" class="ikona" data-skrij="' + esc(it.key) + '" aria-label="Skrij ta pokrov" title="Skrij">' + SVG_X + "</button></div>" +
+    foto(it) +
+    '<div class="telo"><div class="cipi">' + (it.cipi || []).map(function(c){ return '<span class="cip ' + esc(c[0]) + '">' + esc(c[1]) + "</span>"; }).join("") + "</div>" +
+    '<h3><a href="' + esc(it.url) + '" target="_blank" rel="noopener">' + esc(it.naslov) + "</a></h3>" +
+    '<p class="spec">' + esc(it.spec) + "</p>" +
+    '<div class="cenovna"><div class="vrsta"><span class="znesek">' + (it.cena != null ? cena(it.cena, true) : "pokliči") + '</span><span class="tiho majhno">' + esc(it.cena_opomba || "") + "</span></div>" + pasHtml + "</div>" +
+    '<ul class="opozorila">' + (it.opombe || []).map(function(o){ return '<li class="' + esc(o[0]) + '">' + o[1] + "</li>"; }).join("") + "</ul>" +
+    (it.telefon ? '<div class="tel"><button type="button" data-kopiraj="' + esc(it.telefon) + '" aria-label="Kopiraj številko ' + esc(it.telefon) + '">' + esc(it.telefon) + "</button></div>" : "") +
+    '<p class="tiho majhno">Vir ' + oznakeVirov(it) + "</p></div>" +
+    '<div class="racun" aria-label="Račun za ta pokrov">' +
+      "<div><span>Del</span><b>" + (it.cena != null ? cena(it.cena, true) : "?") + "</b></div>" +
+      "<div><span>Dostava</span><b>" + postavka(dost) + "</b></div>" +
+      "<div><span>Lakiranje</span><b>" + postavka(lak) + "</b></div>" +
+      "<div><span>Montaža</span><b>" + postavka(mon) + "</b></div>" +
+      '<div class="skupaj"><span>Na avtu</span><b>' + esc(razpon(a, it)) + "</b></div>" +
+    "</div></article>";
+}
+function izrisiKartice(){
+  var vidni = IZD.filter(function(it){ return !skrito.has(it.key); });
+  vidni.sort(primerjaj);
+  $("#kartice").innerHTML = vidni.map(function(it){ return kartica(it, false); }).join("");
+  var vs = IZD.filter(function(it){ return vsecki.has(it.key) && !skrito.has(it.key); });
+  $("#vsecki").innerHTML = vs.map(function(it){ return kartica(it, true); }).join("");
+  $("#vsecki-naslov").textContent = "Všečkani (" + vs.length + ")";
+  $("#vsecki-namig").hidden = vs.length > 0;
+  var n = skrito.size;
+  $("#skrito-vrstica").hidden = n === 0;
+  $("#skrito-tekst").textContent = n === 1 ? "1 pokrov je skrit." : n === 2 ? "2 pokrova sta skrita." : (n < 5 ? n + " pokrovi so skriti." : n + " pokrovov je skritih.");
+}
+
+/* tabela */
+function vrednostZa(it, k){
+  if (k === "skupaj"){ var x = vrednost(it); return x.v; }
+  if (k === "del") return it.cena;
+  if (k === "dostava") return ((it.izracun || {}).dostava || {}).v;
+  return (it.tabela || {})[k] || it[k] || "";
+}
+function primerjaj(a, b){
+  var k = razvrsti.kljuc, s = razvrsti.smer;
+  var va = vrednostZa(a, k), vb = vrednostZa(b, k);
+  var na = va == null || va === "", nb = vb == null || vb === "";
+  if (na && nb) return 0; if (na) return 1; if (nb) return -1;
+  if (typeof va === "number" && typeof vb === "number") return (va - vb) * s;
+  return String(va).localeCompare(String(vb), "sl") * s;
+}
+function napolniIzbire(){
+  [["#f-vrsta","vrsta","Vse vrste"],["#f-oe","oe","Vse"],["#f-barva","barva","Vse barve"],["#f-drzava","drzava","Vse"]].forEach(function(f){
+    var vr = {}; IZD.forEach(function(it){ var v = (it.tabela || {})[f[1]]; if (v) vr[v] = 1; });
+    $(f[0]).innerHTML = '<option value="">' + f[2] + "</option>" + Object.keys(vr).sort(function(a,b){ return a.localeCompare(b, "sl"); }).map(function(v){ return '<option value="' + esc(v) + '">' + esc(v) + "</option>"; }).join("");
+  });
+}
+function stevilo(id){ var v = $(id).value; return v === "" ? null : Number(v); }
+function izrisiTabelo(){
+  var q = $("#f-iskanje").value.trim().toLowerCase();
+  var fv = $("#f-vrsta").value, fo = $("#f-oe").value, fb = $("#f-barva").value, fd = $("#f-drzava").value;
+  var dmin = stevilo("#f-del-min"), dmax = stevilo("#f-del-max"), smin = stevilo("#f-sk-min"), smax = stevilo("#f-sk-max");
+  var vidni = IZD.filter(function(it){ return !skrito.has(it.key); });
+  var vrst = vidni.filter(function(it){
+    var t = it.tabela || {};
+    if (q && (it.naslov + " " + (it.prodajalec || "") + " " + (it.spec || "")).toLowerCase().indexOf(q) < 0) return false;
+    if (fv && t.vrsta !== fv) return false;
+    if (fo && t.oe !== fo) return false;
+    if (fb && t.barva !== fb) return false;
+    if (fd && t.drzava !== fd) return false;
+    if (dmin != null && (it.cena == null || it.cena < dmin)) return false;
+    if (dmax != null && (it.cena == null || it.cena > dmax)) return false;
+    var s = vrednost(it).v;
+    if (smin != null && (s == null || s < smin)) return false;
+    if (smax != null && (s == null || s > smax)) return false;
+    return true;
+  });
+  vrst.sort(primerjaj);
+  $("#vrstice").innerHTML = vrst.map(function(it){
+    var t = it.tabela || {}; var d = ((it.izracun || {}).dostava) || {};
+    var s = it.slike && it.slike[0];
+    return '<tr data-key="' + esc(it.key) + '"><td class="mini">' + (s ? '<img src="' + esc(s) + '" alt="" loading="lazy" data-galerija="' + esc(JSON.stringify(it.slike)) + '" data-naslov="' + esc(it.naslov) + '">' : '<div class="prazno"></div>') + "</td>" +
+      "<td><b>" + esc(it.naslov) + '</b><br><span class="tiho majhno">' + esc(it.prodajalec || "") + "</span></td>" +
+      "<td>" + esc(t.vrsta) + "</td><td>" + esc(t.oe) + "</td><td>" + esc(t.barva) + "</td>" +
+      '<td class="st">' + (it.cena != null ? cena(it.cena, true) : "pokliči") + "</td>" +
+      '<td class="st">' + (d.v != null ? (d.ocena ? "≈ " : "") + cena(d.v) : "?") + "</td>" +
+      '<td class="st"><b>' + esc(razpon(vrednost(it), it)) + "</b></td>" +
+      "<td>" + esc(t.drzava) + ' <span class="tiho majhno">' + oznakeVirov(it) + "</span></td></tr>";
+  }).join("");
+  $("#prikazano").textContent = "Prikazano " + vrst.length + " od " + vidni.length + (skrito.size ? " (" + skrito.size + " skritih)" : "");
+  $$("thead th[data-sort]").forEach(function(th){ th.querySelector(".smer").textContent = th.getAttribute("data-sort") === razvrsti.kljuc ? (razvrsti.smer > 0 ? "▲" : "▼") : ""; th.setAttribute("aria-sort", th.getAttribute("data-sort") === razvrsti.kljuc ? (razvrsti.smer > 0 ? "ascending" : "descending") : "none"); });
+}
+
+/* klici */
+function klici(){
+  var K = D.klici || {};
+  $("#skripta").innerHTML = (K.besedila || []).map(function(b, i){
+    return '<div class="ploscica"><span class="nadnaslov">' + esc(b.oznaka) + "</span><h3>" + esc(b.naslov) + '</h3><div class="besedilo" id="besedilo-' + i + '">' + esc(b.besedilo) + '</div><div><button type="button" class="gumb" data-kopiraj-id="besedilo-' + i + '">Kopiraj besedilo</button></div></div>';
+  }).join("");
+  var regije = {};
+  (K.odpadi || []).forEach(function(o){ (regije[o.region] = regije[o.region] || []).push(o); });
+  $("#regije").innerHTML = (K.vrstni_red_regij || Object.keys(regije)).filter(function(r){ return regije[r]; }).map(function(r, i){
+    var seznam = regije[r].slice().sort(function(a, b){ return (b.priority ? 1 : 0) - (a.priority ? 1 : 0) || a.name.localeCompare(b.name, "sl"); });
+    var domaca = K.domaca_regija === r;
+    return '<details class="regija"' + (domaca ? " open" : "") + "><summary><h3>" + esc(r) + (domaca ? ' <span class="cip naglas">najbližje</span>' : "") + ' <span class="tiho majhno">' + seznam.length + (seznam.length === 1 ? " odpad" : seznam.length === 2 ? " odpada" : seznam.length < 5 ? " odpadi" : " odpadov") + '</span></h3></summary><div class="odpadi">' + seznam.map(function(o){
+      var c = [];
+      if (o.priority) c.push('<span class="cip naglas">najprej</span>');
+      if (o.in_official_register) c.push('<span class="cip ok">v uradnem registru</span>');
+      if (o.online_shop === true) c.push('<span class="cip">spletna trgovina</span>');
+      if (o.ima_mondeo) c.push('<span class="cip pozor">' + esc(o.ima_mondeo) + "</span>");
+      var naslov = o.address && o.town && o.address.indexOf(o.town) >= 0 ? o.address : [o.address, o.town].filter(Boolean).join(", ");
+      var splet = o.website || "";
+      var spletIme = /avto\.net/.test(splet) ? "oglas na Avto.net" : /bolha\.com/.test(splet) ? "oglas na Bolhi" : splet.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+      return '<div class="odpad' + (o.priority ? " prednost" : "") + '"><span class="ime">' + esc(o.name) + '</span><span class="tiho majhno">' + esc(naslov) + "</span>" + (c.length ? '<div class="cipi">' + c.join("") + "</div>" : "") +
+        '<div class="tel">' + (o.phones || []).map(function(t){ return '<button type="button" data-kopiraj="' + esc(t) + '" aria-label="Kopiraj številko ' + esc(t) + '">' + esc(t) + "</button>"; }).join("") + "</div>" +
+        (splet ? '<a class="majhno" href="' + esc(splet) + '" target="_blank" rel="noopener">' + esc(spletIme) + "</a>" : "") +
+        (o.notes ? '<span class="tiho majhno">' + esc(o.notes) + "</span>" : "") + "</div>";
+    }).join("") + "</div></details>";
+  }).join("");
+}
+
+/* pred nakupom, kontekst, viri */
+function ostalo(){
+  var P = D.pred_nakupom || {};
+  $("#pred-nakupom-vsebina").innerHTML = (P.bloki || []).map(function(b){
+    var html = '<div class="ploscica"><span class="nadnaslov">' + esc(b.oznaka) + "</span><h3>" + esc(b.naslov) + "</h3>";
+    if (b.pogajanje) html += '<div class="pogajanje">' + b.pogajanje.map(function(p){ return "<div><span>" + esc(p[0]) + "</span><b>" + esc(p[1]) + "</b></div>"; }).join("") + "</div>";
+    if (b.uvod) html += "<p>" + b.uvod + "</p>";
+    if (b.tocke) html += '<ul class="seznam">' + b.tocke.map(function(t){ return "<li>" + t + "</li>"; }).join("") + "</ul>";
+    return html + "</div>";
+  }).join("");
+  $("#pasti").innerHTML = (P.pasti || []).map(function(p){ return '<div class="past"><span class="cip ' + esc(p[0]) + '">' + esc(p[1]) + "</span><p>" + p[2] + "</p></div>"; }).join("");
+  $("#kontekst").innerHTML = (P.kontekst || []).map(function(b){ return '<div class="ploscica"><span class="nadnaslov">' + esc(b.oznaka) + "</span><h3>" + esc(b.naslov) + '</h3><ul class="seznam">' + b.tocke.map(function(t){ return "<li>" + t + "</li>"; }).join("") + "</ul></div>"; }).join("");
+  var M = D.metoda || {};
+  $("#metoda").innerHTML = (M.odstavki || []).map(function(p){ return "<p>" + p + "</p>"; }).join("") + (M.predpostavke ? "<h3>Predpostavke v izračunu</h3><ul>" + M.predpostavke.map(function(p){ return "<li>" + p + "</li>"; }).join("") + "</ul>" : "") + (M.ni_zajeto ? "<h3>Česa nisem uspel preveriti</h3><ul>" + M.ni_zajeto.map(function(p){ return "<li>" + p + "</li>"; }).join("") + "</ul>" : "");
+  $("#seznam-virov").innerHTML = (D.viri || []).map(function(v){ return '<li id="vir-' + esc(v.id) + '"><a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + esc(v.naslov) + '</a> <span class="tiho">(' + esc(v.datum) + ")</span></li>"; }).join("");
+  $("#noga").textContent = D.noga || "";
+}
+
+/* lightbox */
+var lb = {seznam:[], i:0, prej:null};
+function lbOdpri(seznam, naslov, i, sprozilec){
+  lb.seznam = seznam; lb.i = i || 0; lb.prej = sprozilec || null;
+  $("#lb-naslov").textContent = naslov || "";
+  $("#lb").hidden = false; document.body.style.overflow = "hidden";
+  lbPokazi(); $("#lb-zapri").focus();
+}
+function lbPokazi(){
+  $("#lb-img").src = lb.seznam[lb.i];
+  $("#lb-img").alt = ($("#lb-naslov").textContent || "") + ", fotografija " + (lb.i + 1);
+  $("#lb-stevec").textContent = (lb.i + 1) + " / " + lb.seznam.length;
+  var ena = lb.seznam.length < 2; $("#lb-nazaj").disabled = ena; $("#lb-naprej").disabled = ena;
+}
+function lbPremik(d){ if (!lb.seznam.length) return; lb.i = (lb.i + d + lb.seznam.length) % lb.seznam.length; lbPokazi(); }
+function lbZapri(){ $("#lb").hidden = true; document.body.style.overflow = ""; if (lb.prej && lb.prej.focus) lb.prej.focus(); }
+
+/* dogodki */
+function kopiraj(tekst, gumb, element){
+  function ok(){ if (gumb){ var t = gumb.textContent; gumb.classList.add("kopirano"); gumb.textContent = "Kopirano"; setTimeout(function(){ gumb.classList.remove("kopirano"); gumb.textContent = t; }, 1400); } }
+  function rezerva(){ if (element){ var r = document.createRange(); r.selectNodeContents(element); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } }
+  try { navigator.clipboard.writeText(tekst).then(ok, rezerva); } catch(e){ rezerva(); }
+}
+document.addEventListener("click", function(e){
+  var t = e.target;
+  var b;
+  if ((b = t.closest("[data-vsecek]"))){
+    e.stopPropagation();
+    var k = b.getAttribute("data-vsecek");
+    if (vsecki.has(k)) vsecki.delete(k); else vsecki.add(k);
+    shramba.pisi("vsecki", Array.from(vsecki)); izrisiKartice(); return;
+  }
+  if ((b = t.closest("[data-skrij]"))){
+    e.stopPropagation();
+    var k2 = b.getAttribute("data-skrij");
+    skrito.add(k2); vsecki.delete(k2);
+    shramba.pisi("skrito", Array.from(skrito)); shramba.pisi("vsecki", Array.from(vsecki)); izrisiKartice(); izrisiTabelo(); return;
+  }
+  if ((b = t.closest("[data-galerija]"))){
+    e.stopPropagation();
+    try { lbOdpri(JSON.parse(b.getAttribute("data-galerija")), b.getAttribute("data-naslov"), 0, b); } catch(err){}
+    return;
+  }
+  if ((b = t.closest("[data-kopiraj]"))){ kopiraj(b.getAttribute("data-kopiraj"), b, b); return; }
+  if ((b = t.closest("[data-kopiraj-id]"))){ var el = document.getElementById(b.getAttribute("data-kopiraj-id")); kopiraj(el.textContent, b, el); return; }
+  if (t.closest("a")) return;
+  if ((b = t.closest("#vrstice tr"))){
+    var kk = b.getAttribute("data-key"); var kart = document.getElementById("k-" + kk);
+    if (kart){ kart.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center"}); $$(".kartica.poudarek").forEach(function(x){ x.classList.remove("poudarek"); }); kart.classList.add("poudarek"); setTimeout(function(){ kart.classList.remove("poudarek"); }, 2600); }
+    return;
+  }
+  if ((b = t.closest("thead th[data-sort]"))){
+    var sk = b.getAttribute("data-sort");
+    if (razvrsti.kljuc === sk) razvrsti.smer *= -1; else { razvrsti.kljuc = sk; razvrsti.smer = 1; }
+    izrisiTabelo(); return;
+  }
+  if ((b = t.closest("[data-prikaz]"))){ scen.prikaz = b.getAttribute("data-prikaz"); shramba.pisi("scenarij", scen); posodobi(); return; }
+  if ((b = t.closest("[data-montaza]"))){ scen.montaza = b.getAttribute("data-montaza"); shramba.pisi("scenarij", scen); posodobi(); return; }
+});
+document.addEventListener("keydown", function(e){
+  if (!$("#lb").hidden){
+    if (e.key === "Escape") lbZapri();
+    else if (e.key === "ArrowRight") lbPremik(1);
+    else if (e.key === "ArrowLeft") lbPremik(-1);
+    return;
+  }
+  if ((e.key === "Enter" || e.key === " ") && e.target.matches && e.target.matches(".foto[data-galerija]")){
+    e.preventDefault(); lbOdpri(JSON.parse(e.target.getAttribute("data-galerija")), e.target.getAttribute("data-naslov"), 0, e.target);
+  }
+});
+$("#lb-zapri").addEventListener("click", lbZapri);
+$("#lb-naprej").addEventListener("click", function(){ lbPremik(1); });
+$("#lb-nazaj").addEventListener("click", function(){ lbPremik(-1); });
+$("#lb").addEventListener("click", function(e){ if (e.target.id === "lb" || e.target.classList.contains("lb-slika")) lbZapri(); });
+$("#obnovi").addEventListener("click", function(){ skrito.clear(); shramba.pisi("skrito", []); izrisiKartice(); izrisiTabelo(); });
+$$(".filtri input, .filtri select").forEach(function(el){ el.addEventListener("input", izrisiTabelo); el.addEventListener("change", izrisiTabelo); });
+$("#ponastavi").addEventListener("click", function(){ $$(".filtri input, .filtri select").forEach(function(el){ el.value = ""; }); razvrsti = {kljuc:"skupaj", smer:1}; izrisiTabelo(); });
+
+function posodobi(){
+  $$("[data-prikaz]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-prikaz") === scen.prikaz)); });
+  $$("[data-montaza]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-montaza") === scen.montaza)); });
+  $("#stikalo-montaza").style.opacity = scen.prikaz === "del" ? ".5" : "1";
+  izrisiKartice(); izrisiTabelo();
+}
+glava(); odlocitev(); napolniIzbire(); klici(); ostalo(); posodobi();
+})();
+</script>
+</body>
+</html>

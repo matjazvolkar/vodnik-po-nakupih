@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%232F7D6E'/><text x='50' y='72' font-size='62' font-family='Georgia,serif' fill='%23FAF8F4' text-anchor='middle'>M</text></svg>">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px system-ui,sans-serif;background:#fafafa}img{max-width:100%}[hidden]{display:none!important}
+.vodnik-pas{max-width:1140px;margin:0 auto;padding:14px 0 0;font:600 .9rem/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.vodnik-pas a{color:inherit;text-decoration:none;opacity:.72}
+.vodnik-pas a:hover{opacity:1;text-decoration:underline}</style>
+<title>HIGH5 ZERO za dva</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --voda:#EDF2F6; --ploskev:#FFFFFF; --ploskev-2:#F4F7FA; --crta:#D4DDE4; --crta-2:#B5C3CD;
+  --crnilo:#0F1D27; --crnilo-2:#41525E; --crnilo-3:#617383;
+  --naglas:#B0124F; --naglas-2:#8C0D3F; --naglas-mehko:#FBE2EB; --na-naglasu:#FFFFFF;
+  --grenivka:#E2486A; --modra:#1F5FAE; --modra-mehko:#E1EBF7;
+  --ok:#15724A; --ok-bg:#DBF0E4; --pozor:#875800; --pozor-bg:#F8EACA; --napaka:#A3262A; --napaka-bg:#F7DCDC;
+  --senca:0 1px 2px rgba(15,29,39,.06),0 10px 26px rgba(15,29,39,.07);
+  --f-disp:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-tekst:"Figtree","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --f-koda:"IBM Plex Mono",ui-monospace,Consolas,"Courier New",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --voda:#0A1117; --ploskev:#111B23; --ploskev-2:#16222C; --crta:#24323E; --crta-2:#3A4C59;
+    --crnilo:#E6EEF3; --crnilo-2:#A9B8C3; --crnilo-3:#8495A2;
+    --naglas:#FF6A9C; --naglas-2:#FF92B6; --naglas-mehko:#3A1526; --na-naglasu:#0A1117;
+    --grenivka:#FF8AA0; --modra:#86B7F2; --modra-mehko:#13263A;
+    --ok:#70D2A2; --ok-bg:#122F20; --pozor:#E8BB60; --pozor-bg:#33290F; --napaka:#F39494; --napaka-bg:#3A1A1C;
+    --senca:0 1px 2px rgba(0,0,0,.35),0 10px 26px rgba(0,0,0,.32);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --voda:#0A1117; --ploskev:#111B23; --ploskev-2:#16222C; --crta:#24323E; --crta-2:#3A4C59;
+  --crnilo:#E6EEF3; --crnilo-2:#A9B8C3; --crnilo-3:#8495A2;
+  --naglas:#FF6A9C; --naglas-2:#FF92B6; --naglas-mehko:#3A1526; --na-naglasu:#0A1117;
+  --grenivka:#FF8AA0; --modra:#86B7F2; --modra-mehko:#13263A;
+  --ok:#70D2A2; --ok-bg:#122F20; --pozor:#E8BB60; --pozor-bg:#33290F; --napaka:#F39494; --napaka-bg:#3A1A1C;
+  --senca:0 1px 2px rgba(0,0,0,.35),0 10px 26px rgba(0,0,0,.32);
+}
+*{box-sizing:border-box}
+html{scrollbar-color:var(--crta-2) var(--voda)}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--voda)}
+::-webkit-scrollbar-thumb{background:var(--crta-2);border-radius:6px;border:2px solid var(--voda)}
+body{background:var(--voda);color:var(--crnilo);font-family:var(--f-tekst);font-size:16px;line-height:1.55;padding-inline:16px;padding-block:0 48px}
+.ovoj{max-width:1140px;margin-inline:auto}
+a{color:var(--naglas)}
+a:hover{color:var(--naglas-2)}
+:focus-visible{outline:2px solid var(--naglas);outline-offset:2px;border-radius:4px}
+h1,h2,h3{font-family:var(--f-disp);line-height:1.04;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,7vw,4rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.8vw,2.25rem);font-weight:700}
+h3{font-size:1.24rem;font-weight:700}
+p{margin:0}
+.st{font-family:var(--f-koda);font-weight:500;font-variant-numeric:tabular-nums}
+.nadnaslov{font-family:var(--f-koda);text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;font-weight:600;color:var(--crnilo-3)}
+.tiho{color:var(--crnilo-2)}
+.majhno{font-size:.88rem}
+.sekcija{display:grid;gap:18px;padding-block:40px 8px;scroll-margin-top:64px}
+.sekcija > *{min-width:0}
+.sekcija > header{display:grid;gap:6px;max-width:72ch}
+.ploscica{background:var(--ploskev);border:1px solid var(--crta);border-radius:14px;padding:18px}
+
+/* glava */
+.glava{display:grid;gap:22px;padding-block:30px 6px}
+.glava-vrh{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+.glava .uvod{display:grid;gap:12px;max-width:64ch}
+.glava .uvod > p{font-size:1.08rem;color:var(--crnilo-2)}
+.glavna{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:flex-end;margin-top:4px}
+.glavna div{display:grid;gap:2px}
+.glavna b{font-family:var(--f-disp);font-weight:800;font-size:clamp(2rem,5vw,2.8rem);line-height:1;color:var(--naglas)}
+.glavna span{font-size:.9rem;color:var(--crnilo-2)}
+.tube{width:210px;height:220px;flex:none;overflow:visible}
+.tube .telo-t{fill:var(--ploskev);stroke:var(--crta-2);stroke-width:1.2}
+.tube .pas{fill:var(--modra)}
+.tube .t-zero{font-family:var(--f-disp);font-weight:800;font-size:19px;fill:#FFFFFF;letter-spacing:.02em}
+.tube .t-okus{font-family:var(--f-koda);font-weight:600;font-size:7.4px;letter-spacing:.08em}
+.tube .mehurcek{fill:none;stroke:var(--modra);stroke-width:1.3;opacity:.5}
+@keyframes dvig{0%{transform:translateY(0);opacity:0}15%{opacity:.6}100%{transform:translateY(-70px);opacity:0}}
+.tube .mehurcek{animation:dvig 4.6s ease-in infinite;transform-box:fill-box}
+.tube .mehurcek:nth-child(2){animation-delay:1.1s}.tube .mehurcek:nth-child(3){animation-delay:2.3s}.tube .mehurcek:nth-child(4){animation-delay:3.1s}.tube .mehurcek:nth-child(5){animation-delay:.6s}.tube .mehurcek:nth-child(6){animation-delay:1.8s}
+.gravura{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.gravura .ploscica{display:grid;gap:10px;align-content:start}
+.imena{display:flex;flex-wrap:wrap;gap:6px}
+.ime{font-weight:600;font-size:.92rem;padding:4px 10px;border-radius:999px;border:1.5px solid currentColor;background:var(--ploskev)}
+.ne-seznam{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.ne-seznam li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center}
+.ne-seznam img{width:54px;height:54px;object-fit:cover;border-radius:10px;border:1px solid var(--crta);cursor:zoom-in;background:#fff}
+.ne-seznam .brez{width:54px;height:54px;border-radius:10px;border:1px dashed var(--crta-2);display:grid;place-items:center;color:var(--napaka);font-weight:800;font-family:var(--f-disp)}
+.ne-seznam b{display:block;color:var(--napaka)}
+
+/* kazalo */
+.kazalo{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--voda);background:color-mix(in srgb,var(--voda) 92%,transparent);backdrop-filter:blur(6px);margin-inline:-16px;padding:10px 16px;border-bottom:1px solid var(--crta);display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.kazalo::-webkit-scrollbar{display:none}
+.kazalo a{flex:none;text-decoration:none;color:var(--crnilo-2);font-weight:600;font-size:.9rem;padding:6px 12px;border-radius:999px;border:1px solid var(--crta);background:var(--ploskev)}
+.kazalo a:hover{color:var(--naglas);border-color:var(--naglas)}
+
+/* odločitev */
+.odgovor{display:grid;gap:12px;max-width:76ch;font-size:1.05rem}
+.poti{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.pot{background:var(--ploskev);border:1px solid var(--crta);border-radius:14px;padding:16px;display:grid;gap:10px;align-content:start}
+.pot.prva{border:2px solid var(--naglas)}
+.pot .oznaka{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.pot .znesek{font-family:var(--f-disp);font-weight:800;font-size:2rem;line-height:1}
+.pot ol{margin:0;padding-left:1.2em;display:grid;gap:4px;font-size:.95rem}
+.izbor{display:grid;gap:16px}
+.izbor-vrsta{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.izbor-k{background:var(--ploskev);border:1px solid var(--crta);border-radius:14px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.izbor-k .foto{aspect-ratio:16/10}
+.izbor-k .telo{padding:12px 14px;display:grid;gap:6px;align-content:start}
+.izbor-k .cena-v{font-family:var(--f-disp);font-weight:800;font-size:1.45rem}
+.proracun{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.proracun .ploscica{display:grid;gap:4px;align-content:start}
+.proracun .znesek{font-family:var(--f-disp);font-weight:800;font-size:1.55rem}
+.besedilo{background:var(--ploskev-2);border:1px solid var(--crta);border-radius:10px;padding:12px;white-space:pre-wrap;font-size:.98rem;user-select:all}
+
+/* čipi */
+.cip{display:inline-flex;align-items:center;gap:4px;font-size:.76rem;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid var(--crta);background:var(--ploskev-2);color:var(--crnilo-2);white-space:nowrap}
+.cip.ok{color:var(--ok);background:var(--ok-bg);border-color:transparent}
+.cip.pozor{color:var(--pozor);background:var(--pozor-bg);border-color:transparent}
+.cip.napaka{color:var(--napaka);background:var(--napaka-bg);border-color:transparent}
+.cip.naglas{color:var(--naglas);background:var(--naglas-mehko);border-color:transparent}
+.cip.okus{border-color:transparent;color:#fff}
+.cip.okus.manjka{background:var(--ploskev-2)!important;color:var(--crnilo-3);text-decoration:line-through;border-color:var(--crta)}
+.cipi{display:flex;flex-wrap:wrap;gap:6px}
+
+/* scenarij */
+.scenarij{display:grid;gap:14px;background:var(--ploskev);border:1px solid var(--crta);border-radius:14px;padding:16px}
+.kolicina{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center}
+.kolicina .stevilo{font-family:var(--f-disp);font-weight:800;font-size:2.2rem;line-height:1;min-width:3.2ch;text-align:right}
+.kolicina .enota{font-size:.85rem;color:var(--crnilo-2);line-height:1.2}
+.drsnik{display:grid;gap:8px}
+input[type=range]{width:100%;accent-color:var(--naglas);height:28px;margin:0}
+.hitri{display:flex;flex-wrap:wrap;gap:6px}
+.stikala{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+.stikalo{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.stikalo > span{font-size:.85rem;color:var(--crnilo-3);margin-right:4px;font-weight:600}
+.stikalo button,.hitri button,.pm{font:inherit;font-size:.9rem;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--crta);background:var(--ploskev-2);color:var(--crnilo-2);cursor:pointer}
+.stikalo button[aria-pressed="true"],.hitri button[aria-pressed="true"]{background:var(--crnilo);border-color:var(--crnilo);color:var(--voda)}
+.pm{width:40px;height:40px;padding:0;font-size:1.3rem;line-height:1;display:grid;place-items:center}
+.povzetek{border-top:1px dashed var(--crta-2);padding-top:12px;font-size:1rem}
+.povzetek b{color:var(--naglas)}
+.skrito-vrstica{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--pozor-bg);color:var(--crnilo);border-radius:10px;padding:10px 14px}
+.gumb{font:inherit;font-weight:600;font-size:.9rem;padding:7px 14px;border-radius:8px;border:1px solid var(--crta-2);background:var(--ploskev);color:var(--crnilo);cursor:pointer}
+.gumb:hover{border-color:var(--naglas);color:var(--naglas)}
+
+/* kartice */
+.mreza{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.kartica{background:var(--ploskev);border:1px solid var(--crta);border-radius:14px;overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;position:relative;transition:box-shadow .3s,border-color .3s;scroll-margin-top:72px}
+.kartica.poudarek{border-color:var(--naglas);box-shadow:0 0 0 3px var(--naglas-mehko),var(--senca)}
+.kartica.nemogoce{background:var(--ploskev-2)}
+.foto{position:relative;aspect-ratio:16/10;background:#FFFFFF;cursor:zoom-in;overflow:hidden}
+.foto img{width:100%;height:100%;object-fit:contain;display:block}
+.foto .stevec{position:absolute;left:10px;bottom:10px;background:rgba(10,15,20,.74);color:#fff;font-size:.78rem;font-weight:600;padding:3px 9px;border-radius:999px}
+.foto.risba{cursor:default;background:var(--ploskev-2);display:grid;place-items:center}
+.foto.risba svg{width:62%;height:78%}
+.foto.risba .opis{position:absolute;left:10px;bottom:10px;font-size:.78rem;color:var(--crnilo-3)}
+.kartica .akcije{position:absolute;top:10px;right:10px;display:flex;gap:6px;z-index:2}
+.ikona{width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,.5);background:rgba(10,15,20,.62);color:#fff;display:grid;place-items:center;cursor:pointer;padding:0}
+.ikona svg{width:18px;height:18px}
+.ikona[aria-pressed="true"]{background:#C4314B;border-color:#C4314B}
+.ikona:hover{background:rgba(10,15,20,.85)}
+.ikona[aria-pressed="true"]:hover{background:#A82540}
+.kartica .telo{padding:14px 16px;display:grid;gap:9px;align-content:start}
+.kartica h3{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.kartica h3 a{color:var(--crnilo);text-decoration:none}
+.kartica h3 a:hover{color:var(--naglas);text-decoration:underline}
+.kartica h3 small{font-family:var(--f-tekst);font-weight:500;font-size:.88rem;color:var(--crnilo-3)}
+.spec{margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:.88rem;color:var(--crnilo-2)}
+.spec b{color:var(--crnilo);font-weight:600}
+.spec s{color:var(--crnilo-3)}
+.cenovna{display:grid;gap:6px}
+.cenovna .vrsta{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.cenovna .znesek{font-family:var(--f-disp);font-size:2rem;font-weight:800;line-height:1}
+.pas-cene{position:relative;height:8px;border-radius:999px;background:linear-gradient(90deg,var(--ok-bg),var(--pozor-bg) 55%,var(--napaka-bg))}
+.pas-cene i{position:absolute;top:-4px;width:4px;height:16px;border-radius:2px;background:var(--crnilo);transform:translateX(-2px)}
+.pas-oznake{display:flex;justify-content:space-between;font-size:.72rem;color:var(--crnilo-3);font-family:var(--f-koda)}
+.opozorila{margin:0;padding:0;list-style:none;display:grid;gap:4px;font-size:.88rem}
+.opozorila li{padding-left:16px;position:relative}
+.opozorila li::before{content:"";position:absolute;left:2px;top:.55em;width:7px;height:7px;border-radius:2px;background:var(--pozor)}
+.opozorila li.dobro::before{background:var(--ok)}
+.opozorila li.slabo::before,.opozorila li.napaka::before{background:var(--napaka)}
+.opozorila li.namig{font-weight:600;color:var(--naglas)}
+.opozorila li.namig::before{background:var(--naglas)}
+.racun{border-top:1px dashed var(--crta-2);background:var(--ploskev-2);padding:12px 16px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 6px;font-size:.8rem}
+.racun div{display:grid;gap:1px;min-width:0}
+.racun span{color:var(--crnilo-3)}
+.racun b{font-family:var(--f-koda);font-weight:500;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.racun .kupis{grid-column:1 / -1}
+.racun .kupis b{white-space:normal;font-family:var(--f-tekst);font-weight:600;font-size:.86rem}
+.racun .vrsta2{grid-column:1 / -1;border-top:1px solid var(--crta);padding-top:8px;display:grid;grid-template-columns:1fr;gap:4px}
+.racun .vrsta2 div{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.racun .skupaj b{font-weight:600;font-size:.98rem;color:var(--naglas)}
+.ocena{color:var(--pozor)}
+.nemogoce-sporocilo{font-weight:600;color:var(--napaka)}
+
+/* tabela */
+.tabela-okvir{overflow-x:auto;border:1px solid var(--crta);border-radius:14px;background:var(--ploskev)}
+table{border-collapse:collapse;width:100%;min-width:1020px;font-size:.9rem}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--crta);vertical-align:middle}
+thead th{background:var(--ploskev-2);font-family:var(--f-disp);font-size:.95rem;font-weight:700;white-space:nowrap}
+thead th[data-sort]{cursor:pointer;user-select:none}
+thead th[data-sort]:hover{color:var(--naglas)}
+thead th .smer{display:inline-block;width:1em;color:var(--naglas)}
+thead tr.filtri th{background:var(--ploskev);font-family:var(--f-tekst);font-weight:400;padding:6px 8px}
+.filtri input,.filtri select{width:100%;font:inherit;font-size:.85rem;padding:5px 6px;border:1px solid var(--crta);border-radius:6px;background:var(--ploskev-2);color:var(--crnilo)}
+.filtri .min-max{display:flex;gap:4px}
+.filtri .min-max input{min-width:0}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--naglas-mehko)}
+tbody tr.ni-izracuna td{color:var(--crnilo-3)}
+td.st{font-family:var(--f-koda);font-size:.85rem;white-space:nowrap;text-align:right}
+td.mini img{width:58px;height:44px;object-fit:contain;border-radius:6px;display:block;background:#fff;border:1px solid var(--crta)}
+td.mini .prazno{width:58px;height:44px;border-radius:6px;background:var(--ploskev-2);border:1px solid var(--crta)}
+.tabela-noga{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--crnilo-2)}
+.preprosta{min-width:720px}
+.preprosta tbody tr{cursor:default}
+.preprosta tbody tr:hover{background:transparent}
+
+/* graf */
+.graf-okvir{background:var(--ploskev);border:1px solid var(--crta);border-radius:14px;padding:14px 10px 10px}
+#graf svg{display:block;width:100%;height:auto}
+#graf .os{stroke:var(--crta-2);stroke-width:1}
+#graf .mreza-c{stroke:var(--crta);stroke-width:1;stroke-dasharray:3 4}
+#graf text{font-family:var(--f-koda);font-size:11px;fill:var(--crnilo-3)}
+#graf .crta-v{fill:none;stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
+#graf .oznaka-n{stroke:var(--naglas);stroke-width:1.5;stroke-dasharray:4 3}
+#graf .oznaka-n-t{fill:var(--naglas);font-weight:600}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 10px;padding:10px 6px 2px;margin:0;list-style:none}
+.legenda button{font:inherit;font-size:.85rem;display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;border:1px solid var(--crta);background:var(--ploskev-2);color:var(--crnilo);cursor:pointer}
+.legenda button[aria-pressed="false"]{opacity:.45;text-decoration:line-through}
+.legenda i{width:14px;height:4px;border-radius:2px;display:inline-block}
+
+/* bloki */
+.dve{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.dve .ploscica{display:grid;gap:10px;align-content:start}
+.seznam{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.koraki{margin:0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:k}
+.koraki li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--ploskev);border:1px solid var(--crta);border-radius:12px;padding:12px 14px;counter-increment:k}
+.koraki li::before{content:counter(k);font-family:var(--f-disp);font-weight:800;font-size:1.35rem;line-height:1.1;color:var(--naglas);min-width:1.2em}
+.pasti{display:grid;gap:8px}
+.past{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--ploskev);border:1px solid var(--crta);border-radius:12px;padding:12px 14px}
+.past .cip{margin-top:2px}
+.past b{display:block}
+.zdravje{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.zdravje .ploscica{display:grid;gap:6px;align-content:start}
+.zdravje .znesek{font-family:var(--f-disp);font-weight:800;font-size:1.35rem;color:var(--naglas)}
+.viri{margin:0;padding-left:1.6em;display:grid;gap:6px;font-size:.9rem}
+.viri li{overflow-wrap:anywhere}
+.metoda{display:grid;gap:10px;max-width:76ch}
+.metoda ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
+
+/* lightbox */
+.lb[hidden]{display:none}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(6,10,14,.93);display:grid;grid-template-rows:auto 1fr auto;padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(12px + env(safe-area-inset-bottom,0px))}
+.lb-vrh,.lb-dno{display:flex;justify-content:space-between;align-items:center;color:#E8ECEE;gap:10px}
+.lb-slika{display:grid;place-items:center;min-height:0}
+.lb-slika img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;background:#fff}
+.lb button{font:inherit;font-weight:600;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:8px 14px;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.22)}
+.lb button:disabled{opacity:.35;cursor:default}
+.noga{padding-block:36px 0;color:var(--crnilo-3);font-size:.85rem}
+@media (max-width:760px){
+  .tube{width:150px;height:160px}
+}
+@media (max-width:560px){
+  .mreza{grid-template-columns:1fr}
+  .glava-vrh{grid-template-columns:1fr}
+  .tube{display:none}
+  .kolicina{grid-template-columns:auto minmax(0,1fr)}
+  .kolicina .pm-skupina{grid-column:1 / -1}
+}
+@media (max-width:360px){ .racun{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="vodnik-pas"><a href="../">← Vodnik po nakupih</a></div>
+<div class="ovoj">
+<header class="glava" id="vrh">
+  <div class="glava-vrh">
+    <div class="uvod">
+      <span class="nadnaslov" id="datum-raziskave">Nakupna raziskava</span>
+      <h1>HIGH5 ZERO za dva</h1>
+      <p id="podnaslov"></p>
+      <div class="glavna" id="glavna"></div>
+    </div>
+    <svg class="tube" viewBox="0 0 210 220" aria-hidden="true">
+      <g class="mehurcki">
+        <circle class="mehurcek" cx="60" cy="40" r="4"/><circle class="mehurcek" cx="96" cy="30" r="2.6"/><circle class="mehurcek" cx="128" cy="44" r="3.4"/><circle class="mehurcek" cx="150" cy="26" r="2.2"/><circle class="mehurcek" cx="80" cy="18" r="2"/><circle class="mehurcek" cx="170" cy="40" r="3"/>
+      </g>
+      <g transform="translate(36,44) rotate(-7 34 85)">
+        <rect class="telo-t" x="0" y="20" width="68" height="152" rx="9"/>
+        <rect x="-3" y="0" width="74" height="28" rx="7" fill="#B0124F"/>
+        <text class="t-okus" x="34" y="50" text-anchor="middle" fill="#B0124F">BERRY</text>
+        <rect class="pas" x="0" y="74" width="68" height="62"/>
+        <text class="t-zero" x="34" y="112" text-anchor="middle">ZERO</text>
+      </g>
+      <g transform="translate(110,52) rotate(6 34 85)">
+        <rect class="telo-t" x="0" y="20" width="68" height="152" rx="9"/>
+        <rect x="-3" y="0" width="74" height="28" rx="7" fill="#F0627A"/>
+        <text class="t-okus" x="34" y="46" text-anchor="middle" fill="#D93D61">PINK</text>
+        <text class="t-okus" x="34" y="56" text-anchor="middle" fill="#D93D61">GRAPEFRUIT</text>
+        <rect class="pas" x="0" y="74" width="68" height="62"/>
+        <text class="t-zero" x="34" y="112" text-anchor="middle">ZERO</text>
+      </g>
+    </svg>
+  </div>
+  <div class="gravura" id="gravura"></div>
+</header>
+
+<nav class="kazalo" aria-label="Kazalo">
+  <a href="#odlocitev">Odločitev</a>
+  <a href="#kosarica">Košarica</a>
+  <a href="#ponudbe">Trgovine</a>
+  <a href="#lestvica">Lestvica</a>
+  <a href="#graf-sekcija">Graf</a>
+  <a href="#prodajalec">Pasti</a>
+  <a href="#zdravje">Zdravje</a>
+  <a href="#alternative">Alternative</a>
+  <a href="#viri">Viri</a>
+</nav>
+
+<section class="sekcija" id="odlocitev">
+  <header><span class="nadnaslov">Odločitev</span><h2>Kratek odgovor</h2></header>
+  <div class="odgovor" id="odgovor"></div>
+  <div class="poti" id="poti"></div>
+  <div class="izbor" id="izbor"></div>
+  <header><span class="nadnaslov">Proračun</span><h3>Koliko na mesec za oba</h3></header>
+  <div class="proracun" id="proracun"></div>
+  <div class="ploscica" style="display:grid;gap:10px">
+    <span class="nadnaslov">Opomba k naročilu</span>
+    <div class="besedilo" id="bes-narocilo"></div>
+    <div><button type="button" class="gumb" data-kopiraj-id="bes-narocilo">Kopiraj besedilo</button></div>
+  </div>
+</section>
+
+<section class="sekcija" id="kosarica">
+  <header>
+    <span class="nadnaslov">Košarica</span>
+    <h2>Koliko tub naenkrat</h2>
+    <p class="tiho">Izberi velikost naročila, okus in plačilo. »Oba najljubša« pokaže samo trgovine, ki imajo Berry in Pink Grapefruit, »Vsaj eden« tudi tiste z enim od njiju. Kartice, lestvica in graf se preračunajo: koliko res kupiš, koliko plačaš z dostavo in koliko stane tableta. Izbira se shrani samo v tvojem brskalniku.</p>
+  </header>
+  <div class="scenarij" role="group" aria-label="Scenarij">
+    <div class="kolicina">
+      <div><span class="stevilo st" id="n-stevilo">6</span></div>
+      <div class="drsnik">
+        <label class="enota" for="n-drsnik" id="n-opis">tub po 20 tablet</label>
+        <input type="range" id="n-drsnik" min="1" max="36" step="1" value="6">
+      </div>
+      <div class="pm-skupina" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+        <button type="button" class="pm" id="n-manj" aria-label="Ena tuba manj">−</button>
+        <button type="button" class="pm" id="n-vec" aria-label="Ena tuba več">+</button>
+        <div class="hitri" id="hitri"></div>
+      </div>
+    </div>
+    <div class="stikala">
+      <div class="stikalo"><span>Okus</span>
+        <button type="button" data-okus="oba">Oba najljubša</button>
+        <button type="button" data-okus="priljubljena">Vsaj eden</button>
+        <button type="button" data-okus="vsi">Katerikoli</button>
+      </div>
+      <div class="stikalo"><span>Plačilo</span>
+        <button type="button" data-placilo="vnaprej">Vnaprej</button>
+        <button type="button" data-placilo="povzetje">Povzetje</button>
+      </div>
+      <div class="stikalo" id="poraba-stikalo"><span>Poraba za dva</span></div>
+    </div>
+    <p class="povzetek" id="povzetek" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="sekcija" id="ponudbe">
+  <header>
+    <span class="nadnaslov">Trgovine</span>
+    <h2>Kje kupiti</h2>
+    <p class="tiho">Vsaka kartica ima spodaj račun za izbrano košarico. Pas pod ceno pokaže, kje je trgovina med najcenejšo in najdražjo. Klik na sliko odpre vse fotografije.</p>
+  </header>
+  <div class="skrito-vrstica" id="skrito-vrstica" hidden>
+    <span id="skrito-tekst"></span>
+    <button type="button" class="gumb" id="obnovi">Pokaži vse</button>
+  </div>
+  <div id="vsecki-okvir" class="izbor">
+    <h3 id="vsecki-naslov">Všečkane</h3>
+    <p class="tiho majhno" id="vsecki-namig">Tapni srček na kartici in trgovina se pokaže tukaj. Shrani se samo v tvojem brskalniku.</p>
+    <div class="mreza" id="vsecki"></div>
+  </div>
+  <div class="mreza" id="kartice"></div>
+</section>
+
+<section class="sekcija" id="lestvica">
+  <header>
+    <span class="nadnaslov">Lestvica</span>
+    <h2>Najcenejše na tableto</h2>
+    <p class="tiho">Vse trgovine za izbrano košarico, privzeto po ceni tablete z dostavo. Klik na naslov stolpca razvrsti drugače, klik na vrstico skoči na kartico.</p>
+  </header>
+  <div class="tabela-okvir">
+    <table id="tabela">
+      <thead>
+        <tr>
+          <th>Slika</th>
+          <th data-sort="naslov">Trgovina <span class="smer"></span></th>
+          <th data-sort="drzava">Država <span class="smer"></span></th>
+          <th data-sort="okusa">Okusa <span class="smer"></span></th>
+          <th data-sort="povzetje">Povzetje <span class="smer"></span></th>
+          <th data-sort="tablet">Kupiš <span class="smer"></span></th>
+          <th data-sort="skupaj">Skupaj <span class="smer"></span></th>
+          <th data-sort="tableta">Na tableto <span class="smer"></span></th>
+          <th data-sort="mesec">Na mesec <span class="smer"></span></th>
+          <th data-sort="leto">Na leto <span class="smer"></span></th>
+        </tr>
+        <tr class="filtri">
+          <th></th>
+          <th><input id="f-iskanje" type="search" placeholder="Išči" aria-label="Išči po trgovini"></th>
+          <th><select id="f-drzava" aria-label="Država"></select></th>
+          <th><select id="f-okusa" aria-label="Okusa"></select></th>
+          <th><select id="f-povzetje" aria-label="Povzetje"></select></th>
+          <th></th>
+          <th><div class="min-max"><input id="f-sk-min" type="number" inputmode="decimal" placeholder="od" aria-label="Skupaj od"><input id="f-sk-max" type="number" inputmode="decimal" placeholder="do" aria-label="Skupaj do"></div></th>
+          <th><div class="min-max"><input id="f-ta-min" type="number" inputmode="decimal" step="0.01" placeholder="od" aria-label="Na tableto od"><input id="f-ta-max" type="number" inputmode="decimal" step="0.01" placeholder="do" aria-label="Na tableto do"></div></th>
+          <th><div class="min-max"><input id="f-me-min" type="number" inputmode="decimal" placeholder="od" aria-label="Na mesec od"><input id="f-me-max" type="number" inputmode="decimal" placeholder="do" aria-label="Na mesec do"></div></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="vrstice"></tbody>
+    </table>
+  </div>
+  <div class="tabela-noga"><span id="prikazano"></span><button type="button" class="gumb" id="ponastavi">Ponastavi filtre</button></div>
+</section>
+
+<section class="sekcija" id="graf-sekcija">
+  <header>
+    <span class="nadnaslov">Graf</span>
+    <h2>Kje se večja košarica splača</h2>
+    <p class="tiho">Cena tablete z dostavo glede na število tub v naročilu, za izbran okus in plačilo. Padci so pragovi brezplačne dostave in akcije. Klik na ime v legendi skrije ali pokaže črto.</p>
+  </header>
+  <div class="graf-okvir"><div id="graf"></div><ul class="legenda" id="legenda"></ul></div>
+</section>
+
+<section class="sekcija" id="prodajalec">
+  <header>
+    <span class="nadnaslov">Prodajalčeva glava</span>
+    <h2>Pasti in kako jih obideš</h2>
+    <p class="tiho" id="prodajalec-uvod"></p>
+  </header>
+  <div class="pasti" id="pasti"></div>
+  <div class="dve">
+    <div class="ploscica"><span class="nadnaslov">Pogajanje</span><h3>Kaj lahko izboljšaš</h3><ul class="seznam" id="pogajanje"></ul></div>
+    <div class="ploscica" id="kontekst-0"></div>
+    <div class="ploscica" id="kontekst-1"></div>
+  </div>
+  <header><span class="nadnaslov">Vrstni red nakupa</span><h3>Kako kupiti</h3></header>
+  <ol class="koraki" id="koraki"></ol>
+</section>
+
+<section class="sekcija" id="zdravje">
+  <header>
+    <span class="nadnaslov">Zdravje in raba</span>
+    <h2>Kaj pomeni 1 do 2 tubi na teden</h2>
+  </header>
+  <div class="zdravje" id="zdravje-bloki"></div>
+  <div class="ploscica" style="display:grid;gap:8px"><span class="nadnaslov">Okus po mnenju kupcev</span><ul class="seznam" id="okus"></ul><p class="majhno tiho" id="okus-viri"></p></div>
+</section>
+
+<section class="sekcija" id="alternative">
+  <header>
+    <span class="nadnaslov">Alternative</span>
+    <h2>Druge tablete za primerjavo</h2>
+    <p class="tiho" id="alt-opis"></p>
+  </header>
+  <div class="tabela-okvir"><table class="preprosta" id="alt-tabela"></table></div>
+  <p class="majhno tiho" id="alt-viri"></p>
+</section>
+
+<section class="sekcija" id="viri">
+  <header><span class="nadnaslov">Viri in metoda</span><h2>Od kod so številke</h2></header>
+  <div class="metoda" id="metoda"></div>
+  <ol class="viri" id="seznam-virov"></ol>
+</section>
+
+<footer class="noga" id="noga"></footer>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Fotografije">
+  <div class="lb-vrh"><span id="lb-naslov"></span><button type="button" id="lb-zapri">Zapri</button></div>
+  <div class="lb-slika"><img id="lb-img" alt=""></div>
+  <div class="lb-dno"><button type="button" id="lb-nazaj">Nazaj</button><span id="lb-stevec"></span><button type="button" id="lb-naprej">Naprej</button></div>
+</div>
+
+<!--PODATKI:ZACETEK-->
+<script id="podatki" type="application/json">{"datum":"19. 10. 2026","podnaslov":"Šumeče tablete z elektroliti za dva, 1 do 2 tubi na teden. Kje jih kupiti, koliko stane tableta z dostavo in kje se splača večja košarica. Cene so prebrane na dan raziskave, ocene so označene z ≈.","noga":"Pripravljeno 19. 10. 2026. To je posnetek stanja: cene, akcije in zaloge se menjajo, zato pred naročilom preveri povezavo.","okusi":{"berry":{"ime":"Berry","barva":"#C2185B"},"pinkgrapefruit":{"ime":"Pink Grapefruit","barva":"#F0627A"},"citrus":{"ime":"Citrus","barva":"#C9A000"},"orangecherry":{"ime":"Orange & Cherry","barva":"#E2641B"},"tropical":{"ime":"Tropical","barva":"#E39400"},"strawberrykiwi":{"ime":"Strawberry & Kiwi","barva":"#5E9E2E"},"blackcurrant":{"ime":"Blackcurrant","barva":"#6A2C79"},"mango":{"ime":"Mango","barva":"#E6A23C"}},"priljubljeni":["berry","pinkgrapefruit"],"poraba":{"moznosti":[1,1.5,2],"privzeto":1.5,"tednov_na_leto":52},"kosarica":{"privzeto":6,"min":1,"max":36,"hitri":[3,6,9,12,18,24]},"cilj":{"isci":[{"okus":"berry","naslov":"Berry","imena":["Gozdni sadeži","jagodičevje","Forest fruits","Beere","Šumsko voće"]},{"okus":"pinkgrapefruit","naslov":"Pink Grapefruit","imena":["Grenivka","Rdeča grenivka","Roza grenivka","Pink Grapefruit"]}],"opomba":"Iščem navaden ZERO brez kofeina. Ima pod 2 mg kofeina iz zelenega čaja, kar HIGH5 ne šteje za kofeinski izdelek.","ne":[{"ime":"ZERO Caffeine Hit","zakaj":"75 mg kofeina v tableti, ista okusa, ista cena in skoraj ista tuba. Prepoznaš ga po rdečem traku CAFFEINE HIT pod logotipom.","slika":"img/topatlet-kofein.jpg"},{"ime":"Medikem: GRENIVKA+KOFEIN","zakaj":"Različica s kofeinom je skrita med okusi navadnega ZERO, izbereš jo v istem meniju.","slika":"img/medikem-kofein-pinkgrapefruit.jpg"},{"ime":"ZERO Protect, Imuno protect","zakaj":"Tretja linija z ameriškim slamnikom in vitaminom D, drug izdelek in drug odmerek."},{"ime":"Dextro Energy Zero Calories","zakaj":"Druga znamka s podobnim imenom. Amazon jo ponudi kot »podoben izdelek«, ko HIGH5 ne pošilja v Slovenijo."},{"ime":"PowerBar 5Electrolytes Pink Grapefruit","zakaj":"Okus Pink Grapefruit prodajajo samo s kofeinom, 75 mg v tableti."}]},"trgovine":[{"key":"topatlet","ime":"Topatlet","drzava":"Slovenija","kraj":"Ljubljana","url":"https://www.topatlet.si/high5-zero-solne-sumece-tablete","slike":["img/topatlet-berry.jpg"],"barva":"#C2185B","ponudbe":[{"key":"tuba","kratko":"tuba","naslov":"ZERO klasik, tuba 20 tablet","tablet":20,"cena":7.06,"redna":9.8,"okusi":["berry","pinkgrapefruit","citrus","orangecherry","tropical","strawberrykiwi","blackcurrant","mango"],"imena":{"berry":"Gozdni sadeži","pinkgrapefruit":"Grenivka"},"zaloga":true}],"nacini":[{"key":"dostava","ime":"dostava na dom","dostava":[{"od":0,"cena":4.2},{"od":40,"cena":0}],"opis":"GLS ali Express One 4,20 € (Pošta Slovenije 7,00 €), od 40 € brezplačno z Express One","opombe":[]},{"key":"prevzem","ime":"prevzem v Ljubljani","dostava":[{"od":0,"cena":0}],"opis":"Ulica Jana Husa 21, Ljubljana, ob delavnikih od 9. do 16. ure, v sredo do 19. ure, brez stroška","povzetje":{"stanje":"ni_podatka","doplacilo":{"v":0,"lo":0,"hi":0,"ocena":true},"opis":"plačilo ob prevzemu pogoji ne opisujejo, vprašaj ob naročilu"},"opombe":[["dobro","Brez stroška dostave pri vsaki količini, tudi pri eni tubi."],["pozor","Plačilo ob prevzemu pogoji ne opisujejo, vprašaj ob naročilu."]]}],"min_narocilo":0,"povzetje":{"stanje":"da","doplacilo":{"v":0.98,"lo":0.0,"hi":1.2,"ocena":true},"opis":"povzetje z gotovino; Pošta Slovenije 0,98 €, provizija za GLS in Express One ni objavljena"},"vnaprej":{"stanje":"da","opis":"predračun, nakazilo v 7 dneh (kartice pogoji ne omenjajo)"},"rok":"ni naveden","viri":["topatlet-zero","topatlet-dostava","topatlet-pogoji"],"opombe":[["dobro","Vseh 8 okusov je na zalogi, tudi Gozdni sadeži in Grenivka."],["pozor","Akcija −28 %, konec ni naveden. Redna cena 9,80 € pomeni 0,49 € na tableto."],["pozor","Na sosednji strani je ZERO s KOFEINOM po isti ceni."]]},{"key":"kupipametno","ime":"Kupipametno.si","drzava":"Slovenija","kraj":"Šentilj","url":"https://www.kupipametno.si/izdelek/high5-zero-elektrolitne-tablete/","slike":["img/kupipametno-berry.jpg"],"barva":"#2E7D32","ponudbe":[{"key":"dvojno","kratko":"paket 2 × 20","naslov":"ZERO Berry, dvojno pakiranje 2 × 20","tablet":40,"cena":11.99,"redna":null,"okusi":["berry"],"imena":{"berry":"jagodičevje"},"zaloga":true}],"nacini":[{"key":"dostava","ime":"dostava na dom","dostava":[{"od":0,"cena":4.9},{"od":99,"cena":0}],"opis":"Express One 4,90 €, od 99 € brezplačno","opombe":[]}],"min_narocilo":25,"povzetje":{"stanje":"po_dogovoru","doplacilo":{"v":0.99,"lo":0.0,"hi":1.2,"ocena":true},"opis":"povzetje samo, ko ga trgovina ponudi za tvoje naročilo; doplačilo ni objavljeno"},"vnaprej":{"stanje":"da","opis":"kartica prek Stripe"},"rok":"3 do 7 delovnih dni","viri":["kupipametno-zero","kupipametno-dostava"],"opombe":[["dobro","Najnižja cena za Berry: 5,995 € za tubo."],["pozor","Minimalno naročilo 25 €, torej vsaj 3 paketi."],["pozor","Samo Berry. Rok uporabe ni objavljen, oglas je nov, trgovina prodaja splošno blago."]]},{"key":"bike24","ime":"Bike24","drzava":"Nemčija","kraj":"Dresden","url":"https://www.bike24.com/p245028.html","slike":[],"barva":"#1565C0","ponudbe":[{"key":"tuba","kratko":"tuba","naslov":"Zero, tuba 20 tablet","tablet":20,"cena":7.19,"redna":8.99,"okusi":["berry","pinkgrapefruit","citrus","orangecherry","tropical","strawberrykiwi","blackcurrant","mango"],"imena":{"berry":"Berry","pinkgrapefruit":"Pink Grapefruit"},"zaloga":true},{"key":"trojni","kratko":"Triple Pack","naslov":"Zero Triple Pack, 3 × 20: Berry, Citrus, Tropical","tablet":60,"cena":16.39,"redna":24.99,"okusi":["berry","citrus","tropical"],"mesan":true,"zaloga":true,"url":"https://www.bike24.com/p2381379.html"}],"nacini":[{"key":"dostava","ime":"dostava v Slovenijo","dostava":[{"od":0,"cena":5.99},{"od":100,"cena":2.99}],"opis":"5,99 €, od 100 € 2,99 €","opombe":[]}],"min_narocilo":0,"povzetje":{"stanje":"ne","doplacilo":{"v":0,"lo":0,"hi":0,"ocena":false},"opis":"povzetja v pogojih za Slovenijo ni"},"vnaprej":{"stanje":"da","opis":"plačilo ob naročilu"},"rok":"za Slovenijo ni naveden","viri":["bike24-zero","bike24-triple","bike24-dostava"],"opombe":[["dobro","Triple Pack 16,39 €, pred dostavo 0,273 € na tableto."],["slabo","Povzetja ni, plačaš vnaprej."],["pozor","Triple Pack ima po eno tubo Berry, Citrus in Tropical. Za oba najljubša okusa ostanejo posamezne tube po 7,19 €."]]},{"key":"veb","ime":"VEB Company","drzava":"Slovenija","kraj":"Ljubljana","url":"https://www.veb-company.si/izdelek/HF.2915/high-5-zero-20-tablet","slike":["img/veb-grenivka.jpg"],"barva":"#EF6C00","ponudbe":[{"key":"tuba","kratko":"tuba","naslov":"HIGH 5 ZERO, tuba 20 tablet","tablet":20,"cena":7.76,"redna":9.95,"okusi":["pinkgrapefruit"],"imena":{"pinkgrapefruit":"Grapefruit/Grenivka"},"zaloga":true}],"nacini":[{"key":"dostava","ime":"dostava na dom","dostava":[{"od":0,"cena":5.95},{"od":65,"cena":0}],"opis":"DPD 5,95 €, od 65 € brezplačno","opombe":[]}],"min_narocilo":0,"povzetje":{"stanje":"da","doplacilo":{"v":0,"lo":0,"hi":0,"ocena":false},"opis":"povzetje z gotovino pri DPD, brez doplačila za dostavo na dom"},"vnaprej":{"stanje":"da","opis":"kartica ali predračun"},"rok":"ni naveden","viri":["veb-zero","veb-dostava"],"opombe":[["dobro","Povzetje pri DPD brez doplačila."],["pozor","Samo Grenivka (Pink Grapefruit), Berry ni v ponudbi."]]},{"key":"thenutrition","ime":"THE Nutrition","drzava":"Slovenija","kraj":"Ljubljana","url":"https://www.the-nutrition.com/izdelek/693/HIGH5-Zero*","slike":["img/thenutrition.jpg"],"barva":"#6A1B9A","ponudbe":[{"key":"tuba","kratko":"tuba","naslov":"HIGH5 Zero, tuba 20 tablet","tablet":20,"cena":7.99,"redna":null,"okusi":["berry","pinkgrapefruit"],"imena":{"berry":"Forest fruits","pinkgrapefruit":"Pink Grapefruit"},"zaloga":true}],"nacini":[{"key":"dostava","ime":"dostava na dom","dostava":[{"od":0,"cena":null},{"od":59.99,"cena":0}],"opis":"od 59,99 € brezplačno, pod pragom cena ni bila prebrana","opombe":[]}],"min_narocilo":0,"povzetje":{"stanje":"ni_podatka","doplacilo":{"v":0.99,"lo":0.0,"hi":1.2,"ocena":true},"opis":"plačilni pogoji niso bili prebrani"},"vnaprej":{"stanje":"ni_podatka","opis":"plačilni pogoji niso bili prebrani"},"rok":"ni preverjen","viri":["thenutrition-zero"],"opombe":[["pozor","Cena dostave pod 59,99 € ni bila prebrana, zato je izračun mogoč šele od 8 tub."]]},{"key":"vitja","ime":"Vitja.si","drzava":"Slovenija","kraj":"Maribor","url":"https://www.vitja.si/izdelek/high5-zero-sumecke-elektroliti-brez-kalorij","slike":["img/vitja-berry.jpg"],"barva":"#00838F","ponudbe":[{"key":"tuba","kratko":"tuba","naslov":"High5 Zero, tuba 20 tablet","tablet":20,"cena":8.4,"redna":9.8,"okusi":["berry","pinkgrapefruit"],"imena":{"berry":"Gozdni sadeži","pinkgrapefruit":"Rdeča grenivka"},"zaloga":true}],"nacini":[{"key":"dostava","ime":"dostava na dom","dostava":[{"od":0,"cena":3.99},{"od":60,"cena":0}],"opis":"3,99 €, od 60 € brezplačno","opombe":[]}],"min_narocilo":0,"povzetje":{"stanje":"da","doplacilo":{"v":0.99,"lo":0.99,"hi":0.99,"ocena":false},"opis":"povzetje 0,99 €"},"vnaprej":{"stanje":"da","opis":"kartica, PayPal ali UPN predračun"},"rok":"naslednji delovni dan, če naročiš do 14. ure","viri":["vitja-zero","vitja-pogoji"],"opombe":[["dobro","Dostava naslednji delovni dan, če naročiš do 14. ure."],["pozor","Tuba 8,40 €, 19 % dražja kot pri Topatletu."]]},{"key":"extremevital","ime":"Extreme Vital","drzava":"Slovenija","kraj":"Škofja Loka","url":"https://www.extremevital.com/sl/running/high5-zero-izotonicne-sumece-tablete-20kos-p-16863.html","slike":["img/extremevital-berry.jpg"],"barva":"#795548","ponudbe":[{"key":"tuba","kratko":"tuba","naslov":"High5 Zero, tuba 20 tablet, akcija 3 + 1","tablet":20,"cena":9.9,"redna":null,"okusi":["berry","tropical"],"imena":{"berry":"berry"},"zaloga":true,"promo":{"tip":"n_plus_1","n":3,"opis":"3 + 1 gratis"}}],"nacini":[{"key":"dostava","ime":"dostava na dom","dostava":[{"od":0,"cena":5.0},{"od":80,"cena":0}],"opis":"5,00 €, od 80 € brezplačno","opombe":[]}],"min_narocilo":0,"povzetje":{"stanje":"ni_podatka","doplacilo":{"v":0.99,"lo":0.0,"hi":1.2,"ocena":true},"opis":"povzetja stran ne omenja"},"vnaprej":{"stanje":"ni_podatka","opis":"plačilni pogoji niso bili prebrani"},"rok":"2 delovna dneva","viri":["extremevital-berry","extremevital-tropical","extremevital-dostava"],"opombe":[["pozor","Akcija 3 + 1: s štirimi tubami je tuba 7,43 €."],["pozor","Pink Grapefruit ni v ponudbi, le Berry in Tropical."]]},{"key":"medikem","ime":"Medikem","drzava":"Slovenija","kraj":"Ljubljana","url":"https://www.medikem.si/sportni-program/high5-zero/","slike":["img/medikem.jpg","img/medikem-2.jpg","img/medikem-3.jpg"],"barva":"#9E9D24","ponudbe":[{"key":"tuba","kratko":"tuba","naslov":"HIGH5 ZERO, tuba 20 tablet","tablet":20,"cena":8.6,"redna":9.8,"okusi":["berry","pinkgrapefruit"],"imena":{"berry":"GOZDNI SADEŽI","pinkgrapefruit":"GRENIVKA"},"zaloga":true,"cena_opomba":"razpon 8,60 do 9,80 € glede na različico"}],"nacini":[{"key":"dostava","ime":"dostava na dom","dostava":[{"od":0,"cena":null}],"opis":"cena dostave ni bila prebrana","opombe":[]}],"min_narocilo":0,"povzetje":{"stanje":"ni_podatka","doplacilo":{"v":0.99,"lo":0.0,"hi":1.2,"ocena":true},"opis":"plačilni pogoji niso bili prebrani"},"vnaprej":{"stanje":"ni_podatka","opis":"plačilni pogoji niso bili prebrani"},"rok":"ni preverjen","viri":["medikem-zero"],"opombe":[["slabo","Brez cene dostave, zato brez izračuna."],["napaka","V istem meniju je tudi GRENIVKA+KOFEIN."]]}],"odlocitev":{"odgovor":["Za oba najljubša okusa je najboljši <b>Topatlet<\/b>: tuba stane 7,06 €, dostava je od 40 € brezplačna, zato je od šestih tub naprej tableta z dostavo <b>0,353 €<\/b>. Enako ceno imaš pri vsaki količini, če tube prevzameš na Ulici Jana Husa 21 v Ljubljani. Nihče drug ne proda Pink Grapefruit ceneje.","Večja košarica se splača samo do praga brezplačne dostave. Količinskih popustov z objavljeno lestvico nima nobena trgovina. Pri Topatletu so po pogojih mogoči po dogovoru, zato pri 12 ali več tubah vprašaj, a ne računaj nanje.","Če vama zadošča samo Berry, je ceneje <b>Kupipametno.si<\/b>: dvojno pakiranje 2 × 20 za 11,99 €, pri devetih paketih (107,91 €) brez dostave, to je <b>0,300 €<\/b> na tableto, 15 % manj kot pri Topatletu. Gre za trgovino s splošnim blagom in nov oglas, zato pred večjim naročilom pisno vprašaj za rok uporabe.","Če vama je okus vseeno, je najceneje <b>Bike24<\/b> iz Nemčije: Triple Pack (Berry, Citrus, Tropical) za 16,39 €, pri sedmih paketih z dostavo 2,99 € je tableta <b>0,280 €<\/b>. Plačaš vnaprej, povzetja ni, in samo tretjina tablet je Berry.","Pri vajini porabi to pomeni ≈ 31 do 61 € na mesec za oba pri Topatletu. Amazon.de paketov 8 × 20 v Slovenijo ne pošilja, uradna trgovina HIGH5 pošilja samo po Združenem kraljestvu."],"poti":[{"oznaka":"Pot A, najprej","naslov":"Topatlet, oba okusa","znesek":"0,353 €","znesek_opis":"na tableto z dostavo, od 6 tub ali ob prevzemu","cip":["ok","povzetje ali predračun"],"opis":"Naroči 6 do 12 tub mešano, Gozdni sadeži in Grenivka. Pri šestih tubah plačaš 42,36 € brez dostave.","koraki":["Izberi okusa Gozdni sadeži in Grenivka na strani »ZERO klasik«, ne »s KOFEINOM«.","Košarica nad 40 €: dostava je brezplačna. Ali prevzem v Ljubljani, ob delavnikih od 9. do 16. ure.","V opombo napiši prošnjo za rok uporabe in vprašanje o popustu (besedilo spodaj)."]},{"oznaka":"Pot B, samo Berry","naslov":"Kupipametno, 9 paketov 2 × 20","znesek":"0,300 €","znesek_opis":"na tableto, 107,91 € za 360 tablet","cip":["pozor","najprej rok uporabe"],"opis":"Najnižja cena v Sloveniji, a samo za Berry. Minimalno naročilo je 25 €, brezplačna dostava od 99 €.","koraki":["Pred naročilom po e-pošti vprašaj za rok uporabe.","Naroči 9 paketov, da presežeš 99 €.","Plačilo s kartico; povzetje le, če ga ponudijo."]},{"oznaka":"Pot C, okus ni pomemben","naslov":"Bike24 Triple Pack","znesek":"0,280 €","znesek_opis":"na tableto, 7 paketov za 117,72 €","cip":["napaka","samo plačilo vnaprej"],"opis":"Najnižja cena sploh, a dve tretjini tablet sta Citrus in Tropical. Popust −34 % je lahko časovno omejen.","koraki":["Preveri, da je Triple Pack še 16,39 €.","Košarica nad 100 €: dostava 2,99 € namesto 5,99 €.","Plačaš vnaprej, rok dostave za Slovenijo ni naveden."]}],"izbor":[{"naslov":"Trije najboljši nakupi","opis":"Ujemajo se z vrsticami v lestvici spodaj. Številke veljajo za najugodnejšo košarico pri vsaki trgovini: 6 tub, 9 paketov 2 × 20 in 7 paketov Triple Pack.","kljuci":["topatlet/dostava","kupipametno/dostava","bike24/dostava"],"razlogi":{"topatlet/dostava":"Oba okusa na zalogi, 7,06 € za tubo, od 40 € brez dostave. Edina izbira s povzetjem in prevzemom v Ljubljani.","kupipametno/dostava":"Samo Berry, a 15 % ceneje. Splača se šele pri 9 paketih, ko je dostava brezplačna.","bike24/dostava":"Najceneje, če okus ni pomemben: Triple Pack za 16,39 €. Za oba najljubša okusa je dražji od Topatleta."}}],"proracun":[{"oznaka":"1 tuba na teden","znesek":"≈ 31 € na mesec","opis":"367 € na leto pri Topatletu, 312 € s Kupipametnim (samo Berry)."},{"oznaka":"2 tubi na teden","znesek":"≈ 61 € na mesec","opis":"734 € na leto pri Topatletu, 624 € s Kupipametnim (samo Berry)."},{"oznaka":"Ocena","znesek":"Gre v proračun","opis":"Potrošni material brez nakupnega tveganja. Največji vzvod je mesto nakupa: razlika med najdražjo in najcenejšo potjo je ≈ 100 do 200 € na leto."}],"besedilo_narocila":"Pozdravljeni, prosim za tube z rokom uporabe vsaj 9 mesecev. Ali je pri naročilu 12 ali več tub možen količinski popust? Hvala."},"prodajalec":{"uvod":"Kako o ceni razmišlja trgovec in kako ti odgovoriš.","pasti":[["pozor","Prečrtana cena","Slovenske trgovine kot redno ceno kažejo 9,80 €, Topatlet zato piše »−28 %«. Ista tuba stane pri Bike24 7,19 € z redno ceno 8,99 €. Prava tržna cena je ≈ 7 €, zato primerjaj ceno tablete z dostavo, ne odstotka popusta."],["pozor","Prag brezplačne dostave","Pragovi so postavljeni malo nad običajno košarico: pri VEB je 8 tub 62,08 €, prag 65 €; pri Kupipametno je 8 paketov 95,92 €, prag 99 €. Pri porabi 4 do 9 tub na mesec prag ni prekomeren nakup, a ne kupuj za več kot ≈ 3 mesece, ker roka uporabe nihče ne objavi."],["napaka","Kofein pod istim imenom","Caffeine Hit ima ista okusa in pri Topatletu isto ceno 7,06 €. Medikem ga ponuja kot »GRENIVKA+KOFEIN« v meniju navadnega ZERO, Vitja ga na strani s kofeinom imenuje »Roza grenivka«, na navadni »Rdeča grenivka«. Preveri ime različice in rdeč trak CAFFEINE HIT na tubi."],["pozor","Akcija 3 + 1","Extreme Vital ima osnovno ceno 9,90 €, 40 % več kot Topatlet. Tudi z brezplačno četrto tubo je tuba 7,43 €, torej dražja od Topatletove brez akcije."],["pozor","−34 % pri Triple Pack","Bike24 popust računa od 24,99 €, tri posamezne tube pa tam stanejo 21,57 €. Pravi prihranek je 24 %, dobiš pa tudi Citrus in Tropical."],["pozor","Prenizka cena pri splošni trgovini","Kupipametno prodaja sladkarije, kavo in kozmetiko, oglas je nov (13. 10. 2026) in 15 % pod vsemi drugimi. Pogost razlog je presežek zaloge ali krajši rok uporabe. Embalaža je slovenska (»Dvojno pakiranje«), kar govori za redno distribucijo."],["pozor","Amazon »podobni izdelki«","Paket Berry 8 × 20 (52,50 €) in Pink Grapefruit 8 × 20 Amazon.de v Slovenijo ne pošilja. Namesto tega ponudi podobne izdelke z ≈ 12 € dostave, med njimi Dextro Energy Zero Calories, drugo znamko."],["pozor","Rok uporabe ni objavljen","Nobena od osmih trgovin roka ne kaže. HIGH5 jamči samo 2 meseca ob odpremi; v tujih oglasih so roki 10 do 16 mesecev. Pri večjem naročilu ga zahtevaj pisno."]],"pogajanje":["Topatlet po pogojih (točka 5.1) lahko da popust kupcem, ki naročijo večjo količino. Akcijskih cen ne kombinira s kuponi, osebni dogovor pa ni kupon. Verjetnost: nizka.","Prag zamenjave: če bi Topatlet tubo podražil nad ≈ 7,36 €, je pri 18 tubah enako drag Bike24 (posamezne tube, oba okusa, 0,368 € na tableto).","Ko se akcija konča in tuba spet stane 9,80 €, je tableta 0,49 €. Takrat sta Bike24 in Kupipametno občutno cenejša, zato se v času akcije splača zaloga za 2 do 3 mesece."]},"zdravje":{"bloki":[{"oznaka":"Natrij","naslov":"250 mg v tableti","znesek":"≈ 360 do 710 mg na dan","uvod":"Pri 1 do 2 tubah na teden za dva je to 1,4 do 2,9 tablete na osebo na dan. WHO odraslim priporoča manj kot 2000 mg natrija na dan, povprečen odrasel ga je leta 2021 zaužil 4278 mg. Tablete torej dodajo 18 do 36 % priporočene zgornje meje. Pri treningu z znojenjem je to njihov namen.","vir":"who-natrij"},{"oznaka":"Kofein","naslov":"Navaden ZERO: pod 2 mg","znesek":"Caffeine Hit: 75 mg","uvod":"Pomotoma kupljen Caffeine Hit bi pri 2,9 tablete na dan pomenil ≈ 220 mg kofeina. HIGH5 navaja zgornjo mejo 400 mg na dan iz vseh virov, 200 mg v nosečnosti in pri dojenju.","vir":"highfive-kofein"},{"oznaka":"Sorbitol","naslov":"Sredstvo za strjevanje","znesek":"Neznana količina","uvod":"Vsi okusi vsebujejo sorbitol. Pregled v PMC navaja napihnjenost od 5 do 20 g na dan in drisko nad ≈ 20 g. Količine na tableto HIGH5 ne objavi; pri 1 do 3 tabletah na dan je to daleč pod pragom.","vir":"pmc-sorbitol"},{"oznaka":"Rok uporabe in shranjevanje","naslov":"Vsaj 2 meseca ob odpremi","znesek":"Običajno 10 do 16 mesecev","uvod":"HIGH5 v pogostih vprašanjih jamči vsaj 2 meseca roka ob odpremi, »v večini primerov veliko več«. Pokrovček ima kroglice silikagela, zato tubo po uporabi dobro zapri in hrani na suhem.","vir":"highfive-faq"}],"okus":["Pink Grapefruit: 4,6 od 5 pri 1.794 ocenah na Amazon.co.uk, 4,6 pri 22 preverjenih kupcih na Holland & Barrett Irska.","Berry: 4,7 od 5 pri 366 ocenah na Holland & Barrett.","Pritožba, ki se ponavlja: po sladilu (sukraloza) ostane priokus, bolj pri nesadnih in jagodičastih okusih kot pri citrusih. Mnenja so deljena.","Ena pritožba (Amazon.co.uk, 2021): prejeta tuba s poškodovanim pečatom in 19 tabletami. Pečat preveri ob prejemu."],"okus_viri":["amazonuk-pg","hb-pg","hb-berry","balance-zero"]},"alternative":{"opis":"Cene na polici brez dostave, iz pregleda 19. 10. 2026. Nobena alternativa ni v ±20 % od HIGH5 in hkrati primerljiva.","stolpci":["Izdelek","Trgovina","Paket","Cena","Na tableto","Natrij","Opomba"],"vrstice":[["<b>HIGH5 ZERO<\/b>","Topatlet","20","7,06 €","0,353 €","250 mg","izhodišče"],["Decathlon Aptonia, limona","Decathlon.si","40","12,49 €","0,312 €","≈ 252 mg","stevia namesto sukraloze, 22 % DDV"],["SiS GO Hydro","Maxisport.si","20","9,99 €","0,500 €","≈ 350 mg","9 kcal, največ 4 na dan"],["PowerBar 5Electrolytes","powerbar.com","10","6,49 €","0,649 €","250 mg","Pink Grapefruit samo s kofeinom"],["Isostar Powertabs","Intersport.si","10","5,49 do 6,00 €","≈ 0,55 do 0,60 €","ni potrjeno","87 kcal, druga kategorija"],["FutuNatura Elektroliti","FutuNatura.si","20","2,99 €","0,150 €","227 mg","s sladkorjem, samo Na, K in Cl"]],"viri":["decathlon-aptonia","maxisport-sis","powerbar-5e","intersport-isostar","futunatura-el"]},"kontekst":[{"oznaka":"Globina trga","naslov":"Pregledane trgovine","tocke":["S ceno in dostavo: Topatlet, Kupipametno, Bike24, VEB Company, THE Nutrition, Vitja, Extreme Vital. Medikem brez cene dostave.","Ne pošilja v Slovenijo: Amazon.de (Berry 8 × 20 za 52,50 €, Pink Grapefruit 8 × 20), uradna trgovina HIGH5 (samo Združeno kraljestvo).","Ni na zalogi ali dostava ni potrjena: ProSwimwear EU.","Brez HIGH5 ZERO: bike-discount.de, Amazon.it, Intersport.at, Hervis.at, runningwarehouse.eu, Mimovrste, Hervis.si, Intersport.si, Big Bang. Decathlon.si ima svojo znamko, ceneje.si nima nobene ponudbe."]},{"oznaka":"Uvoz in DDV","naslov":"Iz EU brez carine","tocke":["Bike24 je v EU, cene za Slovenijo vsebujejo DDV, carine ni.","Iz Združenega kraljestva bi plačal še uvozni DDV in strošek carinjenja, a uradna trgovina tja ne pošilja.","FURS za prehranska dopolnila dopušča 9,5 % ali 22 % DDV, Decathlon zaračuna 22 %. Na odločitev ne vpliva, ker cene na polici DDV že vsebujejo."]}],"nakup":[{"korak":"Določi mešanico","opis":" za 4 do 8 tednov, na primer 3 tube Gozdni sadeži in 3 Grenivka."},{"korak":"Naroči pri Topatletu 6 ali več tub","opis":" na strani »High5 ZERO klasik«. Od 40 € je dostava brezplačna. Plačaš s predračunom ali po povzetju z gotovino, ali tube prevzameš v Ljubljani."},{"korak":"V opombo prilepi besedilo","opis":" s prošnjo za rok uporabe vsaj 9 mesecev in vprašanjem o popustu pri 12 ali več tubah."},{"korak":"Ob prejemu preveri tube","opis":" brez rdečega traku CAFFEINE HIT, pečat cel, rok uporabe na dnu."},{"korak":"Za več Berry ceneje","opis":" naroči 9 paketov pri Kupipametno, a šele, ko pisno potrdijo rok uporabe vsaj 6 mesecev."}],"metoda":{"odstavki":["Cene, zaloge in pogoji dostave so prebrani z živih strani 19. 10. 2026, za Slovenijo, s prikazom DDV. Za vsako trgovino in količino od 1 do 36 tub je izračunana najcenejša košarica: dovolj tablet, upoštevano minimalno naročilo, akcija 3 + 1, prag brezplačne dostave in doplačilo za povzetje. Cena na tableto je skupni znesek, deljen s kupljenimi tabletami.","Tablete so potrošni material brez preprodajne vrednosti, zato namesto dveletnega in petletnega obdobja štejem mesec in leto pri izbrani porabi. Mesečni strošek je cena tablete × 20 × tube na teden × 52 / 12."],"predpostavke":["Doplačilo za povzetje: Pošta Slovenije pri Topatletu 0,98 € (objavljeno); za GLS, Express One, Kupipametno, Extreme Vital in THE Nutrition ni objavljeno, zato ≈ 0 do 1,20 €, sredina 0,99 €.","Topatlet: prag brezplačne dostave 40 € po strani »Dostava«; v splošnih pogojih piše 30 €, kar je verjetno zastarelo.","Prevzem pri Topatletu: plačilo ob prevzemu pogoji ne opisujejo, zato je v načinu povzetja brez doplačila in označeno.","Extreme Vital: akcija 3 + 1 velja po izdelku; vsaka četrta tuba istega okusa je brezplačna.","Poraba: 1, 1,5 ali 2 tubi na teden za dva, 52 tednov na leto."],"ni_zajeto":["Roka uporabe ne objavi nobena trgovina, zato ga ni bilo mogoče preveriti.","THE Nutrition: cena dostave pod 59,99 € in plačilni pogoji. Medikem: dostava in plačila, zato brez izračuna.","Amazon.de prodajalci z dostavo v Slovenijo za posamezne tube: stran je ob slovenski lokaciji ponudila samo podobne izdelke.","Cene v fizičnih trgovinah in morebitni popusti za člane (THE Nutrition »gold member«).","Fotografij Bike24 ni bilo mogoče prenesti (strežnik slike zavrne), zato je tam risba."],"viri_rok":["highfive-faq","hobbies-bb","iwonder-bb"]},"viri":[{"id":"topatlet-zero","naslov":"Topatlet: High5 ZERO klasik AKCIJA","url":"https://www.topatlet.si/high5-zero-solne-sumece-tablete","datum":"19. 10. 2026"},{"id":"topatlet-kofein","naslov":"Topatlet: HIGH5 ZERO s KOFEINOM","url":"https://www.topatlet.si/high5-zero-solne-sumecke-s-kofeinom","datum":"19. 10. 2026"},{"id":"topatlet-dostava","naslov":"Topatlet: Dostava","url":"https://www.topatlet.si/dostava","datum":"19. 10. 2026"},{"id":"topatlet-pogoji","naslov":"Topatlet: Pogoji poslovanja","url":"https://www.topatlet.si/pogoji-poslovanja","datum":"19. 10. 2026"},{"id":"kupipametno-zero","naslov":"Kupipametno: HIGH5 Zero, okus jagodičevja, 2 × 20","url":"https://www.kupipametno.si/izdelek/high5-zero-elektrolitne-tablete/","datum":"19. 10. 2026"},{"id":"kupipametno-dostava","naslov":"Kupipametno: Dostava in plačila","url":"https://www.kupipametno.si/dostava-in-placila/","datum":"19. 10. 2026"},{"id":"bike24-zero","naslov":"Bike24: High5 Zero, 20 tablet","url":"https://www.bike24.com/p245028.html","datum":"19. 10. 2026"},{"id":"bike24-triple","naslov":"Bike24: High5 Zero Triple Pack, 3 × 20","url":"https://www.bike24.com/p2381379.html","datum":"19. 10. 2026"},{"id":"bike24-kofein","naslov":"Bike24: High5 Zero Caffeine Hit","url":"https://www.bike24.com/p2323282.html","datum":"19. 10. 2026"},{"id":"bike24-dostava","naslov":"Bike24: Shipping","url":"https://www.bike24.com/shipping.html","datum":"19. 10. 2026"},{"id":"veb-zero","naslov":"VEB Company: HIGH 5 ZERO 20 tablet","url":"https://www.veb-company.si/izdelek/HF.2915/high-5-zero-20-tablet","datum":"19. 10. 2026"},{"id":"veb-dostava","naslov":"VEB Company: Plačilo in dostava","url":"https://www.veb-company.si/info/4/placilo-in-dostava","datum":"19. 10. 2026"},{"id":"thenutrition-zero","naslov":"THE Nutrition: HIGH5 Zero","url":"https://www.the-nutrition.com/izdelek/693/HIGH5-Zero*","datum":"19. 10. 2026"},{"id":"vitja-zero","naslov":"Vitja.si: High5 Zero šumečke","url":"https://www.vitja.si/izdelek/high5-zero-sumecke-elektroliti-brez-kalorij","datum":"19. 10. 2026"},{"id":"vitja-kofein","naslov":"Vitja.si: High5 Zero šumečke + kofein","url":"https://www.vitja.si/izdelek/high5-zero-sumecke-elektroliti-brez-kalorij-kofein","datum":"19. 10. 2026"},{"id":"vitja-pogoji","naslov":"Vitja.si: Pogoji poslovanja","url":"https://www.vitja.si/pogoji-poslovanja","datum":"19. 10. 2026"},{"id":"extremevital-berry","naslov":"Extreme Vital: High5 Zero berry (3 + 1 gratis)","url":"https://www.extremevital.com/sl/running/high5-zero-izotonicne-sumece-tablete-20kos-p-16863.html","datum":"19. 10. 2026"},{"id":"extremevital-tropical","naslov":"Extreme Vital: High5 Zero tropical (3 + 1 gratis)","url":"https://www.extremevital.com/sl/running/high5-zero-izotonicne-sumece-tablete-20kos-p-43141.html","datum":"19. 10. 2026"},{"id":"extremevital-dostava","naslov":"Extreme Vital: Informacije o dostavi","url":"https://www.extremevital.com/sl/informacije-o-dostavi-vecjih-posiljk-eu-i-61.html","datum":"19. 10. 2026"},{"id":"medikem-zero","naslov":"Medikem: HIGH5 ZERO","url":"https://www.medikem.si/sportni-program/high5-zero/","datum":"19. 10. 2026"},{"id":"amazon-berry","naslov":"Amazon.de: HIGH5 Zero Beere 8 × 20 (dostava v Slovenijo)","url":"https://www.amazon.de/dp/B003Y3LWXY","datum":"19. 10. 2026"},{"id":"amazon-pg","naslov":"Amazon.de: High5 Zero Pink Grapefruit 8 tub (dostava v Slovenijo)","url":"https://www.amazon.de/dp/B007PF8HHG","datum":"19. 10. 2026"},{"id":"highfive-zero","naslov":"HIGH5: ZERO Electrolyte Tablets","url":"https://highfive.co.uk/products/zero","datum":"19. 10. 2026"},{"id":"highfive-kofein","naslov":"HIGH5: ZERO Caffeine Hit","url":"https://highfive.co.uk/products/zero-caffeine-hit","datum":"19. 10. 2026"},{"id":"highfive-faq","naslov":"HIGH5: FAQs (rok uporabe, kofein v ZERO)","url":"https://highfive.co.uk/pages/faqs","datum":"19. 10. 2026"},{"id":"highfive-dostava","naslov":"HIGH5: Delivery and returns","url":"https://highfive.co.uk/pages/delivery-returns","datum":"19. 10. 2026"},{"id":"proswimwear-dostava","naslov":"ProSwimwear EU: Delivery","url":"https://www.proswimwear.eu/delivery/","datum":"19. 10. 2026"},{"id":"who-natrij","naslov":"WHO: Sodium reduction (dejstva)","url":"https://www.who.int/news-room/fact-sheets/detail/sodium-reduction","datum":"19. 10. 2026"},{"id":"pmc-sorbitol","naslov":"PMC: pregled o sorbitolu in prebavi","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC6693595/","datum":"19. 10. 2026"},{"id":"amazonuk-pg","naslov":"Amazon.co.uk: HIGH5 ZERO Pink Grapefruit (ocene)","url":"https://www.amazon.co.uk/HIGH5-Electrolyte-Hydration-Performance-Grapefruit/dp/B009M3VUTQ","datum":"19. 10. 2026"},{"id":"hb-berry","naslov":"Holland & Barrett: HIGH5 ZERO Berry (ocene)","url":"https://www.hollandandbarrett.com/shop/product/high5-zero-berry-60098123/reviews","datum":"19. 10. 2026"},{"id":"hb-pg","naslov":"Holland & Barrett Irska: HIGH5 ZERO Pink Grapefruit (ocene)","url":"https://www.hollandandbarrett.ie/shop/product/high5-zero-pink-grapefruit-60039308/reviews","datum":"19. 10. 2026"},{"id":"balance-zero","naslov":"Balance Journal: HIGH5 ZERO review","url":"https://balancejournal.co/wellness/high5-zero-review","datum":"19. 10. 2026"},{"id":"hobbies-bb","naslov":"Hobbies Sports: ZERO, rok uporabe 02/2028","url":"https://www.hobbies-sports.my/products/zeroelectrolyte","datum":"19. 10. 2026"},{"id":"iwonder-bb","naslov":"I Wonder What's Next: ZERO Neutral, rok 17. 9. 2027","url":"https://www.iwonderwhatsnext.co.uk/fitness/supplements/high5-zero-electrolyte-tablets-for-hydration-neutral-20-tablets/","datum":"19. 10. 2026"},{"id":"decathlon-aptonia","naslov":"Decathlon.si: šumeče tablete z elektroliti, limona, 40 kosov","url":"https://www.decathlon.si/p/326880-89506-napitek-z-elektroliti-brez-sladkorja-sumece-tablete-z-okusom-limone-40-kosov.html","datum":"19. 10. 2026"},{"id":"maxisport-sis","naslov":"Maxisport.si: SiS GO Hydro tablete","url":"https://www.maxisport.si/kolesarski-dodatki/prehrana/energijski-napitki/sis-hydro-tablete-za-hidracijo","datum":"19. 10. 2026"},{"id":"powerbar-5e","naslov":"PowerBar: 5Electrolytes tablets","url":"https://www.powerbar.com/en-de/products/5-electrolytes-tablets-effervescent-tablets-with-5-electrolytes","datum":"19. 10. 2026"},{"id":"intersport-isostar","naslov":"Intersport.si: Isostar Powertabs","url":"https://www.intersport.si/isostar-hydrate-perform-powertabs-cranberry-120g-sportna-prehrana-812163","datum":"19. 10. 2026"},{"id":"futunatura-el","naslov":"FutuNatura: Elektroliti šumeče tablete","url":"https://www.futunatura.si/elektroliti-sumece-tablete","datum":"19. 10. 2026"},{"id":"racunovodja-ddv","naslov":"Računovodja.com: DDV za prehranska dopolnila (FURS)","url":"https://www.racunovodja.com/Clanek/10232","datum":"19. 10. 2026"}],"izracun":{"priljubljena|vnaprej":{"topatlet/dostava":[{"b":7.06,"d":4.2,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":14.12,"d":4.2,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":21.18,"d":4.2,"p":[0.0,0.0,0.0,0],"t":60,"k":[["tuba",3]]},{"b":28.24,"d":4.2,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":35.3,"d":4.2,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":42.36,"d":0,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":49.42,"d":0,"p":[0.0,0.0,0.0,0],"t":140,"k":[["tuba",7]]},{"b":56.48,"d":0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":63.54,"d":0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":70.6,"d":0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":77.66,"d":0,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":84.72,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":91.78,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":98.84,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":105.9,"d":0,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":112.96,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":120.02,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":127.08,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":134.14,"d":0,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":141.2,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":148.26,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":155.32,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":162.38,"d":0,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":169.44,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":176.5,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":183.56,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":190.62,"d":0,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":197.68,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":204.74,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":211.8,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":218.86,"d":0,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":225.92,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":232.98,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":240.04,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":247.1,"d":0,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":254.16,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"topatlet/prevzem":[{"b":7.06,"d":0,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":14.12,"d":0,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":21.18,"d":0,"p":[0.0,0.0,0.0,0],"t":60,"k":[["tuba",3]]},{"b":28.24,"d":0,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":35.3,"d":0,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":42.36,"d":0,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":49.42,"d":0,"p":[0.0,0.0,0.0,0],"t":140,"k":[["tuba",7]]},{"b":56.48,"d":0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":63.54,"d":0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":70.6,"d":0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":77.66,"d":0,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":84.72,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":91.78,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":98.84,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":105.9,"d":0,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":112.96,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":120.02,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":127.08,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":134.14,"d":0,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":141.2,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":148.26,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":155.32,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":162.38,"d":0,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":169.44,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":176.5,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":183.56,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":190.62,"d":0,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":197.68,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":204.74,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":211.8,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":218.86,"d":0,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":225.92,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":232.98,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":240.04,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":247.1,"d":0,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":254.16,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"kupipametno/dostava":[{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":47.96,"d":4.9,"p":[0.0,0.0,0.0,0],"t":160,"k":[["dvojno",4]]},{"b":47.96,"d":4.9,"p":[0.0,0.0,0.0,0],"t":160,"k":[["dvojno",4]]},{"b":59.95,"d":4.9,"p":[0.0,0.0,0.0,0],"t":200,"k":[["dvojno",5]]},{"b":59.95,"d":4.9,"p":[0.0,0.0,0.0,0],"t":200,"k":[["dvojno",5]]},{"b":71.94,"d":4.9,"p":[0.0,0.0,0.0,0],"t":240,"k":[["dvojno",6]]},{"b":71.94,"d":4.9,"p":[0.0,0.0,0.0,0],"t":240,"k":[["dvojno",6]]},{"b":83.93,"d":4.9,"p":[0.0,0.0,0.0,0],"t":280,"k":[["dvojno",7]]},{"b":83.93,"d":4.9,"p":[0.0,0.0,0.0,0],"t":280,"k":[["dvojno",7]]},{"b":95.92,"d":4.9,"p":[0.0,0.0,0.0,0],"t":320,"k":[["dvojno",8]]},{"b":95.92,"d":4.9,"p":[0.0,0.0,0.0,0],"t":320,"k":[["dvojno",8]]},{"b":107.91,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["dvojno",9]]},{"b":107.91,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["dvojno",9]]},{"b":119.9,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["dvojno",10]]},{"b":119.9,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["dvojno",10]]},{"b":131.89,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["dvojno",11]]},{"b":131.89,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["dvojno",11]]},{"b":143.88,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["dvojno",12]]},{"b":143.88,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["dvojno",12]]},{"b":155.87,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["dvojno",13]]},{"b":155.87,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["dvojno",13]]},{"b":167.86,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["dvojno",14]]},{"b":167.86,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["dvojno",14]]},{"b":179.85,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["dvojno",15]]},{"b":179.85,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["dvojno",15]]},{"b":191.84,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["dvojno",16]]},{"b":191.84,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["dvojno",16]]},{"b":203.83,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["dvojno",17]]},{"b":203.83,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["dvojno",17]]},{"b":215.82,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["dvojno",18]]},{"b":215.82,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["dvojno",18]]}],"bike24/dostava":[{"b":7.19,"d":5.99,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":14.38,"d":5.99,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":21.57,"d":5.99,"p":[0.0,0.0,0.0,0],"t":60,"k":[["tuba",3]]},{"b":28.76,"d":5.99,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":35.95,"d":5.99,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":43.14,"d":5.99,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":50.33,"d":5.99,"p":[0.0,0.0,0.0,0],"t":140,"k":[["tuba",7]]},{"b":57.52,"d":5.99,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":64.71,"d":5.99,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":71.9,"d":5.99,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":79.09,"d":5.99,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":86.28,"d":5.99,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":93.47,"d":5.99,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":100.66,"d":2.99,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":107.85,"d":2.99,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":115.04,"d":2.99,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":122.23,"d":2.99,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":129.42,"d":2.99,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":136.61,"d":2.99,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":143.8,"d":2.99,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":150.99,"d":2.99,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":158.18,"d":2.99,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":165.37,"d":2.99,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":172.56,"d":2.99,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":179.75,"d":2.99,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":186.94,"d":2.99,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":194.13,"d":2.99,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":201.32,"d":2.99,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":208.51,"d":2.99,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":215.7,"d":2.99,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":222.89,"d":2.99,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":230.08,"d":2.99,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":237.27,"d":2.99,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":244.46,"d":2.99,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":251.65,"d":2.99,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":258.84,"d":2.99,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"veb/dostava":[{"b":7.76,"d":5.95,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":15.52,"d":5.95,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":23.28,"d":5.95,"p":[0.0,0.0,0.0,0],"t":60,"k":[["tuba",3]]},{"b":31.04,"d":5.95,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":38.8,"d":5.95,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":46.56,"d":5.95,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":54.32,"d":5.95,"p":[0.0,0.0,0.0,0],"t":140,"k":[["tuba",7]]},{"b":62.08,"d":5.95,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":69.84,"d":0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":77.6,"d":0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":85.36,"d":0,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":93.12,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":100.88,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":108.64,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":116.4,"d":0,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":124.16,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":131.92,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":139.68,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":147.44,"d":0,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":155.2,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":162.96,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":170.72,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":178.48,"d":0,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":186.24,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":194.0,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":201.76,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":209.52,"d":0,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":217.28,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":225.04,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":232.8,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":240.56,"d":0,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":248.32,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":256.08,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":263.84,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":271.6,"d":0,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":279.36,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"thenutrition/dostava":[{"e":"dostava_neznana","b":7.99,"t":20,"k":[["tuba",1]]},{"e":"dostava_neznana","b":15.98,"t":40,"k":[["tuba",2]]},{"e":"dostava_neznana","b":23.97,"t":60,"k":[["tuba",3]]},{"e":"dostava_neznana","b":31.96,"t":80,"k":[["tuba",4]]},{"e":"dostava_neznana","b":39.95,"t":100,"k":[["tuba",5]]},{"e":"dostava_neznana","b":47.94,"t":120,"k":[["tuba",6]]},{"e":"dostava_neznana","b":55.93,"t":140,"k":[["tuba",7]]},{"b":63.92,"d":0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":71.91,"d":0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":79.9,"d":0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":87.89,"d":0,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":95.88,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":103.87,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":111.86,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":119.85,"d":0,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":127.84,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":135.83,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":143.82,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":151.81,"d":0,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":159.8,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":167.79,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":175.78,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":183.77,"d":0,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":191.76,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":199.75,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":207.74,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":215.73,"d":0,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":223.72,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":231.71,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":239.7,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":247.69,"d":0,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":255.68,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":263.67,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":271.66,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":279.65,"d":0,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":287.64,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"vitja/dostava":[{"b":8.4,"d":3.99,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":16.8,"d":3.99,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":25.2,"d":3.99,"p":[0.0,0.0,0.0,0],"t":60,"k":[["tuba",3]]},{"b":33.6,"d":3.99,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":42.0,"d":3.99,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":50.4,"d":3.99,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":58.8,"d":3.99,"p":[0.0,0.0,0.0,0],"t":140,"k":[["tuba",7]]},{"b":67.2,"d":0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":75.6,"d":0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":84.0,"d":0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":92.4,"d":0,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":100.8,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":109.2,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":117.6,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":126.0,"d":0,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":134.4,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":142.8,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":151.2,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":159.6,"d":0,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":168.0,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":176.4,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":184.8,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":193.2,"d":0,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":201.6,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":210.0,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":218.4,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":226.8,"d":0,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":235.2,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":243.6,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":252.0,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":260.4,"d":0,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":268.8,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":277.2,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":285.6,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":294.0,"d":0,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":302.4,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"extremevital/dostava":[{"b":9.9,"d":5.0,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":19.8,"d":5.0,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":29.7,"d":5.0,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":29.7,"d":5.0,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":39.6,"d":5.0,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":49.5,"d":5.0,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":59.4,"d":5.0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":59.4,"d":5.0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":69.3,"d":5.0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":79.2,"d":5.0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":89.1,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":89.1,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":99.0,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":108.9,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":118.8,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":118.8,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":128.7,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":138.6,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":148.5,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":148.5,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":158.4,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":168.3,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":178.2,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":178.2,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":188.1,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":198.0,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":207.9,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":207.9,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":217.8,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":227.7,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":237.6,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":237.6,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":247.5,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":257.4,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":267.3,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]},{"b":267.3,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"medikem/dostava":[{"e":"dostava_neznana","b":8.6,"t":20,"k":[["tuba",1]]},{"e":"dostava_neznana","b":17.2,"t":40,"k":[["tuba",2]]},{"e":"dostava_neznana","b":25.8,"t":60,"k":[["tuba",3]]},{"e":"dostava_neznana","b":34.4,"t":80,"k":[["tuba",4]]},{"e":"dostava_neznana","b":43.0,"t":100,"k":[["tuba",5]]},{"e":"dostava_neznana","b":51.6,"t":120,"k":[["tuba",6]]},{"e":"dostava_neznana","b":60.2,"t":140,"k":[["tuba",7]]},{"e":"dostava_neznana","b":68.8,"t":160,"k":[["tuba",8]]},{"e":"dostava_neznana","b":77.4,"t":180,"k":[["tuba",9]]},{"e":"dostava_neznana","b":86.0,"t":200,"k":[["tuba",10]]},{"e":"dostava_neznana","b":94.6,"t":220,"k":[["tuba",11]]},{"e":"dostava_neznana","b":103.2,"t":240,"k":[["tuba",12]]},{"e":"dostava_neznana","b":111.8,"t":260,"k":[["tuba",13]]},{"e":"dostava_neznana","b":120.4,"t":280,"k":[["tuba",14]]},{"e":"dostava_neznana","b":129.0,"t":300,"k":[["tuba",15]]},{"e":"dostava_neznana","b":137.6,"t":320,"k":[["tuba",16]]},{"e":"dostava_neznana","b":146.2,"t":340,"k":[["tuba",17]]},{"e":"dostava_neznana","b":154.8,"t":360,"k":[["tuba",18]]},{"e":"dostava_neznana","b":163.4,"t":380,"k":[["tuba",19]]},{"e":"dostava_neznana","b":172.0,"t":400,"k":[["tuba",20]]},{"e":"dostava_neznana","b":180.6,"t":420,"k":[["tuba",21]]},{"e":"dostava_neznana","b":189.2,"t":440,"k":[["tuba",22]]},{"e":"dostava_neznana","b":197.8,"t":460,"k":[["tuba",23]]},{"e":"dostava_neznana","b":206.4,"t":480,"k":[["tuba",24]]},{"e":"dostava_neznana","b":215.0,"t":500,"k":[["tuba",25]]},{"e":"dostava_neznana","b":223.6,"t":520,"k":[["tuba",26]]},{"e":"dostava_neznana","b":232.2,"t":540,"k":[["tuba",27]]},{"e":"dostava_neznana","b":240.8,"t":560,"k":[["tuba",28]]},{"e":"dostava_neznana","b":249.4,"t":580,"k":[["tuba",29]]},{"e":"dostava_neznana","b":258.0,"t":600,"k":[["tuba",30]]},{"e":"dostava_neznana","b":266.6,"t":620,"k":[["tuba",31]]},{"e":"dostava_neznana","b":275.2,"t":640,"k":[["tuba",32]]},{"e":"dostava_neznana","b":283.8,"t":660,"k":[["tuba",33]]},{"e":"dostava_neznana","b":292.4,"t":680,"k":[["tuba",34]]},{"e":"dostava_neznana","b":301.0,"t":700,"k":[["tuba",35]]},{"e":"dostava_neznana","b":309.6,"t":720,"k":[["tuba",36]]}]},"priljubljena|povzetje":{"topatlet/dostava":[{"b":7.06,"d":4.2,"p":[0.98,0.0,1.2,1],"t":20,"k":[["tuba",1]]},{"b":14.12,"d":4.2,"p":[0.98,0.0,1.2,1],"t":40,"k":[["tuba",2]]},{"b":21.18,"d":4.2,"p":[0.98,0.0,1.2,1],"t":60,"k":[["tuba",3]]},{"b":28.24,"d":4.2,"p":[0.98,0.0,1.2,1],"t":80,"k":[["tuba",4]]},{"b":35.3,"d":4.2,"p":[0.98,0.0,1.2,1],"t":100,"k":[["tuba",5]]},{"b":42.36,"d":0,"p":[0.98,0.0,1.2,1],"t":120,"k":[["tuba",6]]},{"b":49.42,"d":0,"p":[0.98,0.0,1.2,1],"t":140,"k":[["tuba",7]]},{"b":56.48,"d":0,"p":[0.98,0.0,1.2,1],"t":160,"k":[["tuba",8]]},{"b":63.54,"d":0,"p":[0.98,0.0,1.2,1],"t":180,"k":[["tuba",9]]},{"b":70.6,"d":0,"p":[0.98,0.0,1.2,1],"t":200,"k":[["tuba",10]]},{"b":77.66,"d":0,"p":[0.98,0.0,1.2,1],"t":220,"k":[["tuba",11]]},{"b":84.72,"d":0,"p":[0.98,0.0,1.2,1],"t":240,"k":[["tuba",12]]},{"b":91.78,"d":0,"p":[0.98,0.0,1.2,1],"t":260,"k":[["tuba",13]]},{"b":98.84,"d":0,"p":[0.98,0.0,1.2,1],"t":280,"k":[["tuba",14]]},{"b":105.9,"d":0,"p":[0.98,0.0,1.2,1],"t":300,"k":[["tuba",15]]},{"b":112.96,"d":0,"p":[0.98,0.0,1.2,1],"t":320,"k":[["tuba",16]]},{"b":120.02,"d":0,"p":[0.98,0.0,1.2,1],"t":340,"k":[["tuba",17]]},{"b":127.08,"d":0,"p":[0.98,0.0,1.2,1],"t":360,"k":[["tuba",18]]},{"b":134.14,"d":0,"p":[0.98,0.0,1.2,1],"t":380,"k":[["tuba",19]]},{"b":141.2,"d":0,"p":[0.98,0.0,1.2,1],"t":400,"k":[["tuba",20]]},{"b":148.26,"d":0,"p":[0.98,0.0,1.2,1],"t":420,"k":[["tuba",21]]},{"b":155.32,"d":0,"p":[0.98,0.0,1.2,1],"t":440,"k":[["tuba",22]]},{"b":162.38,"d":0,"p":[0.98,0.0,1.2,1],"t":460,"k":[["tuba",23]]},{"b":169.44,"d":0,"p":[0.98,0.0,1.2,1],"t":480,"k":[["tuba",24]]},{"b":176.5,"d":0,"p":[0.98,0.0,1.2,1],"t":500,"k":[["tuba",25]]},{"b":183.56,"d":0,"p":[0.98,0.0,1.2,1],"t":520,"k":[["tuba",26]]},{"b":190.62,"d":0,"p":[0.98,0.0,1.2,1],"t":540,"k":[["tuba",27]]},{"b":197.68,"d":0,"p":[0.98,0.0,1.2,1],"t":560,"k":[["tuba",28]]},{"b":204.74,"d":0,"p":[0.98,0.0,1.2,1],"t":580,"k":[["tuba",29]]},{"b":211.8,"d":0,"p":[0.98,0.0,1.2,1],"t":600,"k":[["tuba",30]]},{"b":218.86,"d":0,"p":[0.98,0.0,1.2,1],"t":620,"k":[["tuba",31]]},{"b":225.92,"d":0,"p":[0.98,0.0,1.2,1],"t":640,"k":[["tuba",32]]},{"b":232.98,"d":0,"p":[0.98,0.0,1.2,1],"t":660,"k":[["tuba",33]]},{"b":240.04,"d":0,"p":[0.98,0.0,1.2,1],"t":680,"k":[["tuba",34]]},{"b":247.1,"d":0,"p":[0.98,0.0,1.2,1],"t":700,"k":[["tuba",35]]},{"b":254.16,"d":0,"p":[0.98,0.0,1.2,1],"t":720,"k":[["tuba",36]]}],"topatlet/prevzem":[{"b":7.06,"d":0,"p":[0,0,0,1],"t":20,"k":[["tuba",1]]},{"b":14.12,"d":0,"p":[0,0,0,1],"t":40,"k":[["tuba",2]]},{"b":21.18,"d":0,"p":[0,0,0,1],"t":60,"k":[["tuba",3]]},{"b":28.24,"d":0,"p":[0,0,0,1],"t":80,"k":[["tuba",4]]},{"b":35.3,"d":0,"p":[0,0,0,1],"t":100,"k":[["tuba",5]]},{"b":42.36,"d":0,"p":[0,0,0,1],"t":120,"k":[["tuba",6]]},{"b":49.42,"d":0,"p":[0,0,0,1],"t":140,"k":[["tuba",7]]},{"b":56.48,"d":0,"p":[0,0,0,1],"t":160,"k":[["tuba",8]]},{"b":63.54,"d":0,"p":[0,0,0,1],"t":180,"k":[["tuba",9]]},{"b":70.6,"d":0,"p":[0,0,0,1],"t":200,"k":[["tuba",10]]},{"b":77.66,"d":0,"p":[0,0,0,1],"t":220,"k":[["tuba",11]]},{"b":84.72,"d":0,"p":[0,0,0,1],"t":240,"k":[["tuba",12]]},{"b":91.78,"d":0,"p":[0,0,0,1],"t":260,"k":[["tuba",13]]},{"b":98.84,"d":0,"p":[0,0,0,1],"t":280,"k":[["tuba",14]]},{"b":105.9,"d":0,"p":[0,0,0,1],"t":300,"k":[["tuba",15]]},{"b":112.96,"d":0,"p":[0,0,0,1],"t":320,"k":[["tuba",16]]},{"b":120.02,"d":0,"p":[0,0,0,1],"t":340,"k":[["tuba",17]]},{"b":127.08,"d":0,"p":[0,0,0,1],"t":360,"k":[["tuba",18]]},{"b":134.14,"d":0,"p":[0,0,0,1],"t":380,"k":[["tuba",19]]},{"b":141.2,"d":0,"p":[0,0,0,1],"t":400,"k":[["tuba",20]]},{"b":148.26,"d":0,"p":[0,0,0,1],"t":420,"k":[["tuba",21]]},{"b":155.32,"d":0,"p":[0,0,0,1],"t":440,"k":[["tuba",22]]},{"b":162.38,"d":0,"p":[0,0,0,1],"t":460,"k":[["tuba",23]]},{"b":169.44,"d":0,"p":[0,0,0,1],"t":480,"k":[["tuba",24]]},{"b":176.5,"d":0,"p":[0,0,0,1],"t":500,"k":[["tuba",25]]},{"b":183.56,"d":0,"p":[0,0,0,1],"t":520,"k":[["tuba",26]]},{"b":190.62,"d":0,"p":[0,0,0,1],"t":540,"k":[["tuba",27]]},{"b":197.68,"d":0,"p":[0,0,0,1],"t":560,"k":[["tuba",28]]},{"b":204.74,"d":0,"p":[0,0,0,1],"t":580,"k":[["tuba",29]]},{"b":211.8,"d":0,"p":[0,0,0,1],"t":600,"k":[["tuba",30]]},{"b":218.86,"d":0,"p":[0,0,0,1],"t":620,"k":[["tuba",31]]},{"b":225.92,"d":0,"p":[0,0,0,1],"t":640,"k":[["tuba",32]]},{"b":232.98,"d":0,"p":[0,0,0,1],"t":660,"k":[["tuba",33]]},{"b":240.04,"d":0,"p":[0,0,0,1],"t":680,"k":[["tuba",34]]},{"b":247.1,"d":0,"p":[0,0,0,1],"t":700,"k":[["tuba",35]]},{"b":254.16,"d":0,"p":[0,0,0,1],"t":720,"k":[["tuba",36]]}],"kupipametno/dostava":[{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":47.96,"d":4.9,"p":[0.99,0.0,1.2,1],"t":160,"k":[["dvojno",4]]},{"b":47.96,"d":4.9,"p":[0.99,0.0,1.2,1],"t":160,"k":[["dvojno",4]]},{"b":59.95,"d":4.9,"p":[0.99,0.0,1.2,1],"t":200,"k":[["dvojno",5]]},{"b":59.95,"d":4.9,"p":[0.99,0.0,1.2,1],"t":200,"k":[["dvojno",5]]},{"b":71.94,"d":4.9,"p":[0.99,0.0,1.2,1],"t":240,"k":[["dvojno",6]]},{"b":71.94,"d":4.9,"p":[0.99,0.0,1.2,1],"t":240,"k":[["dvojno",6]]},{"b":83.93,"d":4.9,"p":[0.99,0.0,1.2,1],"t":280,"k":[["dvojno",7]]},{"b":83.93,"d":4.9,"p":[0.99,0.0,1.2,1],"t":280,"k":[["dvojno",7]]},{"b":95.92,"d":4.9,"p":[0.99,0.0,1.2,1],"t":320,"k":[["dvojno",8]]},{"b":95.92,"d":4.9,"p":[0.99,0.0,1.2,1],"t":320,"k":[["dvojno",8]]},{"b":107.91,"d":0,"p":[0.99,0.0,1.2,1],"t":360,"k":[["dvojno",9]]},{"b":107.91,"d":0,"p":[0.99,0.0,1.2,1],"t":360,"k":[["dvojno",9]]},{"b":119.9,"d":0,"p":[0.99,0.0,1.2,1],"t":400,"k":[["dvojno",10]]},{"b":119.9,"d":0,"p":[0.99,0.0,1.2,1],"t":400,"k":[["dvojno",10]]},{"b":131.89,"d":0,"p":[0.99,0.0,1.2,1],"t":440,"k":[["dvojno",11]]},{"b":131.89,"d":0,"p":[0.99,0.0,1.2,1],"t":440,"k":[["dvojno",11]]},{"b":143.88,"d":0,"p":[0.99,0.0,1.2,1],"t":480,"k":[["dvojno",12]]},{"b":143.88,"d":0,"p":[0.99,0.0,1.2,1],"t":480,"k":[["dvojno",12]]},{"b":155.87,"d":0,"p":[0.99,0.0,1.2,1],"t":520,"k":[["dvojno",13]]},{"b":155.87,"d":0,"p":[0.99,0.0,1.2,1],"t":520,"k":[["dvojno",13]]},{"b":167.86,"d":0,"p":[0.99,0.0,1.2,1],"t":560,"k":[["dvojno",14]]},{"b":167.86,"d":0,"p":[0.99,0.0,1.2,1],"t":560,"k":[["dvojno",14]]},{"b":179.85,"d":0,"p":[0.99,0.0,1.2,1],"t":600,"k":[["dvojno",15]]},{"b":179.85,"d":0,"p":[0.99,0.0,1.2,1],"t":600,"k":[["dvojno",15]]},{"b":191.84,"d":0,"p":[0.99,0.0,1.2,1],"t":640,"k":[["dvojno",16]]},{"b":191.84,"d":0,"p":[0.99,0.0,1.2,1],"t":640,"k":[["dvojno",16]]},{"b":203.83,"d":0,"p":[0.99,0.0,1.2,1],"t":680,"k":[["dvojno",17]]},{"b":203.83,"d":0,"p":[0.99,0.0,1.2,1],"t":680,"k":[["dvojno",17]]},{"b":215.82,"d":0,"p":[0.99,0.0,1.2,1],"t":720,"k":[["dvojno",18]]},{"b":215.82,"d":0,"p":[0.99,0.0,1.2,1],"t":720,"k":[["dvojno",18]]}],"bike24/dostava":[{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"}],"veb/dostava":[{"b":7.76,"d":5.95,"p":[0,0,0,0],"t":20,"k":[["tuba",1]]},{"b":15.52,"d":5.95,"p":[0,0,0,0],"t":40,"k":[["tuba",2]]},{"b":23.28,"d":5.95,"p":[0,0,0,0],"t":60,"k":[["tuba",3]]},{"b":31.04,"d":5.95,"p":[0,0,0,0],"t":80,"k":[["tuba",4]]},{"b":38.8,"d":5.95,"p":[0,0,0,0],"t":100,"k":[["tuba",5]]},{"b":46.56,"d":5.95,"p":[0,0,0,0],"t":120,"k":[["tuba",6]]},{"b":54.32,"d":5.95,"p":[0,0,0,0],"t":140,"k":[["tuba",7]]},{"b":62.08,"d":5.95,"p":[0,0,0,0],"t":160,"k":[["tuba",8]]},{"b":69.84,"d":0,"p":[0,0,0,0],"t":180,"k":[["tuba",9]]},{"b":77.6,"d":0,"p":[0,0,0,0],"t":200,"k":[["tuba",10]]},{"b":85.36,"d":0,"p":[0,0,0,0],"t":220,"k":[["tuba",11]]},{"b":93.12,"d":0,"p":[0,0,0,0],"t":240,"k":[["tuba",12]]},{"b":100.88,"d":0,"p":[0,0,0,0],"t":260,"k":[["tuba",13]]},{"b":108.64,"d":0,"p":[0,0,0,0],"t":280,"k":[["tuba",14]]},{"b":116.4,"d":0,"p":[0,0,0,0],"t":300,"k":[["tuba",15]]},{"b":124.16,"d":0,"p":[0,0,0,0],"t":320,"k":[["tuba",16]]},{"b":131.92,"d":0,"p":[0,0,0,0],"t":340,"k":[["tuba",17]]},{"b":139.68,"d":0,"p":[0,0,0,0],"t":360,"k":[["tuba",18]]},{"b":147.44,"d":0,"p":[0,0,0,0],"t":380,"k":[["tuba",19]]},{"b":155.2,"d":0,"p":[0,0,0,0],"t":400,"k":[["tuba",20]]},{"b":162.96,"d":0,"p":[0,0,0,0],"t":420,"k":[["tuba",21]]},{"b":170.72,"d":0,"p":[0,0,0,0],"t":440,"k":[["tuba",22]]},{"b":178.48,"d":0,"p":[0,0,0,0],"t":460,"k":[["tuba",23]]},{"b":186.24,"d":0,"p":[0,0,0,0],"t":480,"k":[["tuba",24]]},{"b":194.0,"d":0,"p":[0,0,0,0],"t":500,"k":[["tuba",25]]},{"b":201.76,"d":0,"p":[0,0,0,0],"t":520,"k":[["tuba",26]]},{"b":209.52,"d":0,"p":[0,0,0,0],"t":540,"k":[["tuba",27]]},{"b":217.28,"d":0,"p":[0,0,0,0],"t":560,"k":[["tuba",28]]},{"b":225.04,"d":0,"p":[0,0,0,0],"t":580,"k":[["tuba",29]]},{"b":232.8,"d":0,"p":[0,0,0,0],"t":600,"k":[["tuba",30]]},{"b":240.56,"d":0,"p":[0,0,0,0],"t":620,"k":[["tuba",31]]},{"b":248.32,"d":0,"p":[0,0,0,0],"t":640,"k":[["tuba",32]]},{"b":256.08,"d":0,"p":[0,0,0,0],"t":660,"k":[["tuba",33]]},{"b":263.84,"d":0,"p":[0,0,0,0],"t":680,"k":[["tuba",34]]},{"b":271.6,"d":0,"p":[0,0,0,0],"t":700,"k":[["tuba",35]]},{"b":279.36,"d":0,"p":[0,0,0,0],"t":720,"k":[["tuba",36]]}],"thenutrition/dostava":[{"e":"dostava_neznana","b":7.99,"t":20,"k":[["tuba",1]]},{"e":"dostava_neznana","b":15.98,"t":40,"k":[["tuba",2]]},{"e":"dostava_neznana","b":23.97,"t":60,"k":[["tuba",3]]},{"e":"dostava_neznana","b":31.96,"t":80,"k":[["tuba",4]]},{"e":"dostava_neznana","b":39.95,"t":100,"k":[["tuba",5]]},{"e":"dostava_neznana","b":47.94,"t":120,"k":[["tuba",6]]},{"e":"dostava_neznana","b":55.93,"t":140,"k":[["tuba",7]]},{"b":63.92,"d":0,"p":[0.99,0.0,1.2,1],"t":160,"k":[["tuba",8]]},{"b":71.91,"d":0,"p":[0.99,0.0,1.2,1],"t":180,"k":[["tuba",9]]},{"b":79.9,"d":0,"p":[0.99,0.0,1.2,1],"t":200,"k":[["tuba",10]]},{"b":87.89,"d":0,"p":[0.99,0.0,1.2,1],"t":220,"k":[["tuba",11]]},{"b":95.88,"d":0,"p":[0.99,0.0,1.2,1],"t":240,"k":[["tuba",12]]},{"b":103.87,"d":0,"p":[0.99,0.0,1.2,1],"t":260,"k":[["tuba",13]]},{"b":111.86,"d":0,"p":[0.99,0.0,1.2,1],"t":280,"k":[["tuba",14]]},{"b":119.85,"d":0,"p":[0.99,0.0,1.2,1],"t":300,"k":[["tuba",15]]},{"b":127.84,"d":0,"p":[0.99,0.0,1.2,1],"t":320,"k":[["tuba",16]]},{"b":135.83,"d":0,"p":[0.99,0.0,1.2,1],"t":340,"k":[["tuba",17]]},{"b":143.82,"d":0,"p":[0.99,0.0,1.2,1],"t":360,"k":[["tuba",18]]},{"b":151.81,"d":0,"p":[0.99,0.0,1.2,1],"t":380,"k":[["tuba",19]]},{"b":159.8,"d":0,"p":[0.99,0.0,1.2,1],"t":400,"k":[["tuba",20]]},{"b":167.79,"d":0,"p":[0.99,0.0,1.2,1],"t":420,"k":[["tuba",21]]},{"b":175.78,"d":0,"p":[0.99,0.0,1.2,1],"t":440,"k":[["tuba",22]]},{"b":183.77,"d":0,"p":[0.99,0.0,1.2,1],"t":460,"k":[["tuba",23]]},{"b":191.76,"d":0,"p":[0.99,0.0,1.2,1],"t":480,"k":[["tuba",24]]},{"b":199.75,"d":0,"p":[0.99,0.0,1.2,1],"t":500,"k":[["tuba",25]]},{"b":207.74,"d":0,"p":[0.99,0.0,1.2,1],"t":520,"k":[["tuba",26]]},{"b":215.73,"d":0,"p":[0.99,0.0,1.2,1],"t":540,"k":[["tuba",27]]},{"b":223.72,"d":0,"p":[0.99,0.0,1.2,1],"t":560,"k":[["tuba",28]]},{"b":231.71,"d":0,"p":[0.99,0.0,1.2,1],"t":580,"k":[["tuba",29]]},{"b":239.7,"d":0,"p":[0.99,0.0,1.2,1],"t":600,"k":[["tuba",30]]},{"b":247.69,"d":0,"p":[0.99,0.0,1.2,1],"t":620,"k":[["tuba",31]]},{"b":255.68,"d":0,"p":[0.99,0.0,1.2,1],"t":640,"k":[["tuba",32]]},{"b":263.67,"d":0,"p":[0.99,0.0,1.2,1],"t":660,"k":[["tuba",33]]},{"b":271.66,"d":0,"p":[0.99,0.0,1.2,1],"t":680,"k":[["tuba",34]]},{"b":279.65,"d":0,"p":[0.99,0.0,1.2,1],"t":700,"k":[["tuba",35]]},{"b":287.64,"d":0,"p":[0.99,0.0,1.2,1],"t":720,"k":[["tuba",36]]}],"vitja/dostava":[{"b":8.4,"d":3.99,"p":[0.99,0.99,0.99,0],"t":20,"k":[["tuba",1]]},{"b":16.8,"d":3.99,"p":[0.99,0.99,0.99,0],"t":40,"k":[["tuba",2]]},{"b":25.2,"d":3.99,"p":[0.99,0.99,0.99,0],"t":60,"k":[["tuba",3]]},{"b":33.6,"d":3.99,"p":[0.99,0.99,0.99,0],"t":80,"k":[["tuba",4]]},{"b":42.0,"d":3.99,"p":[0.99,0.99,0.99,0],"t":100,"k":[["tuba",5]]},{"b":50.4,"d":3.99,"p":[0.99,0.99,0.99,0],"t":120,"k":[["tuba",6]]},{"b":58.8,"d":3.99,"p":[0.99,0.99,0.99,0],"t":140,"k":[["tuba",7]]},{"b":67.2,"d":0,"p":[0.99,0.99,0.99,0],"t":160,"k":[["tuba",8]]},{"b":75.6,"d":0,"p":[0.99,0.99,0.99,0],"t":180,"k":[["tuba",9]]},{"b":84.0,"d":0,"p":[0.99,0.99,0.99,0],"t":200,"k":[["tuba",10]]},{"b":92.4,"d":0,"p":[0.99,0.99,0.99,0],"t":220,"k":[["tuba",11]]},{"b":100.8,"d":0,"p":[0.99,0.99,0.99,0],"t":240,"k":[["tuba",12]]},{"b":109.2,"d":0,"p":[0.99,0.99,0.99,0],"t":260,"k":[["tuba",13]]},{"b":117.6,"d":0,"p":[0.99,0.99,0.99,0],"t":280,"k":[["tuba",14]]},{"b":126.0,"d":0,"p":[0.99,0.99,0.99,0],"t":300,"k":[["tuba",15]]},{"b":134.4,"d":0,"p":[0.99,0.99,0.99,0],"t":320,"k":[["tuba",16]]},{"b":142.8,"d":0,"p":[0.99,0.99,0.99,0],"t":340,"k":[["tuba",17]]},{"b":151.2,"d":0,"p":[0.99,0.99,0.99,0],"t":360,"k":[["tuba",18]]},{"b":159.6,"d":0,"p":[0.99,0.99,0.99,0],"t":380,"k":[["tuba",19]]},{"b":168.0,"d":0,"p":[0.99,0.99,0.99,0],"t":400,"k":[["tuba",20]]},{"b":176.4,"d":0,"p":[0.99,0.99,0.99,0],"t":420,"k":[["tuba",21]]},{"b":184.8,"d":0,"p":[0.99,0.99,0.99,0],"t":440,"k":[["tuba",22]]},{"b":193.2,"d":0,"p":[0.99,0.99,0.99,0],"t":460,"k":[["tuba",23]]},{"b":201.6,"d":0,"p":[0.99,0.99,0.99,0],"t":480,"k":[["tuba",24]]},{"b":210.0,"d":0,"p":[0.99,0.99,0.99,0],"t":500,"k":[["tuba",25]]},{"b":218.4,"d":0,"p":[0.99,0.99,0.99,0],"t":520,"k":[["tuba",26]]},{"b":226.8,"d":0,"p":[0.99,0.99,0.99,0],"t":540,"k":[["tuba",27]]},{"b":235.2,"d":0,"p":[0.99,0.99,0.99,0],"t":560,"k":[["tuba",28]]},{"b":243.6,"d":0,"p":[0.99,0.99,0.99,0],"t":580,"k":[["tuba",29]]},{"b":252.0,"d":0,"p":[0.99,0.99,0.99,0],"t":600,"k":[["tuba",30]]},{"b":260.4,"d":0,"p":[0.99,0.99,0.99,0],"t":620,"k":[["tuba",31]]},{"b":268.8,"d":0,"p":[0.99,0.99,0.99,0],"t":640,"k":[["tuba",32]]},{"b":277.2,"d":0,"p":[0.99,0.99,0.99,0],"t":660,"k":[["tuba",33]]},{"b":285.6,"d":0,"p":[0.99,0.99,0.99,0],"t":680,"k":[["tuba",34]]},{"b":294.0,"d":0,"p":[0.99,0.99,0.99,0],"t":700,"k":[["tuba",35]]},{"b":302.4,"d":0,"p":[0.99,0.99,0.99,0],"t":720,"k":[["tuba",36]]}],"extremevital/dostava":[{"b":9.9,"d":5.0,"p":[0.99,0.0,1.2,1],"t":20,"k":[["tuba",1]]},{"b":19.8,"d":5.0,"p":[0.99,0.0,1.2,1],"t":40,"k":[["tuba",2]]},{"b":29.7,"d":5.0,"p":[0.99,0.0,1.2,1],"t":80,"k":[["tuba",4]]},{"b":29.7,"d":5.0,"p":[0.99,0.0,1.2,1],"t":80,"k":[["tuba",4]]},{"b":39.6,"d":5.0,"p":[0.99,0.0,1.2,1],"t":100,"k":[["tuba",5]]},{"b":49.5,"d":5.0,"p":[0.99,0.0,1.2,1],"t":120,"k":[["tuba",6]]},{"b":59.4,"d":5.0,"p":[0.99,0.0,1.2,1],"t":160,"k":[["tuba",8]]},{"b":59.4,"d":5.0,"p":[0.99,0.0,1.2,1],"t":160,"k":[["tuba",8]]},{"b":69.3,"d":5.0,"p":[0.99,0.0,1.2,1],"t":180,"k":[["tuba",9]]},{"b":79.2,"d":5.0,"p":[0.99,0.0,1.2,1],"t":200,"k":[["tuba",10]]},{"b":89.1,"d":0,"p":[0.99,0.0,1.2,1],"t":240,"k":[["tuba",12]]},{"b":89.1,"d":0,"p":[0.99,0.0,1.2,1],"t":240,"k":[["tuba",12]]},{"b":99.0,"d":0,"p":[0.99,0.0,1.2,1],"t":260,"k":[["tuba",13]]},{"b":108.9,"d":0,"p":[0.99,0.0,1.2,1],"t":280,"k":[["tuba",14]]},{"b":118.8,"d":0,"p":[0.99,0.0,1.2,1],"t":320,"k":[["tuba",16]]},{"b":118.8,"d":0,"p":[0.99,0.0,1.2,1],"t":320,"k":[["tuba",16]]},{"b":128.7,"d":0,"p":[0.99,0.0,1.2,1],"t":340,"k":[["tuba",17]]},{"b":138.6,"d":0,"p":[0.99,0.0,1.2,1],"t":360,"k":[["tuba",18]]},{"b":148.5,"d":0,"p":[0.99,0.0,1.2,1],"t":400,"k":[["tuba",20]]},{"b":148.5,"d":0,"p":[0.99,0.0,1.2,1],"t":400,"k":[["tuba",20]]},{"b":158.4,"d":0,"p":[0.99,0.0,1.2,1],"t":420,"k":[["tuba",21]]},{"b":168.3,"d":0,"p":[0.99,0.0,1.2,1],"t":440,"k":[["tuba",22]]},{"b":178.2,"d":0,"p":[0.99,0.0,1.2,1],"t":480,"k":[["tuba",24]]},{"b":178.2,"d":0,"p":[0.99,0.0,1.2,1],"t":480,"k":[["tuba",24]]},{"b":188.1,"d":0,"p":[0.99,0.0,1.2,1],"t":500,"k":[["tuba",25]]},{"b":198.0,"d":0,"p":[0.99,0.0,1.2,1],"t":520,"k":[["tuba",26]]},{"b":207.9,"d":0,"p":[0.99,0.0,1.2,1],"t":560,"k":[["tuba",28]]},{"b":207.9,"d":0,"p":[0.99,0.0,1.2,1],"t":560,"k":[["tuba",28]]},{"b":217.8,"d":0,"p":[0.99,0.0,1.2,1],"t":580,"k":[["tuba",29]]},{"b":227.7,"d":0,"p":[0.99,0.0,1.2,1],"t":600,"k":[["tuba",30]]},{"b":237.6,"d":0,"p":[0.99,0.0,1.2,1],"t":640,"k":[["tuba",32]]},{"b":237.6,"d":0,"p":[0.99,0.0,1.2,1],"t":640,"k":[["tuba",32]]},{"b":247.5,"d":0,"p":[0.99,0.0,1.2,1],"t":660,"k":[["tuba",33]]},{"b":257.4,"d":0,"p":[0.99,0.0,1.2,1],"t":680,"k":[["tuba",34]]},{"b":267.3,"d":0,"p":[0.99,0.0,1.2,1],"t":720,"k":[["tuba",36]]},{"b":267.3,"d":0,"p":[0.99,0.0,1.2,1],"t":720,"k":[["tuba",36]]}],"medikem/dostava":[{"e":"dostava_neznana","b":8.6,"t":20,"k":[["tuba",1]]},{"e":"dostava_neznana","b":17.2,"t":40,"k":[["tuba",2]]},{"e":"dostava_neznana","b":25.8,"t":60,"k":[["tuba",3]]},{"e":"dostava_neznana","b":34.4,"t":80,"k":[["tuba",4]]},{"e":"dostava_neznana","b":43.0,"t":100,"k":[["tuba",5]]},{"e":"dostava_neznana","b":51.6,"t":120,"k":[["tuba",6]]},{"e":"dostava_neznana","b":60.2,"t":140,"k":[["tuba",7]]},{"e":"dostava_neznana","b":68.8,"t":160,"k":[["tuba",8]]},{"e":"dostava_neznana","b":77.4,"t":180,"k":[["tuba",9]]},{"e":"dostava_neznana","b":86.0,"t":200,"k":[["tuba",10]]},{"e":"dostava_neznana","b":94.6,"t":220,"k":[["tuba",11]]},{"e":"dostava_neznana","b":103.2,"t":240,"k":[["tuba",12]]},{"e":"dostava_neznana","b":111.8,"t":260,"k":[["tuba",13]]},{"e":"dostava_neznana","b":120.4,"t":280,"k":[["tuba",14]]},{"e":"dostava_neznana","b":129.0,"t":300,"k":[["tuba",15]]},{"e":"dostava_neznana","b":137.6,"t":320,"k":[["tuba",16]]},{"e":"dostava_neznana","b":146.2,"t":340,"k":[["tuba",17]]},{"e":"dostava_neznana","b":154.8,"t":360,"k":[["tuba",18]]},{"e":"dostava_neznana","b":163.4,"t":380,"k":[["tuba",19]]},{"e":"dostava_neznana","b":172.0,"t":400,"k":[["tuba",20]]},{"e":"dostava_neznana","b":180.6,"t":420,"k":[["tuba",21]]},{"e":"dostava_neznana","b":189.2,"t":440,"k":[["tuba",22]]},{"e":"dostava_neznana","b":197.8,"t":460,"k":[["tuba",23]]},{"e":"dostava_neznana","b":206.4,"t":480,"k":[["tuba",24]]},{"e":"dostava_neznana","b":215.0,"t":500,"k":[["tuba",25]]},{"e":"dostava_neznana","b":223.6,"t":520,"k":[["tuba",26]]},{"e":"dostava_neznana","b":232.2,"t":540,"k":[["tuba",27]]},{"e":"dostava_neznana","b":240.8,"t":560,"k":[["tuba",28]]},{"e":"dostava_neznana","b":249.4,"t":580,"k":[["tuba",29]]},{"e":"dostava_neznana","b":258.0,"t":600,"k":[["tuba",30]]},{"e":"dostava_neznana","b":266.6,"t":620,"k":[["tuba",31]]},{"e":"dostava_neznana","b":275.2,"t":640,"k":[["tuba",32]]},{"e":"dostava_neznana","b":283.8,"t":660,"k":[["tuba",33]]},{"e":"dostava_neznana","b":292.4,"t":680,"k":[["tuba",34]]},{"e":"dostava_neznana","b":301.0,"t":700,"k":[["tuba",35]]},{"e":"dostava_neznana","b":309.6,"t":720,"k":[["tuba",36]]}]},"vsi|vnaprej":{"topatlet/dostava":[{"b":7.06,"d":4.2,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":14.12,"d":4.2,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":21.18,"d":4.2,"p":[0.0,0.0,0.0,0],"t":60,"k":[["tuba",3]]},{"b":28.24,"d":4.2,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":35.3,"d":4.2,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":42.36,"d":0,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":49.42,"d":0,"p":[0.0,0.0,0.0,0],"t":140,"k":[["tuba",7]]},{"b":56.48,"d":0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":63.54,"d":0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":70.6,"d":0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":77.66,"d":0,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":84.72,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":91.78,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":98.84,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":105.9,"d":0,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":112.96,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":120.02,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":127.08,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":134.14,"d":0,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":141.2,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":148.26,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":155.32,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":162.38,"d":0,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":169.44,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":176.5,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":183.56,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":190.62,"d":0,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":197.68,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":204.74,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":211.8,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":218.86,"d":0,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":225.92,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":232.98,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":240.04,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":247.1,"d":0,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":254.16,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"topatlet/prevzem":[{"b":7.06,"d":0,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":14.12,"d":0,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":21.18,"d":0,"p":[0.0,0.0,0.0,0],"t":60,"k":[["tuba",3]]},{"b":28.24,"d":0,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":35.3,"d":0,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":42.36,"d":0,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":49.42,"d":0,"p":[0.0,0.0,0.0,0],"t":140,"k":[["tuba",7]]},{"b":56.48,"d":0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":63.54,"d":0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":70.6,"d":0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":77.66,"d":0,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":84.72,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":91.78,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":98.84,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":105.9,"d":0,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":112.96,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":120.02,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":127.08,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":134.14,"d":0,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":141.2,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":148.26,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":155.32,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":162.38,"d":0,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":169.44,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":176.5,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":183.56,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":190.62,"d":0,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":197.68,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":204.74,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":211.8,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":218.86,"d":0,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":225.92,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":232.98,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":240.04,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":247.1,"d":0,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":254.16,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"kupipametno/dostava":[{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.0,0.0,0.0,0],"t":120,"k":[["dvojno",3]]},{"b":47.96,"d":4.9,"p":[0.0,0.0,0.0,0],"t":160,"k":[["dvojno",4]]},{"b":47.96,"d":4.9,"p":[0.0,0.0,0.0,0],"t":160,"k":[["dvojno",4]]},{"b":59.95,"d":4.9,"p":[0.0,0.0,0.0,0],"t":200,"k":[["dvojno",5]]},{"b":59.95,"d":4.9,"p":[0.0,0.0,0.0,0],"t":200,"k":[["dvojno",5]]},{"b":71.94,"d":4.9,"p":[0.0,0.0,0.0,0],"t":240,"k":[["dvojno",6]]},{"b":71.94,"d":4.9,"p":[0.0,0.0,0.0,0],"t":240,"k":[["dvojno",6]]},{"b":83.93,"d":4.9,"p":[0.0,0.0,0.0,0],"t":280,"k":[["dvojno",7]]},{"b":83.93,"d":4.9,"p":[0.0,0.0,0.0,0],"t":280,"k":[["dvojno",7]]},{"b":95.92,"d":4.9,"p":[0.0,0.0,0.0,0],"t":320,"k":[["dvojno",8]]},{"b":95.92,"d":4.9,"p":[0.0,0.0,0.0,0],"t":320,"k":[["dvojno",8]]},{"b":107.91,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["dvojno",9]]},{"b":107.91,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["dvojno",9]]},{"b":119.9,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["dvojno",10]]},{"b":119.9,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["dvojno",10]]},{"b":131.89,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["dvojno",11]]},{"b":131.89,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["dvojno",11]]},{"b":143.88,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["dvojno",12]]},{"b":143.88,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["dvojno",12]]},{"b":155.87,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["dvojno",13]]},{"b":155.87,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["dvojno",13]]},{"b":167.86,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["dvojno",14]]},{"b":167.86,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["dvojno",14]]},{"b":179.85,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["dvojno",15]]},{"b":179.85,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["dvojno",15]]},{"b":191.84,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["dvojno",16]]},{"b":191.84,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["dvojno",16]]},{"b":203.83,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["dvojno",17]]},{"b":203.83,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["dvojno",17]]},{"b":215.82,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["dvojno",18]]},{"b":215.82,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["dvojno",18]]}],"bike24/dostava":[{"b":7.19,"d":5.99,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":14.38,"d":5.99,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":16.39,"d":5.99,"p":[0.0,0.0,0.0,0],"t":60,"k":[["trojni",1]]},{"b":23.58,"d":5.99,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",1],["trojni",1]]},{"b":30.77,"d":5.99,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",2],["trojni",1]]},{"b":32.78,"d":5.99,"p":[0.0,0.0,0.0,0],"t":120,"k":[["trojni",2]]},{"b":39.97,"d":5.99,"p":[0.0,0.0,0.0,0],"t":140,"k":[["tuba",1],["trojni",2]]},{"b":47.16,"d":5.99,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",2],["trojni",2]]},{"b":49.17,"d":5.99,"p":[0.0,0.0,0.0,0],"t":180,"k":[["trojni",3]]},{"b":56.36,"d":5.99,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",1],["trojni",3]]},{"b":63.55,"d":5.99,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",2],["trojni",3]]},{"b":65.56,"d":5.99,"p":[0.0,0.0,0.0,0],"t":240,"k":[["trojni",4]]},{"b":72.75,"d":5.99,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",1],["trojni",4]]},{"b":79.94,"d":5.99,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",2],["trojni",4]]},{"b":81.95,"d":5.99,"p":[0.0,0.0,0.0,0],"t":300,"k":[["trojni",5]]},{"b":89.14,"d":5.99,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",1],["trojni",5]]},{"b":96.33,"d":5.99,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",2],["trojni",5]]},{"b":98.34,"d":5.99,"p":[0.0,0.0,0.0,0],"t":360,"k":[["trojni",6]]},{"b":105.53,"d":2.99,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",1],["trojni",6]]},{"b":112.72,"d":2.99,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",2],["trojni",6]]},{"b":114.73,"d":2.99,"p":[0.0,0.0,0.0,0],"t":420,"k":[["trojni",7]]},{"b":121.92,"d":2.99,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",1],["trojni",7]]},{"b":129.11,"d":2.99,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",2],["trojni",7]]},{"b":131.12,"d":2.99,"p":[0.0,0.0,0.0,0],"t":480,"k":[["trojni",8]]},{"b":138.31,"d":2.99,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",1],["trojni",8]]},{"b":145.5,"d":2.99,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",2],["trojni",8]]},{"b":147.51,"d":2.99,"p":[0.0,0.0,0.0,0],"t":540,"k":[["trojni",9]]},{"b":154.7,"d":2.99,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",1],["trojni",9]]},{"b":161.89,"d":2.99,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",2],["trojni",9]]},{"b":163.9,"d":2.99,"p":[0.0,0.0,0.0,0],"t":600,"k":[["trojni",10]]},{"b":171.09,"d":2.99,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",1],["trojni",10]]},{"b":178.28,"d":2.99,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",2],["trojni",10]]},{"b":180.29,"d":2.99,"p":[0.0,0.0,0.0,0],"t":660,"k":[["trojni",11]]},{"b":187.48,"d":2.99,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",1],["trojni",11]]},{"b":194.67,"d":2.99,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",2],["trojni",11]]},{"b":196.68,"d":2.99,"p":[0.0,0.0,0.0,0],"t":720,"k":[["trojni",12]]}],"veb/dostava":[{"b":7.76,"d":5.95,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":15.52,"d":5.95,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":23.28,"d":5.95,"p":[0.0,0.0,0.0,0],"t":60,"k":[["tuba",3]]},{"b":31.04,"d":5.95,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":38.8,"d":5.95,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":46.56,"d":5.95,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":54.32,"d":5.95,"p":[0.0,0.0,0.0,0],"t":140,"k":[["tuba",7]]},{"b":62.08,"d":5.95,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":69.84,"d":0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":77.6,"d":0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":85.36,"d":0,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":93.12,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":100.88,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":108.64,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":116.4,"d":0,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":124.16,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":131.92,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":139.68,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":147.44,"d":0,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":155.2,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":162.96,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":170.72,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":178.48,"d":0,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":186.24,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":194.0,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":201.76,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":209.52,"d":0,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":217.28,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":225.04,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":232.8,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":240.56,"d":0,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":248.32,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":256.08,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":263.84,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":271.6,"d":0,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":279.36,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"thenutrition/dostava":[{"e":"dostava_neznana","b":7.99,"t":20,"k":[["tuba",1]]},{"e":"dostava_neznana","b":15.98,"t":40,"k":[["tuba",2]]},{"e":"dostava_neznana","b":23.97,"t":60,"k":[["tuba",3]]},{"e":"dostava_neznana","b":31.96,"t":80,"k":[["tuba",4]]},{"e":"dostava_neznana","b":39.95,"t":100,"k":[["tuba",5]]},{"e":"dostava_neznana","b":47.94,"t":120,"k":[["tuba",6]]},{"e":"dostava_neznana","b":55.93,"t":140,"k":[["tuba",7]]},{"b":63.92,"d":0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":71.91,"d":0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":79.9,"d":0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":87.89,"d":0,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":95.88,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":103.87,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":111.86,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":119.85,"d":0,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":127.84,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":135.83,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":143.82,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":151.81,"d":0,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":159.8,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":167.79,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":175.78,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":183.77,"d":0,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":191.76,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":199.75,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":207.74,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":215.73,"d":0,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":223.72,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":231.71,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":239.7,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":247.69,"d":0,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":255.68,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":263.67,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":271.66,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":279.65,"d":0,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":287.64,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"vitja/dostava":[{"b":8.4,"d":3.99,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":16.8,"d":3.99,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":25.2,"d":3.99,"p":[0.0,0.0,0.0,0],"t":60,"k":[["tuba",3]]},{"b":33.6,"d":3.99,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":42.0,"d":3.99,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":50.4,"d":3.99,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":58.8,"d":3.99,"p":[0.0,0.0,0.0,0],"t":140,"k":[["tuba",7]]},{"b":67.2,"d":0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":75.6,"d":0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":84.0,"d":0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":92.4,"d":0,"p":[0.0,0.0,0.0,0],"t":220,"k":[["tuba",11]]},{"b":100.8,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":109.2,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":117.6,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":126.0,"d":0,"p":[0.0,0.0,0.0,0],"t":300,"k":[["tuba",15]]},{"b":134.4,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":142.8,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":151.2,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":159.6,"d":0,"p":[0.0,0.0,0.0,0],"t":380,"k":[["tuba",19]]},{"b":168.0,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":176.4,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":184.8,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":193.2,"d":0,"p":[0.0,0.0,0.0,0],"t":460,"k":[["tuba",23]]},{"b":201.6,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":210.0,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":218.4,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":226.8,"d":0,"p":[0.0,0.0,0.0,0],"t":540,"k":[["tuba",27]]},{"b":235.2,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":243.6,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":252.0,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":260.4,"d":0,"p":[0.0,0.0,0.0,0],"t":620,"k":[["tuba",31]]},{"b":268.8,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":277.2,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":285.6,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":294.0,"d":0,"p":[0.0,0.0,0.0,0],"t":700,"k":[["tuba",35]]},{"b":302.4,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"extremevital/dostava":[{"b":9.9,"d":5.0,"p":[0.0,0.0,0.0,0],"t":20,"k":[["tuba",1]]},{"b":19.8,"d":5.0,"p":[0.0,0.0,0.0,0],"t":40,"k":[["tuba",2]]},{"b":29.7,"d":5.0,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":29.7,"d":5.0,"p":[0.0,0.0,0.0,0],"t":80,"k":[["tuba",4]]},{"b":39.6,"d":5.0,"p":[0.0,0.0,0.0,0],"t":100,"k":[["tuba",5]]},{"b":49.5,"d":5.0,"p":[0.0,0.0,0.0,0],"t":120,"k":[["tuba",6]]},{"b":59.4,"d":5.0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":59.4,"d":5.0,"p":[0.0,0.0,0.0,0],"t":160,"k":[["tuba",8]]},{"b":69.3,"d":5.0,"p":[0.0,0.0,0.0,0],"t":180,"k":[["tuba",9]]},{"b":79.2,"d":5.0,"p":[0.0,0.0,0.0,0],"t":200,"k":[["tuba",10]]},{"b":89.1,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":89.1,"d":0,"p":[0.0,0.0,0.0,0],"t":240,"k":[["tuba",12]]},{"b":99.0,"d":0,"p":[0.0,0.0,0.0,0],"t":260,"k":[["tuba",13]]},{"b":108.9,"d":0,"p":[0.0,0.0,0.0,0],"t":280,"k":[["tuba",14]]},{"b":118.8,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":118.8,"d":0,"p":[0.0,0.0,0.0,0],"t":320,"k":[["tuba",16]]},{"b":128.7,"d":0,"p":[0.0,0.0,0.0,0],"t":340,"k":[["tuba",17]]},{"b":138.6,"d":0,"p":[0.0,0.0,0.0,0],"t":360,"k":[["tuba",18]]},{"b":148.5,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":148.5,"d":0,"p":[0.0,0.0,0.0,0],"t":400,"k":[["tuba",20]]},{"b":158.4,"d":0,"p":[0.0,0.0,0.0,0],"t":420,"k":[["tuba",21]]},{"b":168.3,"d":0,"p":[0.0,0.0,0.0,0],"t":440,"k":[["tuba",22]]},{"b":178.2,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":178.2,"d":0,"p":[0.0,0.0,0.0,0],"t":480,"k":[["tuba",24]]},{"b":188.1,"d":0,"p":[0.0,0.0,0.0,0],"t":500,"k":[["tuba",25]]},{"b":198.0,"d":0,"p":[0.0,0.0,0.0,0],"t":520,"k":[["tuba",26]]},{"b":207.9,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":207.9,"d":0,"p":[0.0,0.0,0.0,0],"t":560,"k":[["tuba",28]]},{"b":217.8,"d":0,"p":[0.0,0.0,0.0,0],"t":580,"k":[["tuba",29]]},{"b":227.7,"d":0,"p":[0.0,0.0,0.0,0],"t":600,"k":[["tuba",30]]},{"b":237.6,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":237.6,"d":0,"p":[0.0,0.0,0.0,0],"t":640,"k":[["tuba",32]]},{"b":247.5,"d":0,"p":[0.0,0.0,0.0,0],"t":660,"k":[["tuba",33]]},{"b":257.4,"d":0,"p":[0.0,0.0,0.0,0],"t":680,"k":[["tuba",34]]},{"b":267.3,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]},{"b":267.3,"d":0,"p":[0.0,0.0,0.0,0],"t":720,"k":[["tuba",36]]}],"medikem/dostava":[{"e":"dostava_neznana","b":8.6,"t":20,"k":[["tuba",1]]},{"e":"dostava_neznana","b":17.2,"t":40,"k":[["tuba",2]]},{"e":"dostava_neznana","b":25.8,"t":60,"k":[["tuba",3]]},{"e":"dostava_neznana","b":34.4,"t":80,"k":[["tuba",4]]},{"e":"dostava_neznana","b":43.0,"t":100,"k":[["tuba",5]]},{"e":"dostava_neznana","b":51.6,"t":120,"k":[["tuba",6]]},{"e":"dostava_neznana","b":60.2,"t":140,"k":[["tuba",7]]},{"e":"dostava_neznana","b":68.8,"t":160,"k":[["tuba",8]]},{"e":"dostava_neznana","b":77.4,"t":180,"k":[["tuba",9]]},{"e":"dostava_neznana","b":86.0,"t":200,"k":[["tuba",10]]},{"e":"dostava_neznana","b":94.6,"t":220,"k":[["tuba",11]]},{"e":"dostava_neznana","b":103.2,"t":240,"k":[["tuba",12]]},{"e":"dostava_neznana","b":111.8,"t":260,"k":[["tuba",13]]},{"e":"dostava_neznana","b":120.4,"t":280,"k":[["tuba",14]]},{"e":"dostava_neznana","b":129.0,"t":300,"k":[["tuba",15]]},{"e":"dostava_neznana","b":137.6,"t":320,"k":[["tuba",16]]},{"e":"dostava_neznana","b":146.2,"t":340,"k":[["tuba",17]]},{"e":"dostava_neznana","b":154.8,"t":360,"k":[["tuba",18]]},{"e":"dostava_neznana","b":163.4,"t":380,"k":[["tuba",19]]},{"e":"dostava_neznana","b":172.0,"t":400,"k":[["tuba",20]]},{"e":"dostava_neznana","b":180.6,"t":420,"k":[["tuba",21]]},{"e":"dostava_neznana","b":189.2,"t":440,"k":[["tuba",22]]},{"e":"dostava_neznana","b":197.8,"t":460,"k":[["tuba",23]]},{"e":"dostava_neznana","b":206.4,"t":480,"k":[["tuba",24]]},{"e":"dostava_neznana","b":215.0,"t":500,"k":[["tuba",25]]},{"e":"dostava_neznana","b":223.6,"t":520,"k":[["tuba",26]]},{"e":"dostava_neznana","b":232.2,"t":540,"k":[["tuba",27]]},{"e":"dostava_neznana","b":240.8,"t":560,"k":[["tuba",28]]},{"e":"dostava_neznana","b":249.4,"t":580,"k":[["tuba",29]]},{"e":"dostava_neznana","b":258.0,"t":600,"k":[["tuba",30]]},{"e":"dostava_neznana","b":266.6,"t":620,"k":[["tuba",31]]},{"e":"dostava_neznana","b":275.2,"t":640,"k":[["tuba",32]]},{"e":"dostava_neznana","b":283.8,"t":660,"k":[["tuba",33]]},{"e":"dostava_neznana","b":292.4,"t":680,"k":[["tuba",34]]},{"e":"dostava_neznana","b":301.0,"t":700,"k":[["tuba",35]]},{"e":"dostava_neznana","b":309.6,"t":720,"k":[["tuba",36]]}]},"vsi|povzetje":{"topatlet/dostava":[{"b":7.06,"d":4.2,"p":[0.98,0.0,1.2,1],"t":20,"k":[["tuba",1]]},{"b":14.12,"d":4.2,"p":[0.98,0.0,1.2,1],"t":40,"k":[["tuba",2]]},{"b":21.18,"d":4.2,"p":[0.98,0.0,1.2,1],"t":60,"k":[["tuba",3]]},{"b":28.24,"d":4.2,"p":[0.98,0.0,1.2,1],"t":80,"k":[["tuba",4]]},{"b":35.3,"d":4.2,"p":[0.98,0.0,1.2,1],"t":100,"k":[["tuba",5]]},{"b":42.36,"d":0,"p":[0.98,0.0,1.2,1],"t":120,"k":[["tuba",6]]},{"b":49.42,"d":0,"p":[0.98,0.0,1.2,1],"t":140,"k":[["tuba",7]]},{"b":56.48,"d":0,"p":[0.98,0.0,1.2,1],"t":160,"k":[["tuba",8]]},{"b":63.54,"d":0,"p":[0.98,0.0,1.2,1],"t":180,"k":[["tuba",9]]},{"b":70.6,"d":0,"p":[0.98,0.0,1.2,1],"t":200,"k":[["tuba",10]]},{"b":77.66,"d":0,"p":[0.98,0.0,1.2,1],"t":220,"k":[["tuba",11]]},{"b":84.72,"d":0,"p":[0.98,0.0,1.2,1],"t":240,"k":[["tuba",12]]},{"b":91.78,"d":0,"p":[0.98,0.0,1.2,1],"t":260,"k":[["tuba",13]]},{"b":98.84,"d":0,"p":[0.98,0.0,1.2,1],"t":280,"k":[["tuba",14]]},{"b":105.9,"d":0,"p":[0.98,0.0,1.2,1],"t":300,"k":[["tuba",15]]},{"b":112.96,"d":0,"p":[0.98,0.0,1.2,1],"t":320,"k":[["tuba",16]]},{"b":120.02,"d":0,"p":[0.98,0.0,1.2,1],"t":340,"k":[["tuba",17]]},{"b":127.08,"d":0,"p":[0.98,0.0,1.2,1],"t":360,"k":[["tuba",18]]},{"b":134.14,"d":0,"p":[0.98,0.0,1.2,1],"t":380,"k":[["tuba",19]]},{"b":141.2,"d":0,"p":[0.98,0.0,1.2,1],"t":400,"k":[["tuba",20]]},{"b":148.26,"d":0,"p":[0.98,0.0,1.2,1],"t":420,"k":[["tuba",21]]},{"b":155.32,"d":0,"p":[0.98,0.0,1.2,1],"t":440,"k":[["tuba",22]]},{"b":162.38,"d":0,"p":[0.98,0.0,1.2,1],"t":460,"k":[["tuba",23]]},{"b":169.44,"d":0,"p":[0.98,0.0,1.2,1],"t":480,"k":[["tuba",24]]},{"b":176.5,"d":0,"p":[0.98,0.0,1.2,1],"t":500,"k":[["tuba",25]]},{"b":183.56,"d":0,"p":[0.98,0.0,1.2,1],"t":520,"k":[["tuba",26]]},{"b":190.62,"d":0,"p":[0.98,0.0,1.2,1],"t":540,"k":[["tuba",27]]},{"b":197.68,"d":0,"p":[0.98,0.0,1.2,1],"t":560,"k":[["tuba",28]]},{"b":204.74,"d":0,"p":[0.98,0.0,1.2,1],"t":580,"k":[["tuba",29]]},{"b":211.8,"d":0,"p":[0.98,0.0,1.2,1],"t":600,"k":[["tuba",30]]},{"b":218.86,"d":0,"p":[0.98,0.0,1.2,1],"t":620,"k":[["tuba",31]]},{"b":225.92,"d":0,"p":[0.98,0.0,1.2,1],"t":640,"k":[["tuba",32]]},{"b":232.98,"d":0,"p":[0.98,0.0,1.2,1],"t":660,"k":[["tuba",33]]},{"b":240.04,"d":0,"p":[0.98,0.0,1.2,1],"t":680,"k":[["tuba",34]]},{"b":247.1,"d":0,"p":[0.98,0.0,1.2,1],"t":700,"k":[["tuba",35]]},{"b":254.16,"d":0,"p":[0.98,0.0,1.2,1],"t":720,"k":[["tuba",36]]}],"topatlet/prevzem":[{"b":7.06,"d":0,"p":[0,0,0,1],"t":20,"k":[["tuba",1]]},{"b":14.12,"d":0,"p":[0,0,0,1],"t":40,"k":[["tuba",2]]},{"b":21.18,"d":0,"p":[0,0,0,1],"t":60,"k":[["tuba",3]]},{"b":28.24,"d":0,"p":[0,0,0,1],"t":80,"k":[["tuba",4]]},{"b":35.3,"d":0,"p":[0,0,0,1],"t":100,"k":[["tuba",5]]},{"b":42.36,"d":0,"p":[0,0,0,1],"t":120,"k":[["tuba",6]]},{"b":49.42,"d":0,"p":[0,0,0,1],"t":140,"k":[["tuba",7]]},{"b":56.48,"d":0,"p":[0,0,0,1],"t":160,"k":[["tuba",8]]},{"b":63.54,"d":0,"p":[0,0,0,1],"t":180,"k":[["tuba",9]]},{"b":70.6,"d":0,"p":[0,0,0,1],"t":200,"k":[["tuba",10]]},{"b":77.66,"d":0,"p":[0,0,0,1],"t":220,"k":[["tuba",11]]},{"b":84.72,"d":0,"p":[0,0,0,1],"t":240,"k":[["tuba",12]]},{"b":91.78,"d":0,"p":[0,0,0,1],"t":260,"k":[["tuba",13]]},{"b":98.84,"d":0,"p":[0,0,0,1],"t":280,"k":[["tuba",14]]},{"b":105.9,"d":0,"p":[0,0,0,1],"t":300,"k":[["tuba",15]]},{"b":112.96,"d":0,"p":[0,0,0,1],"t":320,"k":[["tuba",16]]},{"b":120.02,"d":0,"p":[0,0,0,1],"t":340,"k":[["tuba",17]]},{"b":127.08,"d":0,"p":[0,0,0,1],"t":360,"k":[["tuba",18]]},{"b":134.14,"d":0,"p":[0,0,0,1],"t":380,"k":[["tuba",19]]},{"b":141.2,"d":0,"p":[0,0,0,1],"t":400,"k":[["tuba",20]]},{"b":148.26,"d":0,"p":[0,0,0,1],"t":420,"k":[["tuba",21]]},{"b":155.32,"d":0,"p":[0,0,0,1],"t":440,"k":[["tuba",22]]},{"b":162.38,"d":0,"p":[0,0,0,1],"t":460,"k":[["tuba",23]]},{"b":169.44,"d":0,"p":[0,0,0,1],"t":480,"k":[["tuba",24]]},{"b":176.5,"d":0,"p":[0,0,0,1],"t":500,"k":[["tuba",25]]},{"b":183.56,"d":0,"p":[0,0,0,1],"t":520,"k":[["tuba",26]]},{"b":190.62,"d":0,"p":[0,0,0,1],"t":540,"k":[["tuba",27]]},{"b":197.68,"d":0,"p":[0,0,0,1],"t":560,"k":[["tuba",28]]},{"b":204.74,"d":0,"p":[0,0,0,1],"t":580,"k":[["tuba",29]]},{"b":211.8,"d":0,"p":[0,0,0,1],"t":600,"k":[["tuba",30]]},{"b":218.86,"d":0,"p":[0,0,0,1],"t":620,"k":[["tuba",31]]},{"b":225.92,"d":0,"p":[0,0,0,1],"t":640,"k":[["tuba",32]]},{"b":232.98,"d":0,"p":[0,0,0,1],"t":660,"k":[["tuba",33]]},{"b":240.04,"d":0,"p":[0,0,0,1],"t":680,"k":[["tuba",34]]},{"b":247.1,"d":0,"p":[0,0,0,1],"t":700,"k":[["tuba",35]]},{"b":254.16,"d":0,"p":[0,0,0,1],"t":720,"k":[["tuba",36]]}],"kupipametno/dostava":[{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":35.97,"d":4.9,"p":[0.99,0.0,1.2,1],"t":120,"k":[["dvojno",3]]},{"b":47.96,"d":4.9,"p":[0.99,0.0,1.2,1],"t":160,"k":[["dvojno",4]]},{"b":47.96,"d":4.9,"p":[0.99,0.0,1.2,1],"t":160,"k":[["dvojno",4]]},{"b":59.95,"d":4.9,"p":[0.99,0.0,1.2,1],"t":200,"k":[["dvojno",5]]},{"b":59.95,"d":4.9,"p":[0.99,0.0,1.2,1],"t":200,"k":[["dvojno",5]]},{"b":71.94,"d":4.9,"p":[0.99,0.0,1.2,1],"t":240,"k":[["dvojno",6]]},{"b":71.94,"d":4.9,"p":[0.99,0.0,1.2,1],"t":240,"k":[["dvojno",6]]},{"b":83.93,"d":4.9,"p":[0.99,0.0,1.2,1],"t":280,"k":[["dvojno",7]]},{"b":83.93,"d":4.9,"p":[0.99,0.0,1.2,1],"t":280,"k":[["dvojno",7]]},{"b":95.92,"d":4.9,"p":[0.99,0.0,1.2,1],"t":320,"k":[["dvojno",8]]},{"b":95.92,"d":4.9,"p":[0.99,0.0,1.2,1],"t":320,"k":[["dvojno",8]]},{"b":107.91,"d":0,"p":[0.99,0.0,1.2,1],"t":360,"k":[["dvojno",9]]},{"b":107.91,"d":0,"p":[0.99,0.0,1.2,1],"t":360,"k":[["dvojno",9]]},{"b":119.9,"d":0,"p":[0.99,0.0,1.2,1],"t":400,"k":[["dvojno",10]]},{"b":119.9,"d":0,"p":[0.99,0.0,1.2,1],"t":400,"k":[["dvojno",10]]},{"b":131.89,"d":0,"p":[0.99,0.0,1.2,1],"t":440,"k":[["dvojno",11]]},{"b":131.89,"d":0,"p":[0.99,0.0,1.2,1],"t":440,"k":[["dvojno",11]]},{"b":143.88,"d":0,"p":[0.99,0.0,1.2,1],"t":480,"k":[["dvojno",12]]},{"b":143.88,"d":0,"p":[0.99,0.0,1.2,1],"t":480,"k":[["dvojno",12]]},{"b":155.87,"d":0,"p":[0.99,0.0,1.2,1],"t":520,"k":[["dvojno",13]]},{"b":155.87,"d":0,"p":[0.99,0.0,1.2,1],"t":520,"k":[["dvojno",13]]},{"b":167.86,"d":0,"p":[0.99,0.0,1.2,1],"t":560,"k":[["dvojno",14]]},{"b":167.86,"d":0,"p":[0.99,0.0,1.2,1],"t":560,"k":[["dvojno",14]]},{"b":179.85,"d":0,"p":[0.99,0.0,1.2,1],"t":600,"k":[["dvojno",15]]},{"b":179.85,"d":0,"p":[0.99,0.0,1.2,1],"t":600,"k":[["dvojno",15]]},{"b":191.84,"d":0,"p":[0.99,0.0,1.2,1],"t":640,"k":[["dvojno",16]]},{"b":191.84,"d":0,"p":[0.99,0.0,1.2,1],"t":640,"k":[["dvojno",16]]},{"b":203.83,"d":0,"p":[0.99,0.0,1.2,1],"t":680,"k":[["dvojno",17]]},{"b":203.83,"d":0,"p":[0.99,0.0,1.2,1],"t":680,"k":[["dvojno",17]]},{"b":215.82,"d":0,"p":[0.99,0.0,1.2,1],"t":720,"k":[["dvojno",18]]},{"b":215.82,"d":0,"p":[0.99,0.0,1.2,1],"t":720,"k":[["dvojno",18]]}],"bike24/dostava":[{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"},{"e":"ni_povzetja"}],"veb/dostava":[{"b":7.76,"d":5.95,"p":[0,0,0,0],"t":20,"k":[["tuba",1]]},{"b":15.52,"d":5.95,"p":[0,0,0,0],"t":40,"k":[["tuba",2]]},{"b":23.28,"d":5.95,"p":[0,0,0,0],"t":60,"k":[["tuba",3]]},{"b":31.04,"d":5.95,"p":[0,0,0,0],"t":80,"k":[["tuba",4]]},{"b":38.8,"d":5.95,"p":[0,0,0,0],"t":100,"k":[["tuba",5]]},{"b":46.56,"d":5.95,"p":[0,0,0,0],"t":120,"k":[["tuba",6]]},{"b":54.32,"d":5.95,"p":[0,0,0,0],"t":140,"k":[["tuba",7]]},{"b":62.08,"d":5.95,"p":[0,0,0,0],"t":160,"k":[["tuba",8]]},{"b":69.84,"d":0,"p":[0,0,0,0],"t":180,"k":[["tuba",9]]},{"b":77.6,"d":0,"p":[0,0,0,0],"t":200,"k":[["tuba",10]]},{"b":85.36,"d":0,"p":[0,0,0,0],"t":220,"k":[["tuba",11]]},{"b":93.12,"d":0,"p":[0,0,0,0],"t":240,"k":[["tuba",12]]},{"b":100.88,"d":0,"p":[0,0,0,0],"t":260,"k":[["tuba",13]]},{"b":108.64,"d":0,"p":[0,0,0,0],"t":280,"k":[["tuba",14]]},{"b":116.4,"d":0,"p":[0,0,0,0],"t":300,"k":[["tuba",15]]},{"b":124.16,"d":0,"p":[0,0,0,0],"t":320,"k":[["tuba",16]]},{"b":131.92,"d":0,"p":[0,0,0,0],"t":340,"k":[["tuba",17]]},{"b":139.68,"d":0,"p":[0,0,0,0],"t":360,"k":[["tuba",18]]},{"b":147.44,"d":0,"p":[0,0,0,0],"t":380,"k":[["tuba",19]]},{"b":155.2,"d":0,"p":[0,0,0,0],"t":400,"k":[["tuba",20]]},{"b":162.96,"d":0,"p":[0,0,0,0],"t":420,"k":[["tuba",21]]},{"b":170.72,"d":0,"p":[0,0,0,0],"t":440,"k":[["tuba",22]]},{"b":178.48,"d":0,"p":[0,0,0,0],"t":460,"k":[["tuba",23]]},{"b":186.24,"d":0,"p":[0,0,0,0],"t":480,"k":[["tuba",24]]},{"b":194.0,"d":0,"p":[0,0,0,0],"t":500,"k":[["tuba",25]]},{"b":201.76,"d":0,"p":[0,0,0,0],"t":520,"k":[["tuba",26]]},{"b":209.52,"d":0,"p":[0,0,0,0],"t":540,"k":[["tuba",27]]},{"b":217.28,"d":0,"p":[0,0,0,0],"t":560,"k":[["tuba",28]]},{"b":225.04,"d":0,"p":[0,0,0,0],"t":580,"k":[["tuba",29]]},{"b":232.8,"d":0,"p":[0,0,0,0],"t":600,"k":[["tuba",30]]},{"b":240.56,"d":0,"p":[0,0,0,0],"t":620,"k":[["tuba",31]]},{"b":248.32,"d":0,"p":[0,0,0,0],"t":640,"k":[["tuba",32]]},{"b":256.08,"d":0,"p":[0,0,0,0],"t":660,"k":[["tuba",33]]},{"b":263.84,"d":0,"p":[0,0,0,0],"t":680,"k":[["tuba",34]]},{"b":271.6,"d":0,"p":[0,0,0,0],"t":700,"k":[["tuba",35]]},{"b":279.36,"d":0,"p":[0,0,0,0],"t":720,"k":[["tuba",36]]}],"thenutrition/dostava":[{"e":"dostava_neznana","b":7.99,"t":20,"k":[["tuba",1]]},{"e":"dostava_neznana","b":15.98,"t":40,"k":[["tuba",2]]},{"e":"dostava_neznana","b":23.97,"t":60,"k":[["tuba",3]]},{"e":"dostava_neznana","b":31.96,"t":80,"k":[["tuba",4]]},{"e":"dostava_neznana","b":39.95,"t":100,"k":[["tuba",5]]},{"e":"dostava_neznana","b":47.94,"t":120,"k":[["tuba",6]]},{"e":"dostava_neznana","b":55.93,"t":140,"k":[["tuba",7]]},{"b":63.92,"d":0,"p":[0.99,0.0,1.2,1],"t":160,"k":[["tuba",8]]},{"b":71.91,"d":0,"p":[0.99,0.0,1.2,1],"t":180,"k":[["tuba",9]]},{"b":79.9,"d":0,"p":[0.99,0.0,1.2,1],"t":200,"k":[["tuba",10]]},{"b":87.89,"d":0,"p":[0.99,0.0,1.2,1],"t":220,"k":[["tuba",11]]},{"b":95.88,"d":0,"p":[0.99,0.0,1.2,1],"t":240,"k":[["tuba",12]]},{"b":103.87,"d":0,"p":[0.99,0.0,1.2,1],"t":260,"k":[["tuba",13]]},{"b":111.86,"d":0,"p":[0.99,0.0,1.2,1],"t":280,"k":[["tuba",14]]},{"b":119.85,"d":0,"p":[0.99,0.0,1.2,1],"t":300,"k":[["tuba",15]]},{"b":127.84,"d":0,"p":[0.99,0.0,1.2,1],"t":320,"k":[["tuba",16]]},{"b":135.83,"d":0,"p":[0.99,0.0,1.2,1],"t":340,"k":[["tuba",17]]},{"b":143.82,"d":0,"p":[0.99,0.0,1.2,1],"t":360,"k":[["tuba",18]]},{"b":151.81,"d":0,"p":[0.99,0.0,1.2,1],"t":380,"k":[["tuba",19]]},{"b":159.8,"d":0,"p":[0.99,0.0,1.2,1],"t":400,"k":[["tuba",20]]},{"b":167.79,"d":0,"p":[0.99,0.0,1.2,1],"t":420,"k":[["tuba",21]]},{"b":175.78,"d":0,"p":[0.99,0.0,1.2,1],"t":440,"k":[["tuba",22]]},{"b":183.77,"d":0,"p":[0.99,0.0,1.2,1],"t":460,"k":[["tuba",23]]},{"b":191.76,"d":0,"p":[0.99,0.0,1.2,1],"t":480,"k":[["tuba",24]]},{"b":199.75,"d":0,"p":[0.99,0.0,1.2,1],"t":500,"k":[["tuba",25]]},{"b":207.74,"d":0,"p":[0.99,0.0,1.2,1],"t":520,"k":[["tuba",26]]},{"b":215.73,"d":0,"p":[0.99,0.0,1.2,1],"t":540,"k":[["tuba",27]]},{"b":223.72,"d":0,"p":[0.99,0.0,1.2,1],"t":560,"k":[["tuba",28]]},{"b":231.71,"d":0,"p":[0.99,0.0,1.2,1],"t":580,"k":[["tuba",29]]},{"b":239.7,"d":0,"p":[0.99,0.0,1.2,1],"t":600,"k":[["tuba",30]]},{"b":247.69,"d":0,"p":[0.99,0.0,1.2,1],"t":620,"k":[["tuba",31]]},{"b":255.68,"d":0,"p":[0.99,0.0,1.2,1],"t":640,"k":[["tuba",32]]},{"b":263.67,"d":0,"p":[0.99,0.0,1.2,1],"t":660,"k":[["tuba",33]]},{"b":271.66,"d":0,"p":[0.99,0.0,1.2,1],"t":680,"k":[["tuba",34]]},{"b":279.65,"d":0,"p":[0.99,0.0,1.2,1],"t":700,"k":[["tuba",35]]},{"b":287.64,"d":0,"p":[0.99,0.0,1.2,1],"t":720,"k":[["tuba",36]]}],"vitja/dostava":[{"b":8.4,"d":3.99,"p":[0.99,0.99,0.99,0],"t":20,"k":[["tuba",1]]},{"b":16.8,"d":3.99,"p":[0.99,0.99,0.99,0],"t":40,"k":[["tuba",2]]},{"b":25.2,"d":3.99,"p":[0.99,0.99,0.99,0],"t":60,"k":[["tuba",3]]},{"b":33.6,"d":3.99,"p":[0.99,0.99,0.99,0],"t":80,"k":[["tuba",4]]},{"b":42.0,"d":3.99,"p":[0.99,0.99,0.99,0],"t":100,"k":[["tuba",5]]},{"b":50.4,"d":3.99,"p":[0.99,0.99,0.99,0],"t":120,"k":[["tuba",6]]},{"b":58.8,"d":3.99,"p":[0.99,0.99,0.99,0],"t":140,"k":[["tuba",7]]},{"b":67.2,"d":0,"p":[0.99,0.99,0.99,0],"t":160,"k":[["tuba",8]]},{"b":75.6,"d":0,"p":[0.99,0.99,0.99,0],"t":180,"k":[["tuba",9]]},{"b":84.0,"d":0,"p":[0.99,0.99,0.99,0],"t":200,"k":[["tuba",10]]},{"b":92.4,"d":0,"p":[0.99,0.99,0.99,0],"t":220,"k":[["tuba",11]]},{"b":100.8,"d":0,"p":[0.99,0.99,0.99,0],"t":240,"k":[["tuba",12]]},{"b":109.2,"d":0,"p":[0.99,0.99,0.99,0],"t":260,"k":[["tuba",13]]},{"b":117.6,"d":0,"p":[0.99,0.99,0.99,0],"t":280,"k":[["tuba",14]]},{"b":126.0,"d":0,"p":[0.99,0.99,0.99,0],"t":300,"k":[["tuba",15]]},{"b":134.4,"d":0,"p":[0.99,0.99,0.99,0],"t":320,"k":[["tuba",16]]},{"b":142.8,"d":0,"p":[0.99,0.99,0.99,0],"t":340,"k":[["tuba",17]]},{"b":151.2,"d":0,"p":[0.99,0.99,0.99,0],"t":360,"k":[["tuba",18]]},{"b":159.6,"d":0,"p":[0.99,0.99,0.99,0],"t":380,"k":[["tuba",19]]},{"b":168.0,"d":0,"p":[0.99,0.99,0.99,0],"t":400,"k":[["tuba",20]]},{"b":176.4,"d":0,"p":[0.99,0.99,0.99,0],"t":420,"k":[["tuba",21]]},{"b":184.8,"d":0,"p":[0.99,0.99,0.99,0],"t":440,"k":[["tuba",22]]},{"b":193.2,"d":0,"p":[0.99,0.99,0.99,0],"t":460,"k":[["tuba",23]]},{"b":201.6,"d":0,"p":[0.99,0.99,0.99,0],"t":480,"k":[["tuba",24]]},{"b":210.0,"d":0,"p":[0.99,0.99,0.99,0],"t":500,"k":[["tuba",25]]},{"b":218.4,"d":0,"p":[0.99,0.99,0.99,0],"t":520,"k":[["tuba",26]]},{"b":226.8,"d":0,"p":[0.99,0.99,0.99,0],"t":540,"k":[["tuba",27]]},{"b":235.2,"d":0,"p":[0.99,0.99,0.99,0],"t":560,"k":[["tuba",28]]},{"b":243.6,"d":0,"p":[0.99,0.99,0.99,0],"t":580,"k":[["tuba",29]]},{"b":252.0,"d":0,"p":[0.99,0.99,0.99,0],"t":600,"k":[["tuba",30]]},{"b":260.4,"d":0,"p":[0.99,0.99,0.99,0],"t":620,"k":[["tuba",31]]},{"b":268.8,"d":0,"p":[0.99,0.99,0.99,0],"t":640,"k":[["tuba",32]]},{"b":277.2,"d":0,"p":[0.99,0.99,0.99,0],"t":660,"k":[["tuba",33]]},{"b":285.6,"d":0,"p":[0.99,0.99,0.99,0],"t":680,"k":[["tuba",34]]},{"b":294.0,"d":0,"p":[0.99,0.99,0.99,0],"t":700,"k":[["tuba",35]]},{"b":302.4,"d":0,"p":[0.99,0.99,0.99,0],"t":720,"k":[["tuba",36]]}],"extremevital/dostava":[{"b":9.9,"d":5.0,"p":[0.99,0.0,1.2,1],"t":20,"k":[["tuba",1]]},{"b":19.8,"d":5.0,"p":[0.99,0.0,1.2,1],"t":40,"k":[["tuba",2]]},{"b":29.7,"d":5.0,"p":[0.99,0.0,1.2,1],"t":80,"k":[["tuba",4]]},{"b":29.7,"d":5.0,"p":[0.99,0.0,1.2,1],"t":80,"k":[["tuba",4]]},{"b":39.6,"d":5.0,"p":[0.99,0.0,1.2,1],"t":100,"k":[["tuba",5]]},{"b":49.5,"d":5.0,"p":[0.99,0.0,1.2,1],"t":120,"k":[["tuba",6]]},{"b":59.4,"d":5.0,"p":[0.99,0.0,1.2,1],"t":160,"k":[["tuba",8]]},{"b":59.4,"d":5.0,"p":[0.99,0.0,1.2,1],"t":160,"k":[["tuba",8]]},{"b":69.3,"d":5.0,"p":[0.99,0.0,1.2,1],"t":180,"k":[["tuba",9]]},{"b":79.2,"d":5.0,"p":[0.99,0.0,1.2,1],"t":200,"k":[["tuba",10]]},{"b":89.1,"d":0,"p":[0.99,0.0,1.2,1],"t":240,"k":[["tuba",12]]},{"b":89.1,"d":0,"p":[0.99,0.0,1.2,1],"t":240,"k":[["tuba",12]]},{"b":99.0,"d":0,"p":[0.99,0.0,1.2,1],"t":260,"k":[["tuba",13]]},{"b":108.9,"d":0,"p":[0.99,0.0,1.2,1],"t":280,"k":[["tuba",14]]},{"b":118.8,"d":0,"p":[0.99,0.0,1.2,1],"t":320,"k":[["tuba",16]]},{"b":118.8,"d":0,"p":[0.99,0.0,1.2,1],"t":320,"k":[["tuba",16]]},{"b":128.7,"d":0,"p":[0.99,0.0,1.2,1],"t":340,"k":[["tuba",17]]},{"b":138.6,"d":0,"p":[0.99,0.0,1.2,1],"t":360,"k":[["tuba",18]]},{"b":148.5,"d":0,"p":[0.99,0.0,1.2,1],"t":400,"k":[["tuba",20]]},{"b":148.5,"d":0,"p":[0.99,0.0,1.2,1],"t":400,"k":[["tuba",20]]},{"b":158.4,"d":0,"p":[0.99,0.0,1.2,1],"t":420,"k":[["tuba",21]]},{"b":168.3,"d":0,"p":[0.99,0.0,1.2,1],"t":440,"k":[["tuba",22]]},{"b":178.2,"d":0,"p":[0.99,0.0,1.2,1],"t":480,"k":[["tuba",24]]},{"b":178.2,"d":0,"p":[0.99,0.0,1.2,1],"t":480,"k":[["tuba",24]]},{"b":188.1,"d":0,"p":[0.99,0.0,1.2,1],"t":500,"k":[["tuba",25]]},{"b":198.0,"d":0,"p":[0.99,0.0,1.2,1],"t":520,"k":[["tuba",26]]},{"b":207.9,"d":0,"p":[0.99,0.0,1.2,1],"t":560,"k":[["tuba",28]]},{"b":207.9,"d":0,"p":[0.99,0.0,1.2,1],"t":560,"k":[["tuba",28]]},{"b":217.8,"d":0,"p":[0.99,0.0,1.2,1],"t":580,"k":[["tuba",29]]},{"b":227.7,"d":0,"p":[0.99,0.0,1.2,1],"t":600,"k":[["tuba",30]]},{"b":237.6,"d":0,"p":[0.99,0.0,1.2,1],"t":640,"k":[["tuba",32]]},{"b":237.6,"d":0,"p":[0.99,0.0,1.2,1],"t":640,"k":[["tuba",32]]},{"b":247.5,"d":0,"p":[0.99,0.0,1.2,1],"t":660,"k":[["tuba",33]]},{"b":257.4,"d":0,"p":[0.99,0.0,1.2,1],"t":680,"k":[["tuba",34]]},{"b":267.3,"d":0,"p":[0.99,0.0,1.2,1],"t":720,"k":[["tuba",36]]},{"b":267.3,"d":0,"p":[0.99,0.0,1.2,1],"t":720,"k":[["tuba",36]]}],"medikem/dostava":[{"e":"dostava_neznana","b":8.6,"t":20,"k":[["tuba",1]]},{"e":"dostava_neznana","b":17.2,"t":40,"k":[["tuba",2]]},{"e":"dostava_neznana","b":25.8,"t":60,"k":[["tuba",3]]},{"e":"dostava_neznana","b":34.4,"t":80,"k":[["tuba",4]]},{"e":"dostava_neznana","b":43.0,"t":100,"k":[["tuba",5]]},{"e":"dostava_neznana","b":51.6,"t":120,"k":[["tuba",6]]},{"e":"dostava_neznana","b":60.2,"t":140,"k":[["tuba",7]]},{"e":"dostava_neznana","b":68.8,"t":160,"k":[["tuba",8]]},{"e":"dostava_neznana","b":77.4,"t":180,"k":[["tuba",9]]},{"e":"dostava_neznana","b":86.0,"t":200,"k":[["tuba",10]]},{"e":"dostava_neznana","b":94.6,"t":220,"k":[["tuba",11]]},{"e":"dostava_neznana","b":103.2,"t":240,"k":[["tuba",12]]},{"e":"dostava_neznana","b":111.8,"t":260,"k":[["tuba",13]]},{"e":"dostava_neznana","b":120.4,"t":280,"k":[["tuba",14]]},{"e":"dostava_neznana","b":129.0,"t":300,"k":[["tuba",15]]},{"e":"dostava_neznana","b":137.6,"t":320,"k":[["tuba",16]]},{"e":"dostava_neznana","b":146.2,"t":340,"k":[["tuba",17]]},{"e":"dostava_neznana","b":154.8,"t":360,"k":[["tuba",18]]},{"e":"dostava_neznana","b":163.4,"t":380,"k":[["tuba",19]]},{"e":"dostava_neznana","b":172.0,"t":400,"k":[["tuba",20]]},{"e":"dostava_neznana","b":180.6,"t":420,"k":[["tuba",21]]},{"e":"dostava_neznana","b":189.2,"t":440,"k":[["tuba",22]]},{"e":"dostava_neznana","b":197.8,"t":460,"k":[["tuba",23]]},{"e":"dostava_neznana","b":206.4,"t":480,"k":[["tuba",24]]},{"e":"dostava_neznana","b":215.0,"t":500,"k":[["tuba",25]]},{"e":"dostava_neznana","b":223.6,"t":520,"k":[["tuba",26]]},{"e":"dostava_neznana","b":232.2,"t":540,"k":[["tuba",27]]},{"e":"dostava_neznana","b":240.8,"t":560,"k":[["tuba",28]]},{"e":"dostava_neznana","b":249.4,"t":580,"k":[["tuba",29]]},{"e":"dostava_neznana","b":258.0,"t":600,"k":[["tuba",30]]},{"e":"dostava_neznana","b":266.6,"t":620,"k":[["tuba",31]]},{"e":"dostava_neznana","b":275.2,"t":640,"k":[["tuba",32]]},{"e":"dostava_neznana","b":283.8,"t":660,"k":[["tuba",33]]},{"e":"dostava_neznana","b":292.4,"t":680,"k":[["tuba",34]]},{"e":"dostava_neznana","b":301.0,"t":700,"k":[["tuba",35]]},{"e":"dostava_neznana","b":309.6,"t":720,"k":[["tuba",36]]}]}},"vrstice":["topatlet/dostava","topatlet/prevzem","kupipametno/dostava","bike24/dostava","veb/dostava","thenutrition/dostava","vitja/dostava","extremevital/dostava","medikem/dostava"]}</script>
+<!--PODATKI:KONEC-->
+
+<script>
+(function(){
+"use strict";
+var D = JSON.parse((document.getElementById("podatki") || {}).textContent || "{}");
+var $ = function(s, r){ return (r || document).querySelector(s); };
+var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+function stevilcnik(o){
+  try { return new Intl.NumberFormat("sl-SI", Object.assign({useGrouping:"always"}, o)); }
+  catch(e){ try { return new Intl.NumberFormat("sl-SI", o); } catch(e2){ return {format: function(v){ var d = o.maximumFractionDigits == null ? 2 : o.maximumFractionDigits; return v.toFixed(d).replace(".", ",") + (o.style ? " €" : ""); }}; } }
+}
+var eur2 = stevilcnik({style:"currency", currency:"EUR", minimumFractionDigits:2, maximumFractionDigits:2});
+var eur3 = stevilcnik({style:"currency", currency:"EUR", minimumFractionDigits:3, maximumFractionDigits:3});
+var eur0 = stevilcnik({style:"currency", currency:"EUR", maximumFractionDigits:0});
+var st0 = stevilcnik({maximumFractionDigits:0});
+var st1 = stevilcnik({maximumFractionDigits:1});
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+var shramba = {
+  beri: function(k, privzeto){ try { var v = localStorage.getItem("high5-zero:" + k); return v ? JSON.parse(v) : privzeto; } catch(e){ return privzeto; } },
+  pisi: function(k, v){ try { localStorage.setItem("high5-zero:" + k, JSON.stringify(v)); } catch(e){} }
+};
+var K = D.kosarica || {min:1, max:36, privzeto:6, hitri:[]};
+var POR = D.poraba || {moznosti:[1,1.5,2], privzeto:1.5, tednov_na_leto:52};
+var vsecki = new Set(shramba.beri("vsecki", []));
+var skrito = new Set(shramba.beri("skrito", []));
+var scen = Object.assign({n:K.privzeto, okus:"oba", placilo:"vnaprej", poraba:POR.privzeto}, shramba.beri("scenarij", {}));
+scen.n = Math.max(K.min, Math.min(K.max, parseInt(scen.n, 10) || K.privzeto));
+if (["oba","priljubljena","vsi"].indexOf(scen.okus) < 0) scen.okus = "oba";
+if (["vnaprej","povzetje"].indexOf(scen.placilo) < 0) scen.placilo = "vnaprej";
+if (POR.moznosti.indexOf(Number(scen.poraba)) < 0) scen.poraba = POR.privzeto;
+var PRIVZETO = {kljuc:"tableta", smer:1};
+var razvrsti = Object.assign({}, PRIVZETO);
+var skriteCrte = new Set();
+
+var VRSTE = [];
+(D.trgovine || []).forEach(function(t){ (t.nacini || []).forEach(function(n){ VRSTE.push({key:t.key + "/" + n.key, id:t.key + "-" + n.key, trg:t, nacin:n}); }); });
+var poKljucu = {}; VRSTE.forEach(function(v){ poKljucu[v.key] = v; });
+var stVira = {}; (D.viri || []).forEach(function(v, i){ stVira[v.id] = i + 1; });
+function oznakeVirov(ids){ return (ids || []).map(function(id){ return '<a href="#vir-' + esc(id) + '">[' + (stVira[id] || "?") + "]</a>"; }).join(" "); }
+var PRILJ = D.priljubljeni || ["berry","pinkgrapefruit"];
+var OKUSI = D.okusi || {};
+var SVG_SRCE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.1C1 8.6 3 5 6.6 5c2.1 0 3.6 1.2 4.4 2.5C11.8 6.2 13.3 5 15.4 5 19 5 21 8.6 19.6 11.9 17.5 16.4 12 21 12 21z"/></svg>';
+var SVG_X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+var SVG_RISBA = '<svg viewBox="0 0 120 100" aria-hidden="true"><g transform="translate(14,8)"><rect x="0" y="10" width="26" height="78" rx="5" fill="var(--ploskev)" stroke="var(--crta-2)"/><rect x="-1.5" y="0" width="29" height="14" rx="4" fill="#B0124F"/><rect x="0" y="40" width="26" height="26" fill="var(--modra)"/></g><g transform="translate(47,8)"><rect x="0" y="10" width="26" height="78" rx="5" fill="var(--ploskev)" stroke="var(--crta-2)"/><rect x="-1.5" y="0" width="29" height="14" rx="4" fill="#C9A000"/><rect x="0" y="40" width="26" height="26" fill="var(--modra)"/></g><g transform="translate(80,8)"><rect x="0" y="10" width="26" height="78" rx="5" fill="var(--ploskev)" stroke="var(--crta-2)"/><rect x="-1.5" y="0" width="29" height="14" rx="4" fill="#E39400"/><rect x="0" y="40" width="26" height="26" fill="var(--modra)"/></g></svg>';
+var NAPAKE = {ni_obeh:"Nima obeh najljubših okusov", ni_okusa:"Ni Berry ne Pink Grapefruit", ni_povzetja:"Povzetja ni, samo plačilo vnaprej", dostava_neznana:"Cena dostave ni znana", ni_kolicine:"Ni izračuna", ni:"Ni izračuna"};
+
+/* izračun iz vnaprej pripravljenih košaric */
+function scKljuc(){ return (scen.okus === "oba" ? "priljubljena" : scen.okus) + "|" + scen.placilo; }
+function rezultat(v, n){
+  var a = ((D.izracun || {})[scKljuc()] || {})[v.key];
+  var x = a ? a[(n == null ? scen.n : n) - 1] : null;
+  if (!x) return {napaka:"ni"};
+  if (x.e) return {napaka:x.e, blago:x.b, tablet:x.t, kosi:x.k};
+  if (scen.okus === "oba" && okusaBesedilo(v) !== "oba") return {napaka:"ni_obeh", blago:x.b, tablet:x.t, kosi:x.k};
+  var p = {v:x.p[0], lo:x.p[1], hi:x.p[2], ocena:!!x.p[3]};
+  var sk = x.b + x.d + p.v;
+  return {blago:x.b, dostava:x.d, povzetje:p, skupaj:sk, skupajLo:x.b + x.d + p.lo, skupajHi:x.b + x.d + p.hi, tablet:x.t, kosi:x.k, tableta:sk / x.t};
+}
+function tabletNaTeden(){ return 20 * Number(scen.poraba); }
+function tedniB(x){ var r = Math.round(x * 10) / 10; if (r % 1 !== 0) return st1.format(r) + " tedna"; return r + (r === 1 ? " teden" : r === 2 ? " tedna" : r < 5 ? " tedne" : " tednov"); }
+function tubeB(m){ m = Number(m); return st1.format(m) + (m % 1 !== 0 ? " tube" : m === 1 ? " tuba" : m === 2 ? " tubi" : m < 5 ? " tube" : " tub"); }
+function leto(r){ return r.tableta * tabletNaTeden() * (POR.tednov_na_leto || 52); }
+function mesec(r){ return leto(r) / 12; }
+function tednov(r){ return r.tablet / tabletNaTeden(); }
+function namig(v){
+  var r = rezultat(v); if (r.napaka) return null;
+  var naj = null;
+  for (var k = 1; k <= 4 && scen.n + k <= K.max; k++){
+    var r2 = rezultat(v, scen.n + k);
+    if (r2.napaka || r2.tablet <= r.tablet) continue;
+    if (r2.tableta < r.tableta - 0.004 && (!naj || r2.tableta < naj.r.tableta - 0.0005)) naj = {k:k, r:r2};
+  }
+  return naj;
+}
+function ponudba(v, key){ var p = null; (v.trg.ponudbe || []).forEach(function(o){ if (o.key === key) p = o; }); return p; }
+function kupis(v, r){
+  return (r.kosi || []).map(function(k){
+    var o = ponudba(v, k[0]) || {kratko:k[0]};
+    var t = k[1] + " × " + (o.kratko || o.naslov);
+    if (o.promo && o.promo.tip === "n_plus_1"){ var plac = k[1] - Math.floor(k[1] / (o.promo.n + 1)); if (plac < k[1]) t += " (plačaš " + plac + ")"; }
+    return t;
+  }).join(" + ");
+}
+function mesano(v, r){ return (r.kosi || []).some(function(k){ var o = ponudba(v, k[0]); return o && o.mesan; }); }
+function priljOkusi(v){
+  var ima = {};
+  (v.trg.ponudbe || []).forEach(function(o){ if (o.zaloga === false) return; (o.okusi || []).forEach(function(k){ if (PRILJ.indexOf(k) >= 0 && (!o.mesan || o.okusi.every(function(x){ return PRILJ.indexOf(x) >= 0; }))) ima[k] = 1; }); if (o.mesan) (o.okusi || []).forEach(function(k){ if (PRILJ.indexOf(k) >= 0) ima[k] = ima[k] || 0.5; }); });
+  return ima;
+}
+function okusaBesedilo(v){
+  var ima = priljOkusi(v);
+  var b = ima.berry === 1, g = ima.pinkgrapefruit === 1;
+  return b && g ? "oba" : b ? "samo Berry" : g ? "samo Pink Grapefruit" : "nobeden";
+}
+function povzetjeStanje(v){ return (v.nacin.povzetje || v.trg.povzetje || {}); }
+function povzetjeCip(v){
+  var s = povzetjeStanje(v).stanje;
+  var m = {da:["ok","povzetje"], po_dogovoru:["pozor","povzetje po dogovoru"], ni_podatka:["pozor","povzetje ni potrjeno"], ne:["napaka","brez povzetja"]}[s] || ["", "?"];
+  return '<span class="cip ' + m[0] + '">' + esc(m[1]) + "</span>";
+}
+function povzetjeBesedilo(v){ var s = povzetjeStanje(v).stanje; return {da:"da", po_dogovoru:"po dogovoru", ni_podatka:"ni potrjeno", ne:"ne"}[s] || "?"; }
+function okusCipi(v){
+  var ima = priljOkusi(v);
+  return PRILJ.map(function(k){
+    var o = OKUSI[k] || {ime:k, barva:"#888"};
+    var st = ima[k] === 1 ? "" : ima[k] === 0.5 ? " (v mešanem)" : "";
+    return '<span class="cip okus' + (ima[k] ? "" : " manjka") + '" style="background:' + esc(o.barva) + '">' + esc(o.ime) + st + "</span>";
+  }).join("");
+}
+function ceneZaPas(){
+  var t = [];
+  VRSTE.forEach(function(v){ if (skrito.has(v.key)) return; var r = rezultat(v); if (!r.napaka) t.push(r.tableta); });
+  return {min:Math.min.apply(null, t), max:Math.max.apply(null, t)};
+}
+function cena2(x){ return x == null ? "?" : eur2.format(x); }
+function pvBesedilo(p){ if (!p) return "?"; if (scen.placilo !== "povzetje") return "ne"; if (p.ocena && p.lo !== p.hi) return "≈ " + eur2.format(p.v); return eur2.format(p.v); }
+
+/* glava */
+function glava(){
+  $("#datum-raziskave").textContent = "Nakupna raziskava · " + (D.datum || "");
+  $("#podnaslov").textContent = D.podnaslov || "";
+  var top = poKljucu["topatlet/dostava"], kup = poKljucu["kupipametno/dostava"];
+  var sc = scen.okus, sp = scen.placilo; scen.okus = "priljubljena"; scen.placilo = "vnaprej";
+  var rt = top ? rezultat(top, 6) : null, rk = kup ? rezultat(kup, 18) : null;
+  scen.okus = sc; scen.placilo = sp;
+  var h = "";
+  if (rt && !rt.napaka) h += '<div><b>' + eur3.format(rt.tableta) + '</b><span>na tableto z dostavo, oba okusa (Topatlet, od 6 tub)</span></div>';
+  if (rk && !rk.napaka) h += '<div><b>' + eur3.format(rk.tableta) + '</b><span>samo Berry pri 9 paketih (Kupipametno)</span></div>';
+  if (rt && !rt.napaka) h += '<div><b>≈ ' + st0.format(rt.tableta * 20 * 52 / 12) + " do " + st0.format(rt.tableta * 40 * 52 / 12) + ' €</b><span>na mesec za oba pri 1 do 2 tubah na teden</span></div>';
+  $("#glavna").innerHTML = h;
+  var C = D.cilj || {};
+  $("#gravura").innerHTML =
+    '<div class="ploscica"><span class="nadnaslov">Iščem ta dva okusa</span>' + (C.isci || []).map(function(o){
+      var b = (OKUSI[o.okus] || {}).barva || "#888";
+      return '<div style="display:grid;gap:6px"><b style="color:' + esc(b) + '">' + esc(o.naslov) + '</b><div class="imena">' + o.imena.map(function(i){ return '<span class="ime" style="color:' + esc(b) + '">' + esc(i) + "</span>"; }).join("") + "</div></div>";
+    }).join("") + '<p class="majhno tiho">' + esc(C.opomba || "") + "</p></div>" +
+    '<div class="ploscica"><span class="nadnaslov">Ne zamenjaj z</span><ul class="ne-seznam">' + (C.ne || []).map(function(z){
+      var sl = z.slika ? '<img src="' + esc(z.slika) + '" alt="' + esc(z.ime) + '" loading="lazy" data-galerija="' + esc(JSON.stringify([z.slika])) + '" data-naslov="' + esc(z.ime) + '">' : '<span class="brez">!</span>';
+      return "<li>" + sl + "<span><b>" + esc(z.ime) + '</b><span class="majhno">' + esc(z.zakaj) + "</span></span></li>";
+    }).join("") + "</ul></div>";
+}
+
+/* odločitev */
+function foto(v){
+  var s = v.trg.slike || [];
+  if (!s.length) return '<div class="foto risba">' + SVG_RISBA + '<span class="opis">Fotografija trgovine ni na voljo</span></div>';
+  var n = s.length;
+  return '<div class="foto" data-galerija="' + esc(JSON.stringify(s)) + '" data-naslov="' + esc(v.trg.ime) + '" tabindex="0" role="button" aria-label="Odpri fotografije: ' + esc(v.trg.ime) + '"><img src="' + esc(s[0]) + '" alt="' + esc(v.trg.ime) + '" loading="lazy"><span class="stevec">' + n + (n === 1 ? " fotografija" : n === 2 ? " fotografiji" : n < 5 ? " fotografije" : " fotografij") + "</span></div>";
+}
+function odlocitev(){
+  var O = D.odlocitev || {};
+  $("#odgovor").innerHTML = (O.odgovor || []).map(function(p){ return "<p>" + p + "</p>"; }).join("");
+  $("#poti").innerHTML = (O.poti || []).map(function(p, i){
+    return '<article class="pot' + (i === 0 ? " prva" : "") + '"><div class="oznaka"><span class="nadnaslov">' + esc(p.oznaka) + "</span>" + (p.cip ? '<span class="cip ' + esc(p.cip[0]) + '">' + esc(p.cip[1]) + "</span>" : "") + "</div><h3>" + esc(p.naslov) + '</h3><div class="znesek">' + esc(p.znesek) + '</div><p class="tiho majhno">' + esc(p.znesek_opis || "") + "</p><p>" + esc(p.opis || "") + "</p>" + (p.koraki ? "<ol>" + p.koraki.map(function(k){ return "<li>" + esc(k) + "</li>"; }).join("") + "</ol>" : "") + "</article>";
+  }).join("");
+  $("#proracun").innerHTML = (O.proracun || []).map(function(b){ return '<div class="ploscica"><span class="nadnaslov">' + esc(b.oznaka) + '</span><span class="znesek">' + esc(b.znesek) + '</span><p class="majhno tiho">' + esc(b.opis || "") + "</p></div>"; }).join("");
+  $("#bes-narocilo").textContent = O.besedilo_narocila || "";
+}
+function izbor(){
+  var O = D.odlocitev || {};
+  $("#izbor").innerHTML = (O.izbor || []).map(function(sk){
+    return "<div><h3>" + esc(sk.naslov) + '</h3><p class="tiho majhno">' + esc(sk.opis || "") + '</p></div><div class="izbor-vrsta">' + sk.kljuci.map(function(k){
+      var v = poKljucu[k]; if (!v) return "";
+      var sc = scen.okus; scen.okus = k === "bike24/dostava" ? "vsi" : "priljubljena";
+      var n = k === "kupipametno/dostava" ? 18 : k === "bike24/dostava" ? 21 : 6;
+      var sp = scen.placilo; scen.placilo = "vnaprej";
+      var r = rezultat(v, n); scen.okus = sc; scen.placilo = sp;
+      return '<article class="izbor-k">' + foto(v) + '<div class="telo"><a href="#k-' + esc(v.id) + '" class="majhno">' + esc(v.trg.ime) + ", " + esc(v.nacin.ime) + '</a><div class="cena-v">' + (r.napaka ? "?" : eur3.format(r.tableta)) + ' <span class="majhno tiho">na tableto</span></div><p class="majhno tiho">' + (r.napaka ? "" : esc(kupis(v, r)) + ", " + eur2.format(r.skupaj) + " z dostavo") + '</p><p class="majhno">' + esc((sk.razlogi || {})[k] || "") + "</p></div></article>";
+    }).join("") + "</div>";
+  }).join("");
+}
+
+/* scenarij */
+function scenarij(){
+  $("#hitri").innerHTML = (K.hitri || []).map(function(h){ return '<button type="button" data-hitro="' + h + '">' + h + "</button>"; }).join("");
+  $("#poraba-stikalo").innerHTML = "<span>Poraba za dva</span>" + POR.moznosti.map(function(m){ return '<button type="button" data-poraba="' + m + '">' + tubeB(m) + " na teden</button>"; }).join("");
+  var d = $("#n-drsnik"); d.min = K.min; d.max = K.max;
+}
+function osveziScenarij(){
+  $("#n-drsnik").value = scen.n;
+  $("#n-stevilo").textContent = scen.n;
+  $("#n-opis").textContent = (scen.n === 1 ? "tuba" : scen.n === 2 ? "tubi" : scen.n < 5 ? "tube" : "tub") + " po 20 tablet = " + st0.format(scen.n * 20) + " tablet, zdrži ≈ " + tedniB(scen.n / Number(scen.poraba));
+  $$("[data-hitro]").forEach(function(b){ b.setAttribute("aria-pressed", String(Number(b.getAttribute("data-hitro")) === scen.n)); });
+  $$("[data-okus]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-okus") === scen.okus)); });
+  $$("[data-placilo]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-placilo") === scen.placilo)); });
+  $$("[data-poraba]").forEach(function(b){ b.setAttribute("aria-pressed", String(Number(b.getAttribute("data-poraba")) === Number(scen.poraba))); });
+  $("#n-manj").disabled = scen.n <= K.min; $("#n-vec").disabled = scen.n >= K.max;
+  var naj = null;
+  VRSTE.forEach(function(v){ if (skrito.has(v.key)) return; var r = rezultat(v); if (!r.napaka && (!naj || r.tableta < naj.r.tableta - 1e-9)) naj = {v:v, r:r}; });
+  $("#povzetek").innerHTML = naj ? "Pri " + scen.n + (scen.n === 1 ? " tubi" : " tubah") + " je najceneje <b>" + esc(naj.v.trg.ime) + ", " + esc(naj.v.nacin.ime) + "</b>: " + esc(kupis(naj.v, naj.r)) + " (" + st0.format(naj.r.tablet) + " tablet) za " + (naj.r.povzetje.ocena && scen.placilo === "povzetje" ? "≈ " : "") + eur2.format(naj.r.skupaj) + ", to je <b>" + eur3.format(naj.r.tableta) + "</b> na tableto in ≈ " + eur0.format(mesec(naj.r)) + " na mesec (poraba " + tubeB(scen.poraba) + " na teden)." + (mesano(naj.v, naj.r) ? " Pozor: mešan paket z okusi, ki jih nisi izbral." : "") : "Pri tej izbiri ni nobene trgovine.";
+}
+
+/* kartice */
+function kartica(v, klon){
+  var r = rezultat(v), t = v.trg, vs = vsecki.has(v.key);
+  var pas = ceneZaPas();
+  var h = '<article class="kartica' + (r.napaka ? " nemogoce" : "") + '" data-key="' + esc(v.key) + '"' + (klon ? "" : ' id="k-' + esc(v.id) + '"') + ">";
+  h += '<div class="akcije"><button type="button" class="ikona" data-vsecek="' + esc(v.key) + '" aria-pressed="' + vs + '" aria-label="' + (vs ? "Odstrani iz všečkanih" : "Všečkaj") + '" title="Všečkaj">' + SVG_SRCE + '</button><button type="button" class="ikona" data-skrij="' + esc(v.key) + '" aria-label="Skrij to trgovino" title="Skrij">' + SVG_X + "</button></div>";
+  h += foto(v);
+  h += '<div class="telo"><div class="cipi"><span class="cip">' + esc(t.drzava) + "</span>" + povzetjeCip(v) + okusCipi(v) + "</div>";
+  h += '<h3><a href="' + esc(t.url) + '" target="_blank" rel="noopener">' + esc(t.ime) + "</a><small>" + esc(v.nacin.ime) + "</small></h3>";
+  h += '<ul class="spec">' + (t.ponudbe || []).map(function(o){
+    return "<li><b>" + esc(o.naslov) + "</b>: " + eur2.format(o.cena) + (o.redna ? " <s>" + eur2.format(o.redna) + "</s>" : "") + (o.cena_opomba ? ", " + esc(o.cena_opomba) : "") + (o.url ? ' <a href="' + esc(o.url) + '" target="_blank" rel="noopener">stran</a>' : "") + "</li>";
+  }).join("") + "<li>Dostava: " + esc(v.nacin.opis || "") + "</li><li>Plačilo: " + esc((t.vnaprej || {}).opis || "") + "; " + esc(povzetjeStanje(v).opis || "") + "</li><li>Rok dostave: " + esc(t.rok || "ni naveden") + "</li></ul>";
+  if (r.napaka){
+    h += '<div class="cenovna"><span class="nemogoce-sporocilo">' + esc(NAPAKE[r.napaka] || "Ni izračuna") + "</span>" + (r.blago != null ? '<span class="tiho majhno">Blago ' + eur2.format(r.blago) + " za " + st0.format(r.tablet) + " tablet, brez dostave</span>" : "") + "</div>";
+  } else {
+    var poz = pas.max > pas.min ? (r.tableta - pas.min) / (pas.max - pas.min) * 100 : 0;
+    h += '<div class="cenovna"><div class="vrsta"><span class="znesek">' + (r.povzetje.ocena && scen.placilo === "povzetje" ? '<span class="ocena">≈ </span>' : "") + eur3.format(r.tableta) + '</span><span class="tiho majhno">na tableto z dostavo</span></div><div class="pas-cene" title="Položaj med najcenejšo in najdražjo trgovino"><i style="left:' + poz.toFixed(1) + '%"></i></div><div class="pas-oznake"><span>' + eur3.format(pas.min) + "</span><span>" + eur3.format(pas.max) + "</span></div></div>";
+  }
+  var op = [];
+  var nm = namig(v);
+  if (nm) op.push('<li class="namig">Pri ' + (scen.n + nm.k) + " tubah: " + eur3.format(nm.r.tableta) + " na tableto (" + esc(kupis(v, nm.r)) + ", " + eur2.format(nm.r.skupaj) + ").</li>");
+  if (!r.napaka && r.tablet > scen.n * 20){
+    var oo = (r.kosi || []).map(function(k){ return {o:ponudba(v, k[0]) || {tablet:20}, n:k[1]}; });
+    var brezpl = oo.some(function(x){ return x.o.promo && x.o.promo.tip === "n_plus_1" && x.n % (x.o.promo.n + 1) === 0; });
+    var paket = Math.min.apply(null, oo.map(function(x){ return x.o.tablet; }));
+    var razlog = brezpl ? "zadnja tuba je po akciji brezplačna" : (t.min_narocilo && r.tablet - paket >= scen.n * 20) ? "minimalno naročilo je " + eur0.format(t.min_narocilo) : "paket ima " + paket + " tablet";
+    op.push('<li class="pozor">Kupiš ' + st0.format(r.tablet) + " tablet namesto " + st0.format(scen.n * 20) + ": " + razlog + ".</li>");
+  }
+  if (!r.napaka && mesano(v, r)) op.push('<li class="pozor">V košarici je mešan paket: po ena tuba Berry, Citrus in Tropical.</li>');
+  (t.opombe || []).concat(v.nacin.opombe || []).forEach(function(o){ op.push('<li class="' + esc(o[0]) + '">' + esc(o[1]) + "</li>"); });
+  h += '<ul class="opozorila">' + op.join("") + "</ul>";
+  h += '<p class="tiho majhno">Vir ' + oznakeVirov(t.viri) + "</p></div>";
+  if (r.napaka){
+    h += '<div class="racun" aria-label="Račun"><div class="kupis"><span>Izbrana košarica</span><b>' + esc(NAPAKE[r.napaka] || "Ni izračuna") + "</b></div></div>";
+  } else {
+    h += '<div class="racun" aria-label="Račun za izbrano košarico">' +
+      '<div class="kupis"><span>Kupiš</span><b>' + esc(kupis(v, r)) + " = " + st0.format(r.tablet) + " tablet</b></div>" +
+      "<div><span>Blago</span><b>" + eur2.format(r.blago) + "</b></div>" +
+      "<div><span>Dostava</span><b>" + eur2.format(r.dostava) + "</b></div>" +
+      "<div><span>Povzetje</span><b>" + (scen.placilo === "povzetje" && r.povzetje.ocena ? '<span class="ocena">' + esc(pvBesedilo(r.povzetje)) + "</span>" : esc(pvBesedilo(r.povzetje))) + "</b></div>" +
+      "<div><span>Na tubo</span><b>" + eur2.format(r.tableta * 20) + "</b></div>" +
+      '<div class="vrsta2"><div class="skupaj"><span>Skupaj z dostavo</span><b>' + (scen.placilo === "povzetje" && r.povzetje.ocena ? "≈ " : "") + eur2.format(r.skupaj) + "</b></div><div><span>Zdrži (" + tubeB(scen.poraba) + " na teden)</span><b>≈ " + tedniB(tednov(r)) + "</b></div><div><span>Na mesec za oba</span><b>≈ " + eur2.format(mesec(r)) + "</b></div><div><span>Na leto za oba</span><b>≈ " + eur0.format(leto(r)) + "</b></div></div>" +
+    "</div>";
+  }
+  return h + "</article>";
+}
+function vidne(){ return VRSTE.filter(function(v){ return !skrito.has(v.key); }); }
+function izrisiKartice(){
+  var v = vidne(); v.sort(primerjaj);
+  $("#kartice").innerHTML = v.length ? v.map(function(x){ return kartica(x, false); }).join("") : '<p class="tiho">Vse trgovine so skrite. Klikni »Pokaži vse«.</p>';
+  var vs = VRSTE.filter(function(x){ return vsecki.has(x.key) && !skrito.has(x.key); });
+  $("#vsecki").innerHTML = vs.map(function(x){ return kartica(x, true); }).join("");
+  $("#vsecki-naslov").textContent = "Všečkane (" + vs.length + ")";
+  $("#vsecki-namig").hidden = vs.length > 0;
+  var n = skrito.size;
+  $("#skrito-vrstica").hidden = n === 0;
+  $("#skrito-tekst").textContent = n === 1 ? "1 trgovina je skrita." : n === 2 ? "2 trgovini sta skriti." : (n < 5 ? n + " trgovine so skrite." : n + " trgovin je skritih.");
+}
+
+/* lestvica */
+function tabela(v){ var r = rezultat(v); return {r:r, naslov:v.trg.ime + " " + v.nacin.ime, drzava:v.trg.drzava, okusa:okusaBesedilo(v), povzetje:povzetjeBesedilo(v)}; }
+function vrednostZa(v, k){
+  var r = rezultat(v);
+  if (k === "tableta") return r.napaka ? null : r.tableta;
+  if (k === "skupaj") return r.napaka ? null : r.skupaj;
+  if (k === "mesec") return r.napaka ? null : mesec(r);
+  if (k === "leto") return r.napaka ? null : leto(r);
+  if (k === "tablet") return r.napaka ? null : r.tablet;
+  var t = tabela(v); return t[k] || "";
+}
+function primerjaj(a, b){
+  var k = razvrsti.kljuc, s = razvrsti.smer;
+  var va = vrednostZa(a, k), vb = vrednostZa(b, k);
+  var na = va == null || va === "", nb = vb == null || vb === "";
+  if (na && nb) return 0; if (na) return 1; if (nb) return -1;
+  if (typeof va === "number" && typeof vb === "number") return (va - vb) * s || a.key.localeCompare(b.key);
+  return String(va).localeCompare(String(vb), "sl") * s;
+}
+function napolniIzbire(){
+  [["#f-drzava","drzava","Vse"],["#f-okusa","okusa","Vsi"],["#f-povzetje","povzetje","Vse"]].forEach(function(f){
+    var vr = {}; VRSTE.forEach(function(v){ var x = tabela(v)[f[1]]; if (x) vr[x] = 1; });
+    $(f[0]).innerHTML = '<option value="">' + f[2] + "</option>" + Object.keys(vr).sort(function(a, b){ return a.localeCompare(b, "sl"); }).map(function(x){ return '<option value="' + esc(x) + '">' + esc(x) + "</option>"; }).join("");
+  });
+}
+function stevilo(id){ var v = $(id).value; return v === "" ? null : Number(String(v).replace(",", ".")); }
+function izrisiTabelo(){
+  var q = $("#f-iskanje").value.trim().toLowerCase();
+  var fd = $("#f-drzava").value, fo = $("#f-okusa").value, fp = $("#f-povzetje").value;
+  var mm = [["#f-sk-min","#f-sk-max","skupaj"],["#f-ta-min","#f-ta-max","tableta"],["#f-me-min","#f-me-max","mesec"]];
+  var v = vidne();
+  var vrst = v.filter(function(x){
+    var t = tabela(x);
+    if (q && (t.naslov + " " + x.trg.kraj).toLowerCase().indexOf(q) < 0) return false;
+    if (fd && t.drzava !== fd) return false;
+    if (fo && t.okusa !== fo) return false;
+    if (fp && t.povzetje !== fp) return false;
+    for (var i = 0; i < mm.length; i++){
+      var lo = stevilo(mm[i][0]), hi = stevilo(mm[i][1]), y = vrednostZa(x, mm[i][2]);
+      if (lo != null && (y == null || y < lo)) return false;
+      if (hi != null && (y == null || y > hi)) return false;
+    }
+    return true;
+  });
+  vrst.sort(primerjaj);
+  $("#vrstice").innerHTML = vrst.map(function(x){
+    var t = tabela(x), r = t.r, s = (x.trg.slike || [])[0];
+    var ocena = scen.placilo === "povzetje" && r.povzetje && r.povzetje.ocena ? "≈ " : "";
+    return '<tr data-key="' + esc(x.key) + '"' + (r.napaka ? ' class="ni-izracuna"' : "") + '><td class="mini">' + (s ? '<img src="' + esc(s) + '" alt="" loading="lazy" data-galerija="' + esc(JSON.stringify(x.trg.slike)) + '" data-naslov="' + esc(x.trg.ime) + '">' : '<div class="prazno"></div>') + "</td>" +
+      "<td><b>" + esc(x.trg.ime) + '</b><br><span class="tiho majhno">' + esc(x.nacin.ime) + " " + oznakeVirov(x.trg.viri) + "</span></td>" +
+      "<td>" + esc(t.drzava) + "</td><td>" + esc(t.okusa) + "</td><td>" + esc(t.povzetje) + "</td>" +
+      "<td>" + (r.napaka ? '<span class="tiho majhno">' + esc(NAPAKE[r.napaka] || "") + "</span>" : esc(kupis(x, r)) + '<br><span class="tiho majhno">' + st0.format(r.tablet) + " tablet</span>") + "</td>" +
+      '<td class="st">' + (r.napaka ? "" : ocena + eur2.format(r.skupaj)) + "</td>" +
+      '<td class="st"><b>' + (r.napaka ? "" : ocena + eur3.format(r.tableta)) + "</b></td>" +
+      '<td class="st">' + (r.napaka ? "" : "≈ " + eur2.format(mesec(r))) + "</td>" +
+      '<td class="st">' + (r.napaka ? "" : "≈ " + eur0.format(leto(r))) + "</td></tr>";
+  }).join("");
+  $("#prikazano").textContent = "Prikazano " + vrst.length + " od " + v.length + (skrito.size ? " (" + skrito.size + " skritih)" : "");
+  $$("thead th[data-sort]").forEach(function(th){ var k = th.getAttribute("data-sort"); th.querySelector(".smer").textContent = k === razvrsti.kljuc ? (razvrsti.smer > 0 ? "▲" : "▼") : ""; th.setAttribute("aria-sort", k === razvrsti.kljuc ? (razvrsti.smer > 0 ? "ascending" : "descending") : "none"); });
+}
+
+/* graf */
+function graf(){
+  var el = $("#graf"); var W = Math.max(300, Math.round(el.clientWidth || 600));
+  var H = W < 520 ? 260 : 320, L = 46, R = 12, T = 14, B = 34;
+  var crte = [];
+  VRSTE.forEach(function(v){
+    if (skrito.has(v.key)) return;
+    var tocke = []; var ima = false;
+    for (var n = K.min; n <= K.max; n++){ var r = rezultat(v, n); tocke.push(r.napaka ? null : r.tableta); if (!r.napaka) ima = true; }
+    if (ima) crte.push({v:v, t:tocke});
+  });
+  var vse = []; crte.forEach(function(c){ if (!skriteCrte.has(c.v.key)) c.t.forEach(function(x){ if (x != null) vse.push(x); }); });
+  var ymin = vse.length ? Math.floor(Math.min.apply(null, vse) * 20) / 20 : 0.25;
+  var ymax = vse.length ? Math.min(0.80, Math.ceil(Math.max.apply(null, vse) * 20) / 20) : 0.6;
+  if (ymax - ymin < 0.1) ymax = ymin + 0.1;
+  function X(n){ return L + (n - K.min) / (K.max - K.min) * (W - L - R); }
+  function Y(y){ return T + (1 - (Math.min(y, ymax) - ymin) / (ymax - ymin)) * (H - T - B); }
+  var s = '<svg viewBox="0 0 ' + W + " " + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="Cena tablete z dostavo glede na velikost košarice">';
+  for (var y = ymin; y <= ymax + 1e-9; y += 0.05){ s += '<line class="mreza-c" x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(y).toFixed(1) + '" y2="' + Y(y).toFixed(1) + '"/><text x="' + (L - 6) + '" y="' + (Y(y) + 4).toFixed(1) + '" text-anchor="end">' + y.toFixed(2).replace(".", ",") + "</text>"; }
+  var korak = W < 520 ? 6 : 3;
+  for (var n = K.min; n <= K.max; n++){ if (n === 1 || n % korak === 0) s += '<text x="' + X(n).toFixed(1) + '" y="' + (H - B + 16) + '" text-anchor="middle">' + n + "</text>"; }
+  s += '<text x="' + (W - R) + '" y="' + (H - 4) + '" text-anchor="end">tub v naročilu</text>';
+  s += '<text x="' + L + '" y="' + (T - 2) + '" text-anchor="start">€ na tableto</text>';
+  s += '<line class="os" x1="' + L + '" x2="' + (W - R) + '" y1="' + (H - B) + '" y2="' + (H - B) + '"/>';
+  crte.forEach(function(c){
+    if (skriteCrte.has(c.v.key)) return;
+    var d = "", pero = false;
+    c.t.forEach(function(x, i){ if (x == null){ pero = false; return; } d += (pero ? "L" : "M") + X(K.min + i).toFixed(1) + " " + Y(x).toFixed(1); pero = true; });
+    var dash = c.v.nacin.key === "prevzem" ? ' stroke-dasharray="6 4"' : "";
+    s += '<path class="crta-v" d="' + d + '" stroke="' + esc(c.v.trg.barva || "#888") + '"' + dash + "><title>" + esc(c.v.trg.ime + ", " + c.v.nacin.ime) + "</title></path>";
+  });
+  s += '<line class="oznaka-n" x1="' + X(scen.n).toFixed(1) + '" x2="' + X(scen.n).toFixed(1) + '" y1="' + T + '" y2="' + (H - B) + '"/><text class="oznaka-n-t" x="' + (X(scen.n) + (scen.n > K.max - 5 ? -6 : 6)).toFixed(1) + '" y="' + (T + 12) + '" text-anchor="' + (scen.n > K.max - 5 ? "end" : "start") + '">' + scen.n + " tub</text>";
+  el.innerHTML = s + "</svg>";
+  $("#legenda").innerHTML = crte.map(function(c){ return '<li><button type="button" data-crta="' + esc(c.v.key) + '" aria-pressed="' + !skriteCrte.has(c.v.key) + '"><i style="background:' + esc(c.v.trg.barva || "#888") + '"></i>' + esc(c.v.trg.ime) + (c.v.nacin.key === "prevzem" ? ", prevzem" : "") + "</button></li>"; }).join("");
+}
+
+/* pasti, zdravje, alternative, viri */
+function ostalo(){
+  var P = D.prodajalec || {};
+  $("#prodajalec-uvod").textContent = P.uvod || "";
+  $("#pasti").innerHTML = (P.pasti || []).map(function(p){ return '<div class="past"><span class="cip ' + esc(p[0]) + '">' + (p[0] === "napaka" ? "past" : "pozor") + "</span><p><b>" + esc(p[1]) + "</b>" + esc(p[2]) + "</p></div>"; }).join("");
+  $("#pogajanje").innerHTML = (P.pogajanje || []).map(function(t){ return "<li>" + esc(t) + "</li>"; }).join("");
+  (D.kontekst || []).forEach(function(b, i){ var el = $("#kontekst-" + i); if (el) el.innerHTML = '<span class="nadnaslov">' + esc(b.oznaka) + "</span><h3>" + esc(b.naslov) + '</h3><ul class="seznam">' + b.tocke.map(function(t){ return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>"; });
+  $("#koraki").innerHTML = (D.nakup || []).map(function(k){ return "<li><div><b>" + esc(k.korak) + "</b>" + esc(k.opis) + "</div></li>"; }).join("");
+  var Z = D.zdravje || {};
+  $("#zdravje-bloki").innerHTML = (Z.bloki || []).map(function(b){ return '<div class="ploscica"><span class="nadnaslov">' + esc(b.oznaka) + "</span><h3>" + esc(b.naslov) + '</h3><span class="znesek">' + esc(b.znesek) + '</span><p class="majhno">' + esc(b.uvod) + '</p><p class="majhno tiho">Vir ' + oznakeVirov([b.vir]) + "</p></div>"; }).join("");
+  $("#okus").innerHTML = (Z.okus || []).map(function(t){ return "<li>" + esc(t) + "</li>"; }).join("");
+  $("#okus-viri").innerHTML = "Viri " + oznakeVirov(Z.okus_viri);
+  var A = D.alternative || {};
+  $("#alt-opis").textContent = A.opis || "";
+  $("#alt-tabela").innerHTML = "<thead><tr>" + (A.stolpci || []).map(function(s){ return "<th>" + esc(s) + "</th>"; }).join("") + "</tr></thead><tbody>" + (A.vrstice || []).map(function(r){ return "<tr>" + r.map(function(c){ return "<td>" + c + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody>";
+  $("#alt-viri").innerHTML = "Viri " + oznakeVirov(A.viri);
+  var M = D.metoda || {};
+  $("#metoda").innerHTML = (M.odstavki || []).map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + (M.predpostavke ? "<h3>Predpostavke v izračunu</h3><ul>" + M.predpostavke.map(function(p){ return "<li>" + esc(p) + "</li>"; }).join("") + "</ul>" : "") + (M.ni_zajeto ? "<h3>Česa ni bilo mogoče preveriti</h3><ul>" + M.ni_zajeto.map(function(p){ return "<li>" + esc(p) + "</li>"; }).join("") + "</ul>" : "") + '<p class="majhno tiho">Rok uporabe: ' + oznakeVirov(M.viri_rok) + "</p>";
+  $("#seznam-virov").innerHTML = (D.viri || []).map(function(v){ return '<li id="vir-' + esc(v.id) + '"><a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + esc(v.naslov) + '</a> <span class="tiho">(' + esc(v.datum) + ")</span></li>"; }).join("");
+  $("#noga").textContent = D.noga || "";
+}
+
+/* lightbox */
+var lb = {seznam:[], i:0, prej:null};
+function lbOdpri(seznam, naslov, i, sprozilec){ lb.seznam = seznam; lb.i = i || 0; lb.prej = sprozilec || null; $("#lb-naslov").textContent = naslov || ""; $("#lb").hidden = false; document.body.style.overflow = "hidden"; lbPokazi(); $("#lb-zapri").focus(); }
+function lbPokazi(){ $("#lb-img").src = lb.seznam[lb.i]; $("#lb-img").alt = ($("#lb-naslov").textContent || "") + ", fotografija " + (lb.i + 1); $("#lb-stevec").textContent = (lb.i + 1) + " / " + lb.seznam.length; var ena = lb.seznam.length < 2; $("#lb-nazaj").disabled = ena; $("#lb-naprej").disabled = ena; }
+function lbPremik(d){ if (!lb.seznam.length) return; lb.i = (lb.i + d + lb.seznam.length) % lb.seznam.length; lbPokazi(); }
+function lbZapri(){ $("#lb").hidden = true; document.body.style.overflow = ""; if (lb.prej && lb.prej.focus) lb.prej.focus(); }
+
+function kopiraj(tekst, gumb, element){
+  function ok(){ if (gumb){ var t = gumb.textContent; gumb.textContent = "Kopirano"; setTimeout(function(){ gumb.textContent = t; }, 1400); } }
+  function rezerva(){ if (element){ var r = document.createRange(); r.selectNodeContents(element); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } }
+  try { navigator.clipboard.writeText(tekst).then(ok, rezerva); } catch(e){ rezerva(); }
+}
+function nastaviN(n){ scen.n = Math.max(K.min, Math.min(K.max, n)); shramba.pisi("scenarij", scen); posodobi(); }
+document.addEventListener("click", function(e){
+  var t = e.target, b;
+  if ((b = t.closest("[data-vsecek]"))){ e.stopPropagation(); var k = b.getAttribute("data-vsecek"); if (vsecki.has(k)) vsecki.delete(k); else vsecki.add(k); shramba.pisi("vsecki", Array.from(vsecki)); izrisiKartice(); return; }
+  if ((b = t.closest("[data-skrij]"))){ e.stopPropagation(); var k2 = b.getAttribute("data-skrij"); skrito.add(k2); vsecki.delete(k2); shramba.pisi("skrito", Array.from(skrito)); shramba.pisi("vsecki", Array.from(vsecki)); posodobi(); return; }
+  if ((b = t.closest("[data-galerija]"))){ e.stopPropagation(); try { lbOdpri(JSON.parse(b.getAttribute("data-galerija")), b.getAttribute("data-naslov"), 0, b); } catch(err){} return; }
+  if ((b = t.closest("[data-kopiraj-id]"))){ var el = document.getElementById(b.getAttribute("data-kopiraj-id")); kopiraj(el.textContent, b, el); return; }
+  if ((b = t.closest("[data-hitro]"))){ nastaviN(Number(b.getAttribute("data-hitro"))); return; }
+  if ((b = t.closest("[data-okus]"))){ scen.okus = b.getAttribute("data-okus"); shramba.pisi("scenarij", scen); posodobi(); return; }
+  if ((b = t.closest("[data-placilo]"))){ scen.placilo = b.getAttribute("data-placilo"); shramba.pisi("scenarij", scen); posodobi(); return; }
+  if ((b = t.closest("[data-poraba]"))){ scen.poraba = Number(b.getAttribute("data-poraba")); shramba.pisi("scenarij", scen); posodobi(); return; }
+  if ((b = t.closest("[data-crta]"))){ var kc = b.getAttribute("data-crta"); if (skriteCrte.has(kc)) skriteCrte.delete(kc); else skriteCrte.add(kc); graf(); return; }
+  if (t.closest("a")) return;
+  if ((b = t.closest("#vrstice tr"))){
+    var kk = b.getAttribute("data-key"); var v = poKljucu[kk]; var kart = v && document.getElementById("k-" + v.id);
+    if (kart){ kart.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center"}); $$(".kartica.poudarek").forEach(function(x){ x.classList.remove("poudarek"); }); kart.classList.add("poudarek"); setTimeout(function(){ kart.classList.remove("poudarek"); }, 2600); }
+    return;
+  }
+  if ((b = t.closest("thead th[data-sort]"))){ var sk = b.getAttribute("data-sort"); if (razvrsti.kljuc === sk) razvrsti.smer *= -1; else { razvrsti.kljuc = sk; razvrsti.smer = 1; } izrisiTabelo(); return; }
+});
+document.addEventListener("keydown", function(e){
+  if (!$("#lb").hidden){ if (e.key === "Escape") lbZapri(); else if (e.key === "ArrowRight") lbPremik(1); else if (e.key === "ArrowLeft") lbPremik(-1); return; }
+  if ((e.key === "Enter" || e.key === " ") && e.target.matches && e.target.matches(".foto[data-galerija]")){ e.preventDefault(); lbOdpri(JSON.parse(e.target.getAttribute("data-galerija")), e.target.getAttribute("data-naslov"), 0, e.target); }
+});
+$("#n-drsnik").addEventListener("input", function(e){ nastaviN(parseInt(e.target.value, 10)); });
+$("#n-manj").addEventListener("click", function(){ nastaviN(scen.n - 1); });
+$("#n-vec").addEventListener("click", function(){ nastaviN(scen.n + 1); });
+$("#lb-zapri").addEventListener("click", lbZapri);
+$("#lb-naprej").addEventListener("click", function(){ lbPremik(1); });
+$("#lb-nazaj").addEventListener("click", function(){ lbPremik(-1); });
+$("#lb").addEventListener("click", function(e){ if (e.target.id === "lb" || e.target.classList.contains("lb-slika")) lbZapri(); });
+$("#obnovi").addEventListener("click", function(){ skrito.clear(); shramba.pisi("skrito", []); posodobi(); });
+$$(".filtri input, .filtri select").forEach(function(el){ el.addEventListener("input", izrisiTabelo); el.addEventListener("change", izrisiTabelo); });
+$("#ponastavi").addEventListener("click", function(){ $$(".filtri input, .filtri select").forEach(function(el){ el.value = ""; }); razvrsti = Object.assign({}, PRIVZETO); izrisiTabelo(); izrisiKartice(); });
+var zamik = null;
+window.addEventListener("resize", function(){ clearTimeout(zamik); zamik = setTimeout(graf, 150); });
+
+function posodobi(){ osveziScenarij(); izrisiKartice(); izrisiTabelo(); graf(); }
+glava(); odlocitev(); izbor(); scenarij(); napolniIzbire(); ostalo(); posodobi();
+})();
+</script>
+</body>
+</html>
